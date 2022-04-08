@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/Partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Posts" />
+        <jsp:param name="title" value="Posts" />
     </jsp:include>
 </head>
 <body>
@@ -18,9 +18,6 @@
             <p>${post.content}</p>
         </div>
     </c:forEach>
-
-    <br>
-    <h2>Please log in to create your own!</h2>
 
 </div>
 
