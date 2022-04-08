@@ -1,12 +1,9 @@
-<nav class="navbar navbar-default">
+<nav class="navbar fixed-top navbar-light bg-light">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <h2>ComputerPartsRoom</h2>
+        <a class="navbar-brand" href="#">ComputerPartsRoom</a>
+        <div id="navLinks">
+                    <a class="link" href="#">Register</a>
+                    <a class="link" href="#">Log In</a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/Register">Register</a></li>
-            <li><a href="/login">Login</a></li>
-        </ul>
     </div>
 </nav>
-
