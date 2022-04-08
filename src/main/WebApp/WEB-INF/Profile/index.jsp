@@ -3,23 +3,11 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/Partials/head.jsp">
-        <jsp:param name="title" value="Posts" />
+        <jsp:param name="title" value="Profile" />
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/Partials/LoggedNavbar.jsp" />
-
-<div class="container">
-    <h1>Current parts for sale!</h1>
-
-    <c:forEach var="post" items="${posts}">
-        <div class="col-md-6">
-            <h2>${post.title}</h2>
-            <p>${post.content}</p>
-        </div>
-    </c:forEach>
-git
-</div>
 
 
 
