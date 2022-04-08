@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %><html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <jsp:include page="/WEB-INF/Partials/head.jsp">
         <jsp:param name="title" value="Home" />
@@ -7,5 +8,6 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/Partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/Partials/footer.jsp" />
 </body>
 </html>

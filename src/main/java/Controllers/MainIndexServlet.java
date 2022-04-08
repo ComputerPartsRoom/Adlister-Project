@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Controllers.indexServlet", urlPatterns = "/")
-public class indexServlet extends HttpServlet {
+@WebServlet(name = "Controllers.MainIndexServlet", urlPatterns = "/")
+public class MainIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/MainPage/index.jsp").forward(request, response);
     }
 }
 
