@@ -1,5 +1,6 @@
 package Controllers;
 
+import DAO.DaoFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Controllers.indexServlet", urlPatterns = "/")
-public class indexServlet extends HttpServlet {
+@WebServlet(name = "Controllers.PostsIndexServlet", urlPatterns = "/posts")
+public class PostsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        request.setAttribute("posts", DaoFactory.getPostsDao().all());
+        request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
     }
 }
-
