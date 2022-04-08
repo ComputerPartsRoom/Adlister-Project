@@ -16,12 +16,12 @@ public class Post {
     }
 
 
-    public Post(long id, long user_id, String title, String content) {
-        this.id = id;
-        this.user_id = user_id;
-        this.title = title;
-        this.content = content;
-    }
+//    public Post(long id, long user_id, String title, String content) {
+//        this.id = id;
+//        this.user_id = user_id;
+//        this.title = title;
+//        this.content = content;
+//    }
 
     public long getId() {
         return id;
