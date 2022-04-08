@@ -11,6 +11,14 @@
 
 <div class="container">
     <h1>Here the current parts for sale!</h1>
+
+    <c:forEach var="post" items="${posts}">
+        <div class="col-md-6">
+            <h2>${post.title}</h2>
+            <p>${post.content}</p>
+        </div>
+    </c:forEach>
+
     <br>
     <h2>Please log in to create your own!</h2>
 
