@@ -15,8 +15,15 @@ INSERT INTO postCategories(post_id, cat_id)
 VALUES (1, 1 )
 ;
 INSERT INTO profPhoto(url, user_id)
-VALUES ('', 1 )
+VALUES ('Assets/PlaceHolder.jpeg', 1 )
 ;
 INSERT INTO messages(sent_id, received_id, content)
 VALUES ( 1, 2, 'hello')
 ;
+
+SELECT * FROM users;
+SELECT * FROM posts;
+SELECT * FROM profPhoto;
+SELECT * FROM categories;
+SELECT * FROM postCategories;
+SELECT * FROM messages;
