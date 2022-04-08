@@ -38,11 +38,12 @@ public class MySQLPostsDao implements Posts {
     @Override
     public Long insert(Post post) {
         try {
-            String insertQuery = "INSERT INTO posts(user_id, title, description) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO posts(user_id, title, content, cat_id) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, post.getUser_id());
+            stmt.setLong(1, post.getId());
             stmt.setString(2, post.getTitle());
             stmt.setString(3, post.getContent());
+            stmt.setLong(4, post.getCat_id());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -57,7 +58,8 @@ public class MySQLPostsDao implements Posts {
                 rs.getLong("id"),
                 rs.getLong("user_id"),
                 rs.getString("title"),
-                rs.getString("content")
+                rs.getString("content"),
+                rs.getLong("cat_id")
         );
     }
 
