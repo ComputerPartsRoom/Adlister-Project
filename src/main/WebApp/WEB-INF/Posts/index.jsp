@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/Partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Here the current parts for sale!</h1>
+    <h1>Current parts for sale!</h1>
 
     <c:forEach var="post" items="${posts}">
         <div class="col-md-6">
