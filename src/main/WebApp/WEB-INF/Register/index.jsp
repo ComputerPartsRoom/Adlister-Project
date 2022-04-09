@@ -1,12 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="partials/head.jsp">
+    <jsp:include page="/WEB-INF/Partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="partials/navbar.jsp" />
+    <jsp:include page="/WEB-INF/Partials/NotLoggedNavbar.jsp" />
     <div class="container">
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">
@@ -28,6 +29,7 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
+        <jsp:include page="/WEB-INF/Partials/footer.jsp"/>
     </div>
 </body>
 </html>

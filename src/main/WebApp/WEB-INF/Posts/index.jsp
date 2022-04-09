@@ -18,7 +18,7 @@
             <p>${post.content}</p>
         </div>
     </c:forEach>
-git
+
 </div>
 
 
