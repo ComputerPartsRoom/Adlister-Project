@@ -12,6 +12,7 @@
 <div class="container">
     <h1>Current parts for sale!</h1>
 
+<%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
         <div class="col-md-6">
             <h2>${post.title}</h2>

@@ -7,6 +7,7 @@
     </jsp:include>
 </head>
 <body>
+<%--    Not Logged Nav-Bar  --%>
     <jsp:include page="/WEB-INF/Partials/NotLoggedNavbar.jsp" />
     <div class="container">
         <h1>Please fill in your information.</h1>
