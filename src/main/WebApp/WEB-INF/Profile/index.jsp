@@ -7,6 +7,7 @@
     </jsp:include>
 </head>
 <body>
+<%--    Logged-In Nav-Bar   --%>
 <jsp:include page="/WEB-INF/Partials/LoggedNavbar.jsp" />
 
 

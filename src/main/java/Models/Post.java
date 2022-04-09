@@ -7,6 +7,9 @@ public class Post {
     private String content;
     private long cat_id;
 
+    public Post(){}
+
+
     public Post(long id, long user_id, String title, String content, long cat_id) {
         this.id = id;
         this.user_id = user_id;
@@ -16,13 +19,7 @@ public class Post {
     }
 
 
-//    public Post(long id, long user_id, String title, String content) {
-//        this.id = id;
-//        this.user_id = user_id;
-//        this.title = title;
-//        this.content = content;
-//    }
-
+// Getters and Setters
     public long getId() {
         return id;
     }
