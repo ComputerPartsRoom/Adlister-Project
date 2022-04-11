@@ -6,16 +6,18 @@ public class Post {
     private String title;
     private String content;
     private long cat_id;
+    private String img;
 
     public Post(){}
 
 
-    public Post(long id, long user_id, String title, String content, long cat_id) {
+    public Post(long id, long user_id, String title, String content, long cat_id, String img) {
         this.id = id;
         this.user_id = user_id;
         this.title = title;
         this.content = content;
         this.cat_id = cat_id;
+        this.img = img;
     }
 
 
@@ -58,5 +60,13 @@ public class Post {
 
     public void setUser_id(long user_id) {
         this.user_id = user_id;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

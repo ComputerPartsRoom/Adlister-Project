@@ -5,11 +5,10 @@ CREATE DATABASE IF NOT EXISTS ComputerPartsRoom_db;
 DROP TABLE IF EXISTS postCategories;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS messages;
-
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS profPhoto;
-
 DROP TABLE IF EXISTS users;
+
 
 CREATE TABLE IF NOT EXISTS users
 (
@@ -36,6 +35,7 @@ CREATE TABLE IF NOT EXISTS posts
     user_id INT UNSIGNED NOT NULL,
     title   VARCHAR(100),
     content VARCHAR(500),
+    img VARCHAR(500),
     cat_id  INT UNSIGNED NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (cat_id) REFERENCES categories (id),

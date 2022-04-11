@@ -10,13 +10,19 @@
 <jsp:include page="/WEB-INF/Partials/LoggedNavbar.jsp" />
 
 <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
     <h1>Current parts for sale!</h1>
 
 <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
         <div class="col-md-6">
+            <p>${post.user_id}</p>
             <h2>${post.title}</h2>
             <p>${post.content}</p>
+            <img src="${post.img}">
         </div>
     </c:forEach>
 
