@@ -23,6 +23,6 @@
 </div>
 
 
-
+<jsp:include page="/WEB-INF/Partials/footer.jsp" />
 </body>
 </html>

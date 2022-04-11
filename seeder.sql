@@ -1,8 +1,8 @@
 use ComputerPartsRoom_db;
 
 INSERT INTO users(username, email, password)
-VALUES ('bob', 'bvcyuwd@email.com', 'bcwiuvbc'),
-       ('tom', 'vebrver@email.com', 'cenruic')
+VALUES ('User1', 'bvcyuwd@email.com', 'pass'),
+       ('User2', 'vebrver@email.com', 'pass')
 ;
 INSERT INTO categories (name)
 VALUES ( 'Memory'),
