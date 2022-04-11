@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
         }
 
         if (validAttempt) {
-            request.getSession().setAttribute("user", username);
+            request.getSession().setAttribute("user", user.getUsername());
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
