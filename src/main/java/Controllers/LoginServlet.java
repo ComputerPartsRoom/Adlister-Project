@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
             return;
         }
-        request.getRequestDispatcher("/WEB-INF/login/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/Login/index.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

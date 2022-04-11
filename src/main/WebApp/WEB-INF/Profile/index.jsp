@@ -43,6 +43,22 @@
     </form>
 </div>
 
+<c:forEach var="post" items="${posts}">
+    <c:if test="${post.user_id == sessionScope.user.id}">
+    <div class="col-md-6">
+        <p>${post.user_id}</p>
+        <h2>${post.title}</h2>
+        <p>${post.content}</p>
+        <img src="${post.img}">
+    </div>
+    </c:if>
+</c:forEach>
+
+
+<p>${sessionScope.user.username}</p>
+<p>${sessionScope.user.id}</p>
+<p>${sessionScope.user.email}</p>
+<p>${sessionScope.user.password}</p>
 
 
 <jsp:include page="/WEB-INF/Partials/footer.jsp" />

@@ -29,6 +29,12 @@
 </div>
 
 
+<p>${sessionScope.user.username}</p>
+<p>${sessionScope.user.id}</p>
+<p>${sessionScope.user.email}</p>
+<p>${sessionScope.user.password}</p>
+
+
 <jsp:include page="/WEB-INF/Partials/footer.jsp" />
 </body>
 </html>

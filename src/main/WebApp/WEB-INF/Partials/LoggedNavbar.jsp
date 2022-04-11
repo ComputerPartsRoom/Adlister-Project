@@ -4,7 +4,7 @@
         <a class="navbar-brand" href="/">ComputerPartsRoom</a>
         <div id="navLinks">
             <%--      Shows username/profPhoto of logged in user --%>
-            <h3>${sessionScope.user}</h3>
+            <h3>${sessionScope.user.username}</h3>
             <img src="../Styling/Assets/PlaceHolder.jpeg">
                 <a class="link" href="logout">Logout</a>
         </div>
