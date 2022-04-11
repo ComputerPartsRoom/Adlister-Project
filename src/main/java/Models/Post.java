@@ -20,10 +20,19 @@ public class Post {
         this.price = price;
         this.cat_id = cat_id;
         this.img = img;
-    }
+    } //delete or update or pull one constructor [keep the Post.id in there]
 
 
-// Getters and Setters
+    public Post(long user_id, String title, String content, Integer price, long cat_id, String img) {
+        this.user_id = user_id;
+        this.title = title;
+        this.content = content;
+        this.price = price;
+        this.cat_id = cat_id;
+        this.img = img;
+    } //'C' constructor [make a new entity w/o the Post.id]
+
+    // Getters and Setters
     public long getId() {
         return id;
     }

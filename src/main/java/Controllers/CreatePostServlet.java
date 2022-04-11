@@ -23,10 +23,9 @@ public class CreatePostServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        User user = (User) request.getSession().getAttribute("username");
+        User user = (User) request.getSession().getAttribute("user");
         Post post = new Post(
-                3,
-                1,
+                user.getId(),
                 request.getParameter("title"),
                 request.getParameter("content"),
                 Integer.parseInt(request.getParameter("price")),
