@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "Controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/Register/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/register/index.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
