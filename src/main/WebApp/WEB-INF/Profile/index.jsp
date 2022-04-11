@@ -17,7 +17,7 @@
 
 <c:forEach var="post" items="${posts}">
     <c:if test="${post.user_id == sessionScope.user.id}">
-    <div class="posts col-md-6">
+    <div class="posts col-4">
         <p>${post.user_id}</p>
         <h2>${post.title}</h2>
         <p>${post.content}</p>
