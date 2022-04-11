@@ -18,18 +18,22 @@ public class CreatePostServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-        request.getRequestDispatcher("/WEB-INF/Profile/index.jsp")
+        request.getRequestDispatcher("/WEB-INF/Create/Create.jsp")
                 .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         User user = (User) request.getSession().getAttribute("user");
+
+        Integer categoryOfPost = Integer.parseInt(request.getParameter("Category"));
+
         Post post = new Post(
                 user.getId(),
                 request.getParameter("title"),
                 request.getParameter("content"),
                 Integer.parseInt(request.getParameter("price")),
-                2,
+                categoryOfPost,
                 request.getParameter("img")
 
         );
