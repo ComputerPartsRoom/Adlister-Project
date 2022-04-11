@@ -11,6 +11,6 @@
 <jsp:include page="/WEB-INF/Partials/LoggedNavbar.jsp" />
 
 
-
+<jsp:include page="/WEB-INF/Partials/footer.jsp" />
 </body>
 </html>
