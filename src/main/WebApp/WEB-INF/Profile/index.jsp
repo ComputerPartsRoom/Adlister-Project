@@ -9,84 +9,15 @@
 <body>
 <%--    Logged-In Nav-Bar   --%>
 <jsp:include page="/WEB-INF/Partials/LoggedNavbar.jsp" />
-
-
-
-<div class="container">
-    <h1>Create a new Ad</h1>
-    <form action="/create" method="post">
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input id="title" name="title" class="form-control" type="text">
-        </div>
-        <div class="form-group">
-            <label for="content">Content</label>
-            <textarea id="content" name="content" class="form-control" type="text"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="price">Price</label>
-            <input id="price" name="price" class="form-control" type="text">
-        </div>
-        <div class="form-group">
-            <label for="img">Image URL</label>
-            <input id="img" name="img" class="form-control" type="text">
-        </div>
-
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input">
-                    <p>Category</p>
-                </div>
-            </div>
-            <br>
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input">
-                    <p>Category</p>
-                </div>
-            </div>
-            <br>
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input">
-                    <p>Category</p>
-                </div>
-            </div>
-            <br>
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input">
-                    <p>Category</p>
-                </div>
-            </div>
-            <br>
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input">
-                    <p>Category</p>
-                </div>
-            </div>
-            <br>
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    <input type="radio" aria-label="Radio button for following text input">
-                    <p>Category</p>
-                </div>
-            </div>
-        </div>
-
-        <input type="submit" class="btn btn-block btn-primary">
-    </form>
-</div>
+<br>
+<br>
+<br>
+<br>
+<h1> Here are your posts !</h1>
 
 <c:forEach var="post" items="${posts}">
     <c:if test="${post.user_id == sessionScope.user.id}">
-    <div class="col-md-6">
+    <div class="posts col-4">
         <p>${post.user_id}</p>
         <h2>${post.title}</h2>
         <p>${post.content}</p>

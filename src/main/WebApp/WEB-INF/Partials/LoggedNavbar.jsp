@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-light bg-light">
+<nav class="navbar fixed-top navbar-light bg-light" id="LoggedNav">
     <div class="container-fluid">
         <%--    Takes back to main page    --%>
         <a class="navbar-brand" href="/">ComputerPartsRoom</a>

@@ -8,6 +8,10 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/Partials/NotLoggedNavbar.jsp"/>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container">
         <h1>Please Log In</h1>
         <form action="/login" method="POST">

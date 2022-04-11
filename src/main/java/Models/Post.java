@@ -32,6 +32,7 @@ public class Post {
         this.img = img;
     } //'C' constructor [make a new entity w/o the Post.id]
 
+
     // Getters and Setters
     public long getId() {
         return id;

@@ -1,12 +1,19 @@
 /* Logged Nav-Bar Start*/
-
-
+#LoggedNav{
+    margin-bottom: 15px;
+}
 
 
 /* Logged Nav-Bar End*/
 
 
+
+
 /*Not Logged Nav-Bar Starts*/
+
+#NotLoggedNav{
+    margin-top: 15px;
+}
 
 #NotLogged-left-a{
     padding-right: 20px;
@@ -14,6 +21,15 @@
 
 
 /*Not Logged Nav-Bar Ends*/
+
+
+/*Posts Starts*/
+.posts{
+    border: 2px solid black;
+}
+/*Posts Ends*/
+
+
 
 
 /*Footer Start*/

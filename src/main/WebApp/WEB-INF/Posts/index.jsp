@@ -14,13 +14,29 @@
     <br>
     <br>
     <h1>Current parts for sale!</h1>
+
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+
+
+
     <form action="/posts" method="post" >
     <input type="text" name ="search">
         <button class = "btn btn-primary" type="submit">Search</button>
     </form>
+
 <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
-        <div class="col-md-6">
+        <div class="posts col-4">
             <p>${post.user_id}</p>
             <h2>${post.title}</h2>
             <p>${post.content}</p>
@@ -38,5 +54,7 @@
 
 
 <jsp:include page="/WEB-INF/Partials/footer.jsp" />
+
+
 </body>
 </html>
