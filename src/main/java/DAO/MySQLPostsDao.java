@@ -1,6 +1,7 @@
 package DAO;
 
 import Models.Post;
+import Models.User;
 import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 import java.util.ArrayList;
@@ -34,6 +35,30 @@ public class MySQLPostsDao implements Posts {
             throw new RuntimeException("Error retrieving all posts.", e);
         }
     }
+
+    public List<Post> all2(String search) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM posts WHERE title = ?");
+            stmt.setString(1,search);
+            ResultSet rs = stmt.executeQuery();
+            return createPostsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all posts.", e);
+        }
+    }
+
+
+//    public Post findByTitle(String search) {
+//        String query = "SELECT * FROM posts WHERE title = ?";
+//        try {
+//            PreparedStatement stmt = connection.prepareStatement(query);
+//            stmt.setString(1, search);
+//            return extractPost(stmt.executeQuery());
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error finding a post by title", e);
+//        }
+//    }
 
     @Override
     public Long insert(Post post) {
@@ -69,7 +94,7 @@ public class MySQLPostsDao implements Posts {
 
     private List<Post> createPostsFromResults(ResultSet rs) throws SQLException {
         List<Post> posts = new ArrayList<>();
-        while (rs.next()) {
+            while (rs.next()) {
             posts.add(extractPost(rs));
         }
         return posts;
