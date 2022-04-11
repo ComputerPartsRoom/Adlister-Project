@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS users
     email    VARCHAR(100),
     password varchar(100),
     PRIMARY KEY (id),
-    UNIQUE (username, email)
+    UNIQUE (username),
+    UNIQUE (email)
 );
 
 

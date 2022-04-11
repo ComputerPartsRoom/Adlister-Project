@@ -9,5 +9,11 @@
 <body>
 <jsp:include page="/WEB-INF/Partials/NotLoggedNavbar.jsp" />
 <jsp:include page="/WEB-INF/Partials/footer.jsp" />
+
+
+<p>${sessionScope.user.username}</p>
+<p>${sessionScope.user.id}</p>
+<p>${sessionScope.user.email}</p>
+<p>${sessionScope.user.password}</p>
 </body>
 </html>

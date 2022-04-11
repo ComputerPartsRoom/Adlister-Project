@@ -35,14 +35,71 @@
             <label for="img">Image URL</label>
             <input id="img" name="img" class="form-control" type="text">
         </div>
-<%--        <div class="form-group">--%>
-<%--            <label for="cat_id">Cat ID</label>--%>
-<%--            <input id="cat_id" name="cat_id" class="form-control" type="text">--%>
-<%--        </div>--%>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+        </div>
+
         <input type="submit" class="btn btn-block btn-primary">
     </form>
 </div>
 
+<c:forEach var="post" items="${posts}">
+    <c:if test="${post.user_id == sessionScope.user.id}">
+    <div class="col-md-6">
+        <p>${post.user_id}</p>
+        <h2>${post.title}</h2>
+        <p>${post.content}</p>
+        <img src="${post.img}">
+    </div>
+    </c:if>
+</c:forEach>
+
+
+<p>${sessionScope.user.username}</p>
+<p>${sessionScope.user.id}</p>
+<p>${sessionScope.user.email}</p>
+<p>${sessionScope.user.password}</p>
 
 
 <jsp:include page="/WEB-INF/Partials/footer.jsp" />
