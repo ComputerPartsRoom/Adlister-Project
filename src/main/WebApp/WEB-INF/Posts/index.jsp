@@ -18,7 +18,7 @@
 
 <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
-        <div class="col-md-6">
+        <div class="posts col-md-6">
             <p>${post.user_id}</p>
             <h2>${post.title}</h2>
             <p>${post.content}</p>
