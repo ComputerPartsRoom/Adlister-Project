@@ -23,13 +23,16 @@ public class CreatePostServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        User user = (User) request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("username");
         Post post = new Post(
-                user.getId(),
+                3,
+                1,
                 request.getParameter("title"),
                 request.getParameter("content"),
-                request.getParameter("img"),
-                request.getParameter("cat_id")
+                Integer.parseInt(request.getParameter("price")),
+                2,
+                request.getParameter("img")
+
         );
         DaoFactory.getPostsDao().insert(post);
         response.sendRedirect("/posts");

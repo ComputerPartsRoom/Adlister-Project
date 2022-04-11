@@ -13,9 +13,9 @@ VALUES ( 'Memory'),
     ('Storage') ;
 
 
-INSERT INTO posts(user_id, title, content, cat_id, img)
-VALUES (1, '500GB SSD', 'SunDisk $500', 1, '../Assets/PlaceHolder.jpeg'),
-     (1, '2TB HD', 'SunDisk $300', 1, '../Assets/Placeholder.jpeg' );
+INSERT INTO posts(user_id, title, content, price, cat_id, img)
+VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg'),
+     (1, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg' );
 
 INSERT INTO postCategories(post_id, cat_id)
 VALUES (1, 1 ),

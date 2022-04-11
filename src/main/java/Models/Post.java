@@ -5,17 +5,19 @@ public class Post {
     private long user_id;
     private String title;
     private String content;
+    private Integer price;
     private long cat_id;
     private String img;
 
     public Post(){}
 
 
-    public Post(long id, long user_id, String title, String content, long cat_id, String img) {
+    public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img) {
         this.id = id;
         this.user_id = user_id;
         this.title = title;
         this.content = content;
+        this.price = price;
         this.cat_id = cat_id;
         this.img = img;
     }
@@ -68,5 +70,13 @@ public class Post {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }

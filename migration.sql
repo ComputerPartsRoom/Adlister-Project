@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS posts
     user_id INT UNSIGNED NOT NULL,
     title   VARCHAR(100),
     content VARCHAR(500),
+    price INT UNSIGNED NOT NULL,
     img VARCHAR(500),
     cat_id  INT UNSIGNED NOT NULL,
     PRIMARY KEY (id),
