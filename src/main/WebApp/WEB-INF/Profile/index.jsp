@@ -35,10 +35,51 @@
             <label for="img">Image URL</label>
             <input id="img" name="img" class="form-control" type="text">
         </div>
-<%--        <div class="form-group">--%>
-<%--            <label for="cat_id">Cat ID</label>--%>
-<%--            <input id="cat_id" name="cat_id" class="form-control" type="text">--%>
-<%--        </div>--%>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="radio" aria-label="Radio button for following text input">
+                    <p>Category</p>
+                </div>
+            </div>
+        </div>
+
         <input type="submit" class="btn btn-block btn-primary">
     </form>
 </div>
