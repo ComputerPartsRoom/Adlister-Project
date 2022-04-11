@@ -8,13 +8,13 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/Partials/LoggedNavbar.jsp" />
-
 <div class="container">
     <br>
     <br>
     <br>
     <br>
     <h1>Current parts for sale!</h1>
+
 
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,6 +27,12 @@
         </div>
     </div>
 
+
+
+    <form action="/posts" method="post" >
+    <input type="text" name ="search">
+        <button class = "btn btn-primary" type="submit">Search</button>
+    </form>
 
 <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
