@@ -8,14 +8,16 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/Partials/LoggedNavbar.jsp" />
-
 <div class="container">
     <br>
     <br>
     <br>
     <br>
     <h1>Current parts for sale!</h1>
-
+    <form action="/posts" method="post" >
+    <input type="text" name ="search">
+        <button class = "btn btn-primary" type="submit">Search</button>
+    </form>
 <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
         <div class="col-md-6">
