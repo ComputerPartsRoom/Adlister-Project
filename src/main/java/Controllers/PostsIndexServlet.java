@@ -1,6 +1,7 @@
 package Controllers;
 
 import DAO.DaoFactory;
+import Models.Post;
 import Models.User;
 
 import javax.servlet.ServletException;
@@ -19,6 +20,22 @@ public class PostsIndexServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+
+        User user = (User) request.getSession().getAttribute("user");
+
+        Integer categoryOfPost = Integer.parseInt(request.getParameter("Category"));
+
+        Post post = new Post(
+                user.getId(),
+                request.getParameter("title"),
+                request.getParameter("content"),
+                Integer.parseInt(request.getParameter("price")),
+                categoryOfPost,
+                request.getParameter("img")
+
+        );
+
         String search = request.getParameter("search");
 
             request.setAttribute("posts", DaoFactory.getPostsDao().all2(search));
