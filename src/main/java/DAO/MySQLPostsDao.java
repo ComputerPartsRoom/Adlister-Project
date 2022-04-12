@@ -1,7 +1,6 @@
 package DAO;
 
 import Models.Post;
-import Models.User;
 import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 import java.util.ArrayList;
@@ -36,11 +35,11 @@ public class MySQLPostsDao implements Posts {
         }
     }
 
-    public List<Post> all2(String search) {
+    public List<Post> findByTitle(String search) {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM posts WHERE title = ?");
-            stmt.setString(1,search);
+            stmt = connection.prepareStatement("SELECT * FROM posts WHERE title LIKE ?");
+            stmt.setString(1,"%"+search+"%");
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
         } catch (SQLException e) {
@@ -48,17 +47,19 @@ public class MySQLPostsDao implements Posts {
         }
     }
 
+    public List<Post> sortByCategory(String sort) {
+        System.out.println("sort = " + sort);
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM posts WHERE cat_id = ?");
+            stmt.setString(1,sort);
+            ResultSet rs = stmt.executeQuery();
+            return createPostsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all posts.", e);
+        }
+    }
 
-//    public Post findByTitle(String search) {
-//        String query = "SELECT * FROM posts WHERE title = ?";
-//        try {
-//            PreparedStatement stmt = connection.prepareStatement(query);
-//            stmt.setString(1, search);
-//            return extractPost(stmt.executeQuery());
-//        } catch (SQLException e) {
-//            throw new RuntimeException("Error finding a post by title", e);
-//        }
-//    }
 
     @Override
     public Long insert(Post post) {

@@ -26,9 +26,18 @@
             <a class="dropdown-item" href="#">Something else here</a>
         </div>
     </div>
-
-
-
+    <form action="/posts" method="post">
+    <label for="sortBy">Sort by: </label>
+    <select  id="sortBy" class="form-select" aria-label="Default select example" name="sort">
+        <option name="category" value="1">Memory</option>
+        <option name="category" value="2">Peripherals</option>
+        <option name="category" value="3">Processors</option>
+        <option name="category" value="4">Motherboards</option>
+        <option name="category" value="5">Graphics Cards</option>
+        <option name="category" value="6">Storage</option>
+    </select>
+        <button type="submit" class="btn btn-primary">Go!</button>
+    </form>
     <form action="/posts" method="post" >
     <input type="text" name ="search">
         <button class = "btn btn-primary" type="submit">Search</button>
@@ -45,6 +54,7 @@
     </c:forEach>
 
 </div>
+
 
 
 <p>${sessionScope.user.username}</p>
