@@ -5,6 +5,11 @@
     <jsp:include page="/WEB-INF/Partials/head.jsp">
         <jsp:param name="title" value="Profile"/>
     </jsp:include>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <%--    Logged-In Nav-Bar   --%>
@@ -22,13 +27,15 @@
             <h2>${post.title}</h2>
             <p>${post.content}</p>
             <img src="${post.img}">
-            <button id="updateBtn">Update</button>
+            <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
             <!-- The Modal -->
-            <div id="myModal" class="modal">
+            <div id="myModal${post.id}" class="modal">
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="close">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <form action="/profile" method="post">
                         <br>
                         <br>
@@ -53,7 +60,47 @@
                             <label for="img">Image URL</label>
                             <input id="img" name="img" class="form-control" type="text" value="${post.img}">
                         </div>
+
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Category" id="Memory" value="1" checked>
+                            <label class="form-check-label" for="Memory">
+                                Memory
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Category" id="Peripherals" value="2">
+                            <label class="form-check-label" for="Peripherals">
+                                Peripherals
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Category" id="Processors" value="3">
+                            <label class="form-check-label" for="Processors">
+                                Processors
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Category" id="Motherboards" value="4">
+                            <label class="form-check-label" for="Motherboards">
+                                Motherboards
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Category" id="Graphics-Cards" value="5">
+                            <label class="form-check-label" for="Graphics-Cards">
+                                Graphics Cards
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Category" id="Storage" value="6">
+                            <label class="form-check-label" for="Storage">
+                                Storage
+                            </label>
+                        </div>
+
                         <input type="submit" class="btn btn-block btn-primary">
+
                     </form>
                 </div>
             </div>
@@ -67,33 +114,6 @@
 <p>${sessionScope.user.email}</p>
 <p>${sessionScope.user.password}</p>
 
-<script>
-    // Get the modal
-    let modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    let btn = document.getElementById("updateBtn");
-
-    // Get the <span> element that closes the modal
-    let span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on the button, open the modal
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
 
 
 <jsp:include page="/WEB-INF/Partials/footer.jsp"/>

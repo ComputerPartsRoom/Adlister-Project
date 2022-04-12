@@ -16,6 +16,10 @@ public class PostsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("posts", DaoFactory.getPostsDao().all());
         request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
+
+        User user = (User) request.getSession().getAttribute("user");
+
+        request.setAttribute("posts", DaoFactory.getPostsDao().all());
     }
 
 
@@ -33,7 +37,6 @@ public class PostsIndexServlet extends HttpServlet {
                 Integer.parseInt(request.getParameter("price")),
                 categoryOfPost,
                 request.getParameter("img")
-
         );
 
         String search = request.getParameter("search");
