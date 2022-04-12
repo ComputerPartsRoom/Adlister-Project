@@ -37,22 +37,23 @@
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input id="title" name="title" class="form-control" type="text"
-                                   placeholder="${post.title}">
+                                   value="${post.title}">
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea id="content" name="content" class="form-control"
-                                      placeholder="${post.content}"></textarea>
+                            <input id="content" name="content" class="form-control"
+                                      value="${post.content}">
                         </div>
                         <div class="form-group">
                             <label for="price">Price</label>
                             <input id="price" name="price" class="form-control" type="text"
-                                   placeholder="${post.price}">
+                                   value="${post.price}">
                         </div>
                         <div class="form-group">
                             <label for="img">Image URL</label>
-                            <input id="img" name="img" class="form-control" type="text" placeholder="${post.img}">
+                            <input id="img" name="img" class="form-control" type="text" value="${post.img}">
                         </div>
+                        <input type="submit" class="btn btn-block btn-primary">
                     </form>
                 </div>
             </div>
