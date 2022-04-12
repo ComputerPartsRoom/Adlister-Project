@@ -41,10 +41,16 @@ public class PostsIndexServlet extends HttpServlet {
 
         String search = request.getParameter("search");
 
-            request.setAttribute("posts", DaoFactory.getPostsDao().all2(search));
-            request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
+        request.setAttribute("posts", DaoFactory.getPostsDao().findByTitle(search));
+        request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
 
 
+//        String sort = request.getParameter("sort");
+//        if (sort != null) {
+//            request.setAttribute("posts", DaoFactory.getPostsDao().sortByCategory(sort));
+//            System.out.println("sort = " + sort);
+//            request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
+//        }
     }
 
 }
