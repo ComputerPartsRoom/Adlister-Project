@@ -10,7 +10,7 @@ public interface Posts {
 
     Long insert(Post post);
 
-//    Post findByTitle(String search);
+    List<Post> findByTitle(String search);
 
-    List<Post> all2(String search);
+    List<Post> sortByCategory(String sort);
 }
