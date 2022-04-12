@@ -13,4 +13,6 @@ public interface Posts {
     List<Post> findByTitle(String search);
 
     List<Post> sortByCategory(String sort);
+
+    void update(Post post);
 }

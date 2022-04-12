@@ -19,7 +19,6 @@ public class PostsIndexServlet extends HttpServlet {
 
         User user = (User) request.getSession().getAttribute("user");
 
-        request.setAttribute("posts", DaoFactory.getPostsDao().all());
     }
 
 
