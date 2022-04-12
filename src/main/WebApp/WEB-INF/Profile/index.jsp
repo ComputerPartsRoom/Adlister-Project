@@ -13,7 +13,8 @@
 </head>
 <body>
 <%--    Logged-In Nav-Bar   --%>
-<jsp:include page="/WEB-INF/Partials/LoggedNavbar.jsp"/>
+<jsp:include page="/WEB-INF/Partials/NavChecker.jsp"/>
+
 <br>
 <br>
 <br>
