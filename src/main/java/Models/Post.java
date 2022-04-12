@@ -32,6 +32,17 @@ public class Post {
         this.img = img;
     } //'C' constructor [make a new entity w/o the Post.id]
 
+//    public Post(long id, String title, String content, Integer price, Integer cat_id, String img) {
+//        this.id = id;
+//        this.title = title;
+//        this.content = content;
+//        this.price = price;
+//        this.cat_id = cat_id;
+//        this.img = img;
+//    }
+
+
+
 
     // Getters and Setters
     public long getId() {

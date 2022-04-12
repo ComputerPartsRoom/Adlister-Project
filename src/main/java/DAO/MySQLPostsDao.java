@@ -39,7 +39,7 @@ public class MySQLPostsDao implements Posts {
         PreparedStatement stmt = null;
         try {
             stmt = connection.prepareStatement("SELECT * FROM posts WHERE title LIKE ?");
-            stmt.setString(1,"%"+search+"%");
+            stmt.setString(1, "%" + search + "%");
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
         } catch (SQLException e) {
@@ -52,7 +52,7 @@ public class MySQLPostsDao implements Posts {
         PreparedStatement stmt = null;
         try {
             stmt = connection.prepareStatement("SELECT * FROM posts WHERE cat_id = ?");
-            stmt.setString(1,sort);
+            stmt.setString(1, sort);
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
         } catch (SQLException e) {
@@ -95,9 +95,35 @@ public class MySQLPostsDao implements Posts {
 
     private List<Post> createPostsFromResults(ResultSet rs) throws SQLException {
         List<Post> posts = new ArrayList<>();
-            while (rs.next()) {
+        while (rs.next()) {
             posts.add(extractPost(rs));
         }
         return posts;
+    }
+
+
+    public void update(Post post) {
+        try {
+            String updateQuery = "UPDATE posts SET title=?, content=?, price=?, img=?, cat_id=? WHERE id=?";
+
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            System.out.println("post.getId() = " + post.getId());
+            stmt.setString(1, post.getTitle());
+            stmt.setString(2, post.getContent());
+            stmt.setLong(3, post.getPrice());
+            stmt.setString(4, post.getImg());
+            stmt.setLong(5, post.getCat_id());
+            stmt.setLong(6, post.getId());
+
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+
+            System.out.println("Post with id " + post.getId() + " was updated in DB with following details: " + "Title" + post.getTitle() + ",  Content" + post.getContent() + ",  Price" + post.getPrice() + ",  img" + post.getImg() + ",  Cat_id" + post.getCat_id());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -2,6 +2,8 @@
     <div class="container-fluid">
 <%--        Takes back to main page --%>
         <a class="navbar-brand" href="/posts">ComputerPartsRoom</a>
+    <a href="/create">Create</a>
+    <a href="/profile">Profile</a>
         <div id="navLinks">
 <%--            Takes to register page  --%>
                     <a class="link" id="NotLogged-left-a" href="register">Register</a>

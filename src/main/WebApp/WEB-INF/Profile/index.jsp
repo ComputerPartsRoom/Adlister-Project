@@ -20,7 +20,7 @@
 <c:forEach var="post" items="${posts}">
     <c:if test="${post.user_id == sessionScope.user.id}">
         <div class="posts col-4">
-            <p>${post.user_id}</p>
+            <p>${post.id}</p>
             <h2>${post.title}</h2>
             <p>${post.content}</p>
             <img src="${post.img}">
@@ -33,7 +33,11 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
+
                     <form action="/profile" method="post">
+                        <input id="Userid" name="Userid" value="${post.user_id}">
+                        <input id="id" name="id" value="${post.id}">
+
                         <br>
                         <br>
                         <br>
@@ -60,37 +64,37 @@
 
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Category" id="Memory" value="1" checked>
+                            <input class="form-check-input" type="radio" name="category" id="Memory" value="1" checked>
                             <label class="form-check-label" for="Memory">
                                 Memory
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Category" id="Peripherals" value="2">
+                            <input class="form-check-input" type="radio" name="category" id="Peripherals" value="2">
                             <label class="form-check-label" for="Peripherals">
                                 Peripherals
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Category" id="Processors" value="3">
+                            <input class="form-check-input" type="radio" name="category" id="Processors" value="3">
                             <label class="form-check-label" for="Processors">
                                 Processors
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Category" id="Motherboards" value="4">
+                            <input class="form-check-input" type="radio" name="category" id="Motherboards" value="4">
                             <label class="form-check-label" for="Motherboards">
                                 Motherboards
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Category" id="Graphics-Cards" value="5">
+                            <input class="form-check-input" type="radio" name="category" id="Graphics-Cards" value="5">
                             <label class="form-check-label" for="Graphics-Cards">
                                 Graphics Cards
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Category" id="Storage" value="6">
+                            <input class="form-check-input" type="radio" name="category" id="Storage" value="6">
                             <label class="form-check-label" for="Storage">
                                 Storage
                             </label>

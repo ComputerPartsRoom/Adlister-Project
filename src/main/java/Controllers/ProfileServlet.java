@@ -1,6 +1,7 @@
 package Controllers;
 
 import DAO.DaoFactory;
+import Models.Post;
 import Models.User;
 
 import javax.servlet.ServletException;
@@ -25,13 +26,34 @@ public class ProfileServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/Profile/index.jsp").forward(request, response);
     }
 
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         String username = request.getParameter("username");
-
         User user = DaoFactory.getUsersDao().findByUsername(username);
+        request.getSession().setAttribute("user", user);
 
 
-            request.getSession().setAttribute("user", user);
+        Post post = new Post(
+                Integer.parseInt(request.getParameter("Userid")),
+                Integer.parseInt(request.getParameter("id")),
+                request.getParameter("title"),
+                request.getParameter("content"),
+                Integer.parseInt(request.getParameter("price")),
+                Integer.parseInt(request.getParameter("category")),
+                request.getParameter("img")
+        );
+        System.out.println(request.getParameter("id"));
+        System.out.println(request.getParameter("title"));
+        System.out.println(request.getParameter("content"));
+        System.out.println(request.getParameter("price"));
+        System.out.println(request.getParameter("category"));
+        System.out.println(request.getParameter("img"));
+
+       DaoFactory.getPostsDao().update(post);
+
+        response.sendRedirect("/profile");
         }
 
 }
