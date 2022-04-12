@@ -5,5 +5,5 @@
     <div>Right Footer</div>
 </footer>
 
-
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/WEB-INF/index.js"></script>--%>
 

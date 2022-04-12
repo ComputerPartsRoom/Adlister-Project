@@ -38,6 +38,7 @@
     </select>
         <button type="submit" class="btn btn-primary">Go!</button>
     </form>
+
     <form action="/posts" method="post" >
     <input type="text" name ="search">
         <button class = "btn btn-primary" type="submit">Search</button>
