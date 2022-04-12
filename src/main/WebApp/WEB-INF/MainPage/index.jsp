@@ -7,7 +7,7 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/Partials/NotLoggedNavbar.jsp" />
+<jsp:include page="/WEB-INF/Partials/NavChecker.jsp"/>
 <br>
 <br>
 <br>
