@@ -36,6 +36,7 @@ public class ProfileServlet extends HttpServlet {
 
 
 
+
         String updateOrDelete = request.getParameter("updateOrDelete").toUpperCase();
         if (updateOrDelete.equalsIgnoreCase("delete")) {
             Post post = new Post(
