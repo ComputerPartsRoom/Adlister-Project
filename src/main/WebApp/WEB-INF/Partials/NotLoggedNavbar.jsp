@@ -1,14 +1,9 @@
-<nav class="navbar fixed-top navbar-light bg-light" id="NotLoggedNav">
-    <div class="container-fluid">
-<%--        Takes back to main page --%>
+<nav class="navbar " id="NotLoggedNav">
+    <div id="NotLoggedLeft">
         <a class="navbar-brand" href="/posts">ComputerPartsRoom</a>
-    <a href="/create">Create</a>
-    <a href="/profile">Profile</a>
-        <div id="navLinks">
-<%--            Takes to register page  --%>
-                    <a class="link" id="NotLogged-left-a" href="register">Register</a>
-<%--            Takes to login page --%>
-                    <a class="link" href="login">Log In</a>
-        </div>
+    </div>
+    <div id="NotLoggedRight">
+        <a href="register">Register</a>
+        <a href="login">Log In</a>
     </div>
 </nav>
