@@ -114,9 +114,10 @@ footer{
     margin-left: 10px;
 }
 
-#postsDiv{
+#postsDiv {
     justify-content: center;
     align-items: center;
+}
 
 /* The Modal (background) */
 .modal {
