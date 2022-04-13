@@ -35,8 +35,8 @@ public class ProfileServlet extends HttpServlet {
 
 
         Post post = new Post(
-                Integer.parseInt(request.getParameter("Userid")),
                 Integer.parseInt(request.getParameter("id")),
+                Integer.parseInt(request.getParameter("Userid")),
                 request.getParameter("title"),
                 request.getParameter("content"),
                 Integer.parseInt(request.getParameter("price")),

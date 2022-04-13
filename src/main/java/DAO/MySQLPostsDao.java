@@ -27,7 +27,7 @@ public class MySQLPostsDao implements Posts {
     public List<Post> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM posts");
+            stmt = connection.prepareStatement("SELECT * FROM posts;");
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
         } catch (SQLException e) {
@@ -38,7 +38,7 @@ public class MySQLPostsDao implements Posts {
     public List<Post> findByTitle(String search) {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM posts WHERE title LIKE ?");
+            stmt = connection.prepareStatement("SELECT * FROM posts WHERE title LIKE ?;");
             stmt.setString(1, "%" + search + "%");
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
@@ -51,7 +51,7 @@ public class MySQLPostsDao implements Posts {
         System.out.println("sort = " + sort);
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM posts WHERE cat_id = ?");
+            stmt = connection.prepareStatement("SELECT * FROM posts WHERE cat_id = ?;");
             stmt.setString(1, sort);
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
@@ -64,7 +64,7 @@ public class MySQLPostsDao implements Posts {
     @Override
     public Long insert(Post post) {
         try {
-            String insertQuery = "INSERT INTO posts(user_id, title, content, price, cat_id, img) VALUES (?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO posts(user_id, title, content, price, cat_id, img) VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, post.getUser_id());
             stmt.setString(2, post.getTitle());
@@ -104,7 +104,7 @@ public class MySQLPostsDao implements Posts {
 
     public void update(Post post) {
         try {
-            String updateQuery = "UPDATE posts SET title=?, content=?, price=?, img=?, cat_id=? WHERE id=?";
+            String updateQuery = "UPDATE posts SET title=?, content=?, price=?, img=?, cat_id=? WHERE id=?;";
 
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
             System.out.println("post.getId() = " + post.getId());
