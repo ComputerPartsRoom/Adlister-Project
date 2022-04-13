@@ -33,6 +33,12 @@ public class ProfileServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
 
+        User user2 = new User(
+                username,
+                request.getParameter("email"),
+                request.getParameter("password")
+        );
+
 
         Post post = new Post(
                 Integer.parseInt(request.getParameter("id")),
@@ -55,17 +61,18 @@ public class ProfileServlet extends HttpServlet {
 //
 //        }
 
-        String delete = request.getParameter("delete");
-        if (delete != null) {
-            request.setAttribute("update", "delete");
-            DaoFactory.getPostsDao().delete(post);
-            response.sendRedirect("/profile");
-            System.out.println("post.getId() = " + post.getId());
-//        } else if (update.equalsIgnoreCase("update")){
-//            DaoFactory.getPostsDao().update(post);
+//        String delete = request.getParameter("delete");
+//        if (delete != null) {
+//            request.setAttribute("update", "delete");
+//            DaoFactory.getPostsDao().delete(post);
 //            response.sendRedirect("/profile");
+//            System.out.println("post.getId() = " + post.getId());
+////        } else if (update.equalsIgnoreCase("update")){
+////            DaoFactory.getPostsDao().update(post);
+////            response.sendRedirect("/profile");
+////        }
+
 //        }
 
-        }
     }
 }
