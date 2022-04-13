@@ -29,45 +29,54 @@ public class ProfileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+
         String username = request.getParameter("username");
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
 
-        User user2 = new User(
-                username,
-                request.getParameter("email"),
-                request.getParameter("password")
-        );
 
-
-        Post post = new Post(
-                Integer.parseInt(request.getParameter("id")),
-                Integer.parseInt(request.getParameter("Userid")),
-                request.getParameter("title"),
-                request.getParameter("content"),
-                Integer.parseInt(request.getParameter("price")),
-                Integer.parseInt(request.getParameter("category")),
-                request.getParameter("img")
-        );
-        System.out.println(request.getParameter("id"));
-        System.out.println(request.getParameter("title"));
-        System.out.println(request.getParameter("content"));
-        System.out.println(request.getParameter("price"));
-        System.out.println(request.getParameter("category"));
-        System.out.println(request.getParameter("img"));
 
 
         String updateOrDelete = request.getParameter("updateOrDelete").toUpperCase();
-        System.out.println(updateOrDelete);
         if (updateOrDelete.equalsIgnoreCase("delete")) {
+            Post post = new Post(
+                    Integer.parseInt(request.getParameter("id")),
+                    Integer.parseInt(request.getParameter("Userid")),
+                    request.getParameter("title"),
+                    request.getParameter("content"),
+                    Integer.parseInt(request.getParameter("price")),
+                    Integer.parseInt(request.getParameter("category")),
+                    request.getParameter("img")
+            );
+
             request.setAttribute("update", "delete");
             DaoFactory.getPostsDao().delete(post);
             response.sendRedirect("/profile");
-            System.out.println("post.getId() = " + post.getId());
         } else if (updateOrDelete.equalsIgnoreCase("updatePost")) {
+            Post post = new Post(
+                    Integer.parseInt(request.getParameter("id")),
+                    Integer.parseInt(request.getParameter("Userid")),
+                    request.getParameter("title"),
+                    request.getParameter("content"),
+                    Integer.parseInt(request.getParameter("price")),
+                    Integer.parseInt(request.getParameter("category")),
+                    request.getParameter("img")
+            );
+
             DaoFactory.getPostsDao().update(post);
             response.sendRedirect("/profile");
         } else if (updateOrDelete.equalsIgnoreCase("updateProfile")){
+
+            User user2 = new User(
+                    Integer.parseInt(request.getParameter("EditId")),
+                    username,
+                    request.getParameter("email"),
+                    request.getParameter("password")
+            );
+
+
+
+
             DaoFactory.getUsersDao().update(user2);
             response.sendRedirect("/profile");
         }

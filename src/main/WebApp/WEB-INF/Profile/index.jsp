@@ -19,7 +19,7 @@
         <a href="#" id="showPosts">My Posts</a>
         <a href="/create" id="create">Create Post</a>
         <a href="#" id="messages">Messages</a>
-        <input id="EditId" name="EditId" value="${user.id}">
+
         <a data-toggle="modal" data-target="#exampleModal">Edit My Profile</a>
     </div>
 
@@ -47,8 +47,8 @@
                                 <form action="/profile" method="post">
 
 
-                                    <input id="Userid" name="Userid" value="${post.user_id}">
-                                    <input id="id" name="id" value="${post.id}">
+                                    <input hidden id="Userid" name="Userid" value="${post.user_id}">
+                                    <input hidden id="id" name="id" value="${post.id}">
 
 
                                     <div class="form-group">
@@ -140,9 +140,11 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+
             </div>
             <div class="modal-body">
                 <form action="/profile" method="POST">
+                    <input id="EditId" name="EditId" value="${user.id}">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input id="username" name="username" class="form-control" type="text" value="${user.username}">

@@ -80,13 +80,13 @@ public class MySQLUsersDao implements Users {
 
     public void update(User user) {
         try {
-            String updateQuery = "UPDATE users SET username=?, email=?, password=? WHERE username=?;";
+            String updateQuery = "UPDATE users SET username=?, email=?, password=? WHERE id=?;";
 
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPassword());
-            stmt.setString(4, user.getUsername());
+            stmt.setLong(4, user.getId());
 
 
             stmt.executeUpdate();
