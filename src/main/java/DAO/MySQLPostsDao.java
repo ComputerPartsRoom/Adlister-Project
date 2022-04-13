@@ -125,5 +125,25 @@ public class MySQLPostsDao implements Posts {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+
+
+    }
+    public void delete(Post post) {
+        try {
+            String updateQuery = "DELETE FROM posts WHERE id = ?;";
+
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, post.getId());
+
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+
+            System.out.println("Post with id " + post.getId() + "has been deleted");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 }

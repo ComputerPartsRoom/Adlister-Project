@@ -26,7 +26,7 @@
             <img src="${post.img}">
             <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
             <!-- The Modal -->
-            <div id="myModal${post.id}" class="modal">
+            <div id="myModal${post.id}" class="modal fade" role="dialog" tabindex="-1">
 
                 <!-- Modal content -->
                 <div class="modal-content">
@@ -100,7 +100,8 @@
                             </label>
                         </div>
 
-                        <input type="submit" class="btn btn-block btn-primary">
+                        <input type="submit" class="btn btn-block btn-primary" name="update">
+                        <button type="submit" class="btn btn-danger" name="delete" value="true">Delete</button>
 
                     </form>
                 </div>
