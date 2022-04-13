@@ -26,10 +26,10 @@ VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg'),
 
 INSERT INTO profPhoto(url, user_id)
 VALUES ('Assets/PlaceHolder.jpeg', 1 ) ;
-
-
-INSERT INTO messages(sent_id, received_id, content)
-VALUES ( 1, 2, 'hello') ;
+#
+#
+# INSERT INTO messages(sent_id, received_id, content)
+# VALUES ( 1, 2, 'hello') ;
 
 SELECT *
 FROM users;
@@ -41,5 +41,5 @@ SELECT *
 FROM categories;
 # SELECT *
 # FROM postCategories;
-SELECT *
-FROM messages;
+# SELECT *
+# FROM messages;

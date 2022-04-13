@@ -31,6 +31,7 @@
                 <c:if test="${post.user_id == sessionScope.user.id}">
                     <div class="posts col-md-6">
                         <p>${post.id}</p>
+                        <p>${post.price}</p>
                         <h2>${post.title}</h2>
                         <p>${post.content}</p>
                         <img src="${post.img}">
@@ -144,7 +145,7 @@
             </div>
             <div class="modal-body">
                 <form action="/profile" method="POST">
-                    <input id="EditId" name="EditId" value="${user.id}">
+                    <input hidden id="EditId" name="EditId" value="${user.id}">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input id="username" name="username" class="form-control" type="text" value="${user.username}">
@@ -163,6 +164,7 @@
                     </div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary" name="updateOrDelete" value="updateProfile">Save changes</button>
+                    <button type="submit" class="btn btn-danger" name="updateOrDelete" value="deleteProfile">Delete</button>
                 </form>
             </div>
 

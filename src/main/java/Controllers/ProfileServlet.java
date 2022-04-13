@@ -74,11 +74,20 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("password")
             );
 
-
-
-
             DaoFactory.getUsersDao().update(user2);
             response.sendRedirect("/profile");
+        }else if(updateOrDelete.equalsIgnoreCase("deleteProfile")){
+
+            User user2 = new User(
+                    Integer.parseInt(request.getParameter("EditId")),
+                    username,
+                    request.getParameter("email"),
+                    request.getParameter("password")
+            );
+            DaoFactory.getUsersDao().delete(user2);
+            request.getSession().invalidate();
+            response.sendRedirect("/register");
+
         }
 
 
