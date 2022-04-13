@@ -33,6 +33,12 @@ public class ProfileServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
 
+        User user2 = new User(
+                username,
+                request.getParameter("email"),
+                request.getParameter("password")
+        );
+
 
         Post post = new Post(
                 Integer.parseInt(request.getParameter("id")),
@@ -55,6 +61,7 @@ public class ProfileServlet extends HttpServlet {
 //
 //        }
 
+
         String updateOrDelete = request.getParameter("updateOrDelete").toUpperCase();
         System.out.println(updateOrDelete);
         if (updateOrDelete.equalsIgnoreCase("delete")) {
@@ -69,6 +76,7 @@ public class ProfileServlet extends HttpServlet {
             DaoFactory.getUsersDao().update(user2);
             response.sendRedirect("/profile");
         }
+
 
     }
 }
