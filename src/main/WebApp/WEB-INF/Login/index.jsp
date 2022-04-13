@@ -8,10 +8,7 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/Partials/NotLoggedNavbar.jsp"/>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <div class="container">
         <h1>Please Log In</h1>
         <form action="/login" method="POST">
@@ -26,12 +23,6 @@
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
-
-
-    <p>${sessionScope.user.username}</p>
-    <p>${sessionScope.user.id}</p>
-    <p>${sessionScope.user.email}</p>
-    <p>${sessionScope.user.password}</p>
 
 <jsp:include page="/WEB-INF/Partials/footer.jsp"/>
 </body>

@@ -8,18 +8,12 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/Partials/NavChecker.jsp"/>
-<br>
-<br>
-<br>
-<br>
+
 
 <div class="container">
   <h1>Create a new Ad</h1>
   <form action="/create" method="post">
-    <br>
-    <br>
-    <br>
-    <br>
+
     <div class="form-group">
       <label for="title">Title</label>
       <input id="title" name="title" class="form-control" type="text">
@@ -81,11 +75,7 @@
     <input type="submit" class="btn btn-block btn-primary">
   </form>
 </div>
-<br><br><br><br>
-<p>${sessionScope.user.username}</p>
-<p>${sessionScope.user.id}</p>
-<p>${sessionScope.user.email}</p>
-<p>${sessionScope.user.password}</p>
+
 <jsp:include page="/WEB-INF/Partials/footer.jsp" />
 
 

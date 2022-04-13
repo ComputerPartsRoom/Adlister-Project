@@ -8,14 +8,10 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/Partials/NavChecker.jsp"/>
-<br>
-<br>
-<br>
-<br>
-<p>${sessionScope.user.username}</p>
-<p>${sessionScope.user.id}</p>
-<p>${sessionScope.user.email}</p>
-<p>${sessionScope.user.password}</p>
+
+<h1>Landing Page</h1>
+
+
 <jsp:include page="/WEB-INF/Partials/footer.jsp" />
 
 

@@ -9,10 +9,7 @@
 <body>
 <%--    Not Logged Nav-Bar  --%>
     <jsp:include page="/WEB-INF/Partials/NotLoggedNavbar.jsp" />
-<br>
-<br>
-<br>
-<br>
+
     <div class="container">
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">
@@ -37,10 +34,5 @@
         <jsp:include page="/WEB-INF/Partials/footer.jsp"/>
     </div>
 
-
-<p>${sessionScope.user.username}</p>
-<p>${sessionScope.user.id}</p>
-<p>${sessionScope.user.email}</p>
-<p>${sessionScope.user.password}</p>
 </body>
 </html>
