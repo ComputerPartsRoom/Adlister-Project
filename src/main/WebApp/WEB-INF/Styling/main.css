@@ -1,4 +1,6 @@
 body{
+    margin: 0;
+    padding: 0;
     background-color: #888888;
 }
 
@@ -94,7 +96,7 @@ footer{
 
 #profileView{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -104,14 +106,20 @@ footer{
 }
 
 #profileRight{
+    text-align: center;
     justify-content: center;
     align-items: center;
-    flex-grow: 2;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #postsDiv{
     justify-content: center;
     align-items: center;
+}
+
+.posts{
+    padding: 5px;
 }
 
 

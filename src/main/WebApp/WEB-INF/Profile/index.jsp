@@ -24,12 +24,11 @@
 
 
     <div id="profileRight">
-
-        <div id="postsDiv">
             <h1> Here are your posts !</h1>
+        <div class="row">
             <c:forEach var="post" items="${posts}">
                 <c:if test="${post.user_id == sessionScope.user.id}">
-                    <div class="posts col-4">
+                    <div class="posts col-md-6">
                         <p>${post.id}</p>
                         <h2>${post.title}</h2>
                         <p>${post.content}</p>
@@ -121,6 +120,7 @@
         </div>
     </div>
 </div>
+
 
 
 
