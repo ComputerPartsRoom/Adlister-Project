@@ -13,5 +13,14 @@ public class MainIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/MainPage/index.jsp").forward(request, response);
     }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //"View Posts" button is clicked
+        // if user is logged in - forward to post page
+        // if user is NOT logged in - forward to login page
+
+            response.sendRedirect("btn");
+    }
+
 }
 
