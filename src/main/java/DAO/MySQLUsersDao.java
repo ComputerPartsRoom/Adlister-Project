@@ -47,6 +47,7 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
@@ -65,7 +66,7 @@ public class MySQLUsersDao implements Users {
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
@@ -75,7 +76,6 @@ public class MySQLUsersDao implements Users {
                 rs.getString("password")
         );
     }
-
 
 
     public void update(User user) {
@@ -100,4 +100,37 @@ public class MySQLUsersDao implements Users {
 
     }
 
+    @Override
+    public void delete(User user) {
+        try {
+            String updateQuery3 = "DELETE FROM profPhoto WHERE user_id=?;";
+            PreparedStatement stmt3 = connection.prepareStatement(updateQuery3, Statement.RETURN_GENERATED_KEYS);
+            stmt3.setLong(1, user.getId());
+
+            String updateQuery = "DELETE FROM posts WHERE user_id=?;";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, user.getId());
+
+            String updateQuery2 = "DELETE FROM users WHERE id=?;";
+            PreparedStatement stmt2 = connection.prepareStatement(updateQuery2, Statement.RETURN_GENERATED_KEYS);
+            stmt2.setLong(1, user.getId());
+
+            stmt3.executeUpdate();
+            ResultSet rs3 = stmt3.getGeneratedKeys();
+            rs3.next();
+
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+
+            stmt2.executeUpdate();
+            ResultSet rs2 = stmt2.getGeneratedKeys();
+            rs2.next();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+    }
 }
