@@ -70,7 +70,7 @@
 
     <div id="profileLeft">
         <a href="#" id="showPosts">My Posts</a>
-        <a href="#" id="create">Create Post</a>
+        <a href="/create" id="create">Create Post</a>
         <a href="#" id="messages">Messages</a>
     </div>
 
@@ -97,8 +97,13 @@
                                 </button>
 
                                 <form action="/profile" method="post">
+
+
                                     <input id="Userid" name="Userid" value="${post.user_id}">
                                     <input id="id" name="id" value="${post.id}">
+
+
+
 
                                     <br>
                                     <br>
