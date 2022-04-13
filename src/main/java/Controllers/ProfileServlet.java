@@ -55,11 +55,6 @@ public class ProfileServlet extends HttpServlet {
         System.out.println(request.getParameter("price"));
         System.out.println(request.getParameter("category"));
         System.out.println(request.getParameter("img"));
-//        String update = request.getParameter("update");
-
-//        if (update.equalsIgnoreCase("update") && update != null) {
-//
-//        }
 
 
         String updateOrDelete = request.getParameter("updateOrDelete").toUpperCase();
