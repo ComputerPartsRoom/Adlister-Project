@@ -25,14 +25,14 @@ public class RegisterServlet extends HttpServlet {
 
 
         // validate input
-            boolean inputHasErrors =
-                    username.isEmpty()
-                            || email.isEmpty()
-                            || password.isEmpty()
-                            || (!password.equals(passwordConfirmation));
+        boolean inputHasErrors =
+                username.isEmpty()
+                        || email.isEmpty()
+                        || password.isEmpty()
+                        || (!password.equals(passwordConfirmation));
 
-            User user = DaoFactory.getUsersDao().findByUsername(username);
-            User userEmail = DaoFactory.getUsersDao().findByEmail(email);
+        User user = DaoFactory.getUsersDao().findByUsername(username);
+        User userEmail = DaoFactory.getUsersDao().findByEmail(email);
         System.out.println(userEmail);
 
 
@@ -43,17 +43,16 @@ public class RegisterServlet extends HttpServlet {
             out.println("alert('Blank fields');");
             out.println("location='/register';");
             out.println("</script>");
-        }
-        else if(user != null || userEmail != null) {
+        } else if (user != null || userEmail != null) {
             PrintWriter out = response.getWriter();
             response.setContentType("text/html");
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Email or Username in use');");
             out.println("location='/profile';");
             out.println("</script>");
-        }
-
-         else
+        } else {
+            User user1 = new User(username, email, password);
+            DaoFactory.getUsersDao().insert(user1);
             response.sendRedirect("/login");
         }
 
@@ -65,7 +64,8 @@ public class RegisterServlet extends HttpServlet {
 //             out.println("alert('Email in use');");
 //             out.println("location='/register';");
 //             out.println("</script>");
-         }
+    }
+}
 
 
 //        User userEmail = DaoFactory.getUsersDao().findByEmail(email);
@@ -88,7 +88,7 @@ public class RegisterServlet extends HttpServlet {
 //        boolean emailInput = email.matches(email);
 //        boolean passwordInput = password.matches(passwordConfirmation);
 
-        //        if (usernameInput) {
+//        if (usernameInput) {
 
 //        } else {
 //            PrintWriter out = response.getWriter();

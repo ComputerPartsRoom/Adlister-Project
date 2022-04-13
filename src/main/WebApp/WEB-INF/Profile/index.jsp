@@ -12,7 +12,60 @@
 <jsp:include page="/WEB-INF/Partials/NavChecker.jsp"/>
 
 
+<br>
+<br>
+<br>
+<br>
+<h1> Here are your posts !</h1>
+
+<c:forEach var="post" items="${posts}">
+    <c:if test="${post.user_id == sessionScope.user.id}">
+        <div class="posts col-4">
+            <p>${post.id}</p>
+            <h2>${post.title}</h2>
+            <p>${post.content}</p>
+            <img src="${post.img}">
+            <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
+            <!-- The Modal -->
+            <div id="myModal${post.id}" class="modal fade" role="dialog" tabindex="-1">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <form action="/profile" method="post">
+                        <input id="Userid" name="Userid" value="${post.user_id}">
+                        <input id="id" name="id" value="${post.id}">
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input id="title" name="title" class="form-control" type="text"
+                                   value="${post.title}">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <input id="content" name="content" class="form-control"
+                                      value="${post.content}">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input id="price" name="price" class="form-control" type="text"
+                                   value="${post.price}">
+                        </div>
+                        <div class="form-group">
+                            <label for="img">Image URL</label>
+                            <input id="img" name="img" class="form-control" type="text" value="${post.img}">
+                        </div>
+
+
 <div id="profileView">
+
 
 
     <div id="profileLeft">
@@ -20,6 +73,9 @@
         <a href="#" id="create">Create Post</a>
         <a href="#" id="messages">Messages</a>
     </div>
+                        <input type="submit" class="btn btn-block btn-primary" name="update">
+                        <button type="submit" class="btn btn-danger" name="delete" value="true">Delete</button>
+
 
 
 
