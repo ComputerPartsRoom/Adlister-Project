@@ -15,4 +15,6 @@ public interface Posts {
     List<Post> sortByCategory(String sort);
 
     void update(Post post);
+
+    void delete(Post post);
 }

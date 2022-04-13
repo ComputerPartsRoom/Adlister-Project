@@ -27,8 +27,7 @@ public class ProfileServlet extends HttpServlet {
     }
 
 
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String username = request.getParameter("username");
         User user = DaoFactory.getUsersDao().findByUsername(username);
@@ -50,10 +49,23 @@ public class ProfileServlet extends HttpServlet {
         System.out.println(request.getParameter("price"));
         System.out.println(request.getParameter("category"));
         System.out.println(request.getParameter("img"));
+//        String update = request.getParameter("update");
 
-       DaoFactory.getPostsDao().update(post);
+//        if (update.equalsIgnoreCase("update") && update != null) {
+//
+//        }
 
-        response.sendRedirect("/profile");
+        String delete = request.getParameter("delete");
+        if (delete != null) {
+            request.setAttribute("update", "delete");
+            DaoFactory.getPostsDao().delete(post);
+            response.sendRedirect("/profile");
+            System.out.println("post.getId() = " + post.getId());
+//        } else if (update.equalsIgnoreCase("update")){
+//            DaoFactory.getPostsDao().update(post);
+//            response.sendRedirect("/profile");
+//        }
+
         }
-
+    }
 }
