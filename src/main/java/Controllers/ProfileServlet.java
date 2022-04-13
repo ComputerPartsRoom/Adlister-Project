@@ -61,18 +61,22 @@ public class ProfileServlet extends HttpServlet {
 //
 //        }
 
-//        String delete = request.getParameter("delete");
-//        if (delete != null) {
-//            request.setAttribute("update", "delete");
-//            DaoFactory.getPostsDao().delete(post);
-//            response.sendRedirect("/profile");
-//            System.out.println("post.getId() = " + post.getId());
-////        } else if (update.equalsIgnoreCase("update")){
-////            DaoFactory.getPostsDao().update(post);
-////            response.sendRedirect("/profile");
-////        }
 
-//        }
+        String updateOrDelete = request.getParameter("updateOrDelete").toUpperCase();
+        System.out.println(updateOrDelete);
+        if (updateOrDelete.equalsIgnoreCase("delete")) {
+            request.setAttribute("update", "delete");
+            DaoFactory.getPostsDao().delete(post);
+            response.sendRedirect("/profile");
+            System.out.println("post.getId() = " + post.getId());
+        } else if (updateOrDelete.equalsIgnoreCase("updatePost")) {
+            DaoFactory.getPostsDao().update(post);
+            response.sendRedirect("/profile");
+        } else if (updateOrDelete.equalsIgnoreCase("updateProfile")){
+            DaoFactory.getUsersDao().update(user2);
+            response.sendRedirect("/profile");
+        }
+
 
     }
 }

@@ -115,9 +115,9 @@
                                         </label>
                                     </div>
 
-                                    <input type="submit" class="btn btn-block btn-primary" name="update">
-                                    <button type="submit" class="btn btn-danger" name="delete" value="true">Delete
-                                    </button>
+
+                                    <input type="submit" class="btn btn-block btn-primary" name="updateOrDelete" value="updatePost">
+                                    <button type="submit" class="btn btn-danger" name="updateOrDelete" value="delete">Delete</button>
 
                                 </form>
                             </div>
