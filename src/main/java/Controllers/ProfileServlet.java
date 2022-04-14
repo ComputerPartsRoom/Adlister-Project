@@ -15,13 +15,9 @@ import java.io.IOException;
 @WebServlet(name = "Controllers.ProfileServlet", urlPatterns = "/profile")
 public class ProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
 
         request.setAttribute("posts", DaoFactory.getPostsDao().all());
-
-
-
 
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
