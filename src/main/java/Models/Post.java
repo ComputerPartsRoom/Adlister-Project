@@ -8,11 +8,12 @@ public class Post {
     private Integer price;
     private long cat_id;
     private String img;
+    private String name;
 
     public Post(){}
 
 
-    public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img) {
+    public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img, String name) {
         this.id = id;
         this.user_id = user_id;
         this.title = title;
@@ -20,6 +21,7 @@ public class Post {
         this.price = price;
         this.cat_id = cat_id;
         this.img = img;
+        this.name = name;
     } //delete or update or pull one constructor [keep the Post.id in there]
 
 
@@ -99,5 +101,13 @@ public class Post {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

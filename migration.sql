@@ -2,12 +2,14 @@ use ComputerPartsRoom_db;
 
 CREATE DATABASE IF NOT EXISTS ComputerPartsRoom_db;
 
-# DROP TABLE IF EXISTS postCategories;
+
 DROP TABLE IF EXISTS posts;
 # DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS profPhoto;
 DROP TABLE IF EXISTS users;
+
+
 
 
 CREATE TABLE IF NOT EXISTS users
@@ -54,14 +56,7 @@ CREATE TABLE IF NOT EXISTS profPhoto
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
-# CREATE TABLE IF NOT EXISTS postCategories
-# (
-#     post_id INT UNSIGNED NOT NULL,
-#     cat_id  INT UNSIGNED NOT NULL,
-#     FOREIGN KEY (post_id) REFERENCES posts (id),
-#     FOREIGN KEY (cat_id) REFERENCES categories (id)
-# );
-#
+
 # CREATE TABLE IF NOT EXISTS messages
 # (
 #     sent_id     INT UNSIGNED NOT NULL,

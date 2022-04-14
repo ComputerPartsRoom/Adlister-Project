@@ -27,7 +27,9 @@ public class MySQLPostsDao implements Posts {
     public List<Post> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM posts;");
+            stmt = connection.prepareStatement("SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, categories.name\n" +
+                    "FROM posts\n" +
+                    "         INNER JOIN categories on posts.cat_id = categories.id;");
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
         } catch (SQLException e) {
@@ -40,6 +42,18 @@ public class MySQLPostsDao implements Posts {
         try {
             stmt = connection.prepareStatement("SELECT * FROM posts WHERE title LIKE ?;");
             stmt.setString(1, "%" + search + "%");
+            ResultSet rs = stmt.executeQuery();
+            return createPostsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all posts.", e);
+        }
+    }
+
+    public List<Post> findByUser(Integer user_id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM posts WHERE posts.user_id LIKE ?;");
+            stmt.setInt(1, user_id);
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
         } catch (SQLException e) {
@@ -89,7 +103,8 @@ public class MySQLPostsDao implements Posts {
                 rs.getString("content"),
                 rs.getInt("price"),
                 rs.getLong("cat_id"),
-                rs.getString("img")
+                rs.getString("img"),
+                rs.getString("name")
         );
     }
 

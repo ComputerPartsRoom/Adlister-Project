@@ -56,7 +56,7 @@ public class MySQLCategoriesDao implements Categories{
     public Category findById(Integer catId) {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM categories WHERE id=?;");
+            stmt = connection.prepareStatement("SELECT name FROM categories WHERE id=?;");
             stmt.setInt(1, catId);
             ResultSet rs = stmt.executeQuery();
             return extractCategories(rs);

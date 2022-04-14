@@ -37,9 +37,10 @@
 <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
         <div class="posts col-4">
-            <p>${post.user_id}</p>
-            <h2>${post.title}</h2>
-            <p>${post.content}</p>
+            <p>Title: ${post.title}</p>
+            <p>Content: ${post.content}</p>
+            <p>Category: ${post.name}</p>
+            <p>$${post.price}</p>
             <img src="${post.img}">
         </div>
     </c:forEach>

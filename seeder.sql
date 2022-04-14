@@ -15,21 +15,19 @@ VALUES ( 'Memory'),
 
 INSERT INTO posts(user_id, title, content, price, cat_id, img)
 VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg'),
-     (1, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg' );
+     (1, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg' ),
+       (1, '2TB HD', 'SunDisk $300', 300,  2, '../Assets/Placeholder.jpeg' );
 
-# INSERT INTO postCategories(post_id, cat_id)
-# VALUES (1, 1 ),
-# (2, 1 ),
-# (2, 2 ),
-# (1, 5 ) ;
 
 
 INSERT INTO profPhoto(url, user_id)
 VALUES ('Assets/PlaceHolder.jpeg', 1 ) ;
-#
-#
-# INSERT INTO messages(sent_id, received_id, content)
-# VALUES ( 1, 2, 'hello') ;
+
+
+# SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, categories.name
+# FROM posts
+#          INNER JOIN categories on posts.cat_id = categories.id;
+
 
 SELECT *
 FROM users;
@@ -39,7 +37,3 @@ SELECT *
 FROM profPhoto;
 SELECT *
 FROM categories;
-# SELECT *
-# FROM postCategories;
-# SELECT *
-# FROM messages;
