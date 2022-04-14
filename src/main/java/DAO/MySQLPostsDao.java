@@ -2,6 +2,7 @@ package DAO;
 
 import Models.Post;
 import com.mysql.cj.jdbc.Driver;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,9 @@ public class MySQLPostsDao implements Posts {
     public List<Post> findByTitle(String search) {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM posts WHERE title LIKE ?;");
+            stmt = connection.prepareStatement("SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, categories.name\n" +
+                    "FROM posts\n" +
+                    "         INNER JOIN categories on posts.cat_id = categories.id WHERE title LIKE ?;");
             stmt.setString(1, "%" + search + "%");
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
@@ -65,7 +68,9 @@ public class MySQLPostsDao implements Posts {
         System.out.println("sort = " + sort);
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM posts WHERE cat_id = ?;");
+            stmt = connection.prepareStatement("SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, categories.name\n" +
+                    "FROM posts\n" +
+                    "         INNER JOIN categories on posts.cat_id = categories.id WHERE cat_id =?;");
             stmt.setString(1, sort);
             ResultSet rs = stmt.executeQuery();
             return createPostsFromResults(rs);
@@ -143,6 +148,7 @@ public class MySQLPostsDao implements Posts {
 
 
     }
+
     public void delete(Post post) {
         try {
             String updateQuery = "DELETE FROM posts WHERE id = ?;";
