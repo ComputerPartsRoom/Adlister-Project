@@ -46,10 +46,11 @@
                         <div id="myModal${post.id}" class="modal fade" role="dialog" tabindex="-1">
 
                             <!-- Modal content -->
-                            <div class="modal-content">--%>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="PostModalLabel">Update Post</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                                </div>
 
                                 <form action="/profile" method="post">
                                     <input hidden id="Userid" name="Userid" value="${post.user_id}">
