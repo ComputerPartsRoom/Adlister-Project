@@ -26,6 +26,12 @@
       <label for="price">Price</label>
       <input id="price" name="price" class="form-control" type="text">
     </div>
+
+<%--    <div class="form-group">--%>
+<%--      <label for="img">Image URL</label>--%>
+<%--      <input id="img" name="img" class="form-control" type="text">--%>
+<%--    </div>--%>
+
     <div class="form-group">
       <label for="inputGroupFile01">Image</label>
       <div class="custom-file">
@@ -33,6 +39,7 @@
         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
       </div>
     </div>
+
 
 
 
@@ -72,6 +79,26 @@
         Storage
       </label>
     </div>
+
+<%--    <div class="form-group">--%>
+<%--      <label for="img">Image URL</label>--%>
+<%--      <input id="img" name="img" class="form-control" type="text">--%>
+<%--    </div>--%>
+
+<%--    <form class="box" method="post" action="/create" enctype="multipart/form-data">--%>
+      <div class="box__input">
+          <label for="img"><strong>Input Image</strong></label>
+        <input class="box__file" type="file" name="img" id="img" data-multiple-caption="{count} files selected" multiple />
+
+      </div>
+<%--    </form>--%>
+
+
+
+
+
+
+
 
 
 
