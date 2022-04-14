@@ -22,6 +22,7 @@ public class ProfileServlet extends HttpServlet {
 
 
 
+
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
@@ -37,11 +38,11 @@ public class ProfileServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
 
-        Integer catId = Integer.parseInt(request.getParameter("catId"));
-        System.out.println(catId);
-        Category category = DaoFactory.getCategoriesDao().findById(catId);
-        request.getSession().setAttribute("category", category);
-        System.out.println(category.getName());
+//        Integer catId = Integer.parseInt(request.getParameter("catId"));
+//        System.out.println(catId);
+//        Category category = DaoFactory.getCategoriesDao().findById(catId);
+//        request.getSession().setAttribute("category", category);
+//        System.out.println(category.getName());
 
 
 

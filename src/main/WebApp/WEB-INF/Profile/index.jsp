@@ -26,31 +26,17 @@
 
 
 
+
+
     <div id="profileRight">
         <h1> Here are your posts !</h1>
 
         <div class="row">
             <c:forEach var="post" items="${posts}">
                 <c:if test="${post.user_id == sessionScope.user.id}">
-                    <div class="posts col-md-6">
-                        <h2>Title: ${post.title}</h2>
+                    <div class="posts col-10">
+                        <p>Title: ${post.title}</p>
                         <p>Content: ${post.content}</p>
-
-                        <form action="/profile" method="post">
-                            <input name="catId" id="catId" value="${post.cat_id}">
-                            <p>Cat: ${category.name}</p>
-                            <button type="submit">Submit</button>
-                        </form>
-
-<%--                        <c:forEach var="category" items="${categories}">--%>
-<%--                            <p>Category: ${category.name}</p>--%>
-<%--                        </c:forEach>--%>
-
-
-<%--                        <p>Cat Name: ${category.name}</p>--%>
-<%--                        <p>Cat_id: ${post.cat_id}</p>--%>
-<%--                        <p>Category: ${post.cat_id.name}</p>--%>
-
 
 
                         <p>$${post.price}</p>

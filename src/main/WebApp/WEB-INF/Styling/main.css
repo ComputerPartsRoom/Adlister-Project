@@ -33,6 +33,7 @@ body{
 /*Posts Starts*/
 .posts{
     border: 2px solid black;
+    width: 75%;
 }
 /*Posts Ends*/
 
@@ -107,16 +108,16 @@ footer{
 }
 
 #profileRight{
+    margin-left: 50px;
+    flex-grow: 2;
     text-align: center;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
-    margin-left: 10px;
 }
 
 #postsDiv {
-    justify-content: center;
-    align-items: center;
+    /*justify-content: center;*/
+    /*align-items: center;*/
 }
 
 /* The Modal (background) */
@@ -143,9 +144,6 @@ footer{
 
 }
 
-.posts{
-    padding: 5px;
-}
 
 
 /*Profile Ends*/
