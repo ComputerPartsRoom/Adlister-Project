@@ -26,10 +26,20 @@
       <label for="price">Price</label>
       <input id="price" name="price" class="form-control" type="text">
     </div>
+
 <%--    <div class="form-group">--%>
 <%--      <label for="img">Image URL</label>--%>
 <%--      <input id="img" name="img" class="form-control" type="text">--%>
 <%--    </div>--%>
+
+    <div class="form-group">
+      <label for="inputGroupFile01">Image</label>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+    </div>
+
 
 
 

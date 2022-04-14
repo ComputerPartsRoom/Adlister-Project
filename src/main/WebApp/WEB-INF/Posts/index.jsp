@@ -16,7 +16,7 @@
 
 
 
-    <form action="/posts" method="post">
+    <form action="/posts/sort" method="post">
     <label for="sortBy">Sort by: </label>
     <select  id="sortBy" class="form-select" aria-label="Default select example" name="sort">
         <option name="category" value="1">Memory</option>
@@ -29,7 +29,7 @@
         <button type="submit" class="btn btn-primary">Go!</button>
     </form>
 
-    <form action="/posts" method="post" >
+    <form action="/posts/search" method="post" >
     <input type="text" name ="search">
         <button class = "btn btn-primary" type="submit">Search</button>
     </form>
