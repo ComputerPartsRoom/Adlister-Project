@@ -1,6 +1,7 @@
 package DAO;
 
 import Models.Category;
+import Models.Post;
 import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 import java.util.ArrayList;
@@ -46,20 +47,22 @@ public class MySQLCategoriesDao implements Categories{
 
     private Category extractCategories(ResultSet rs) throws SQLException {
         return new Category(
-                rs.getLong("id"),
+                rs.getInt("id"),
                 rs.getString("name")
         );
     }
 
 
-    public Category findById(Long id) {
-        String query = "SELECT * FROM categories WHERE id = ? LIMIT 1";
+    public Category findById(Integer catId) {
+        PreparedStatement stmt = null;
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setLong(1, id);
-            return extractCategories(stmt.executeQuery());
+            stmt = connection.prepareStatement("SELECT * FROM categories WHERE id=?;");
+            stmt.setInt(1, catId);
+            ResultSet rs = stmt.executeQuery();
+            return extractCategories(rs);
+
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding a user by id", e);
+            throw new RuntimeException("Error finding a Category by id", e);
         }
     }
 

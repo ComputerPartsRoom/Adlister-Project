@@ -16,10 +16,11 @@ import java.io.IOException;
 public class ProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        User user = (User) request.getSession().getAttribute("user");
         request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
 
         request.setAttribute("posts", DaoFactory.getPostsDao().all());
+
+
 
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
@@ -36,9 +37,11 @@ public class ProfileServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
 
-        Long cat_id = Long.parseLong(request.getParameter("cat_id"));
-        Category category = DaoFactory.getCategoriesDao().findById(cat_id);
+        Integer catId = Integer.parseInt(request.getParameter("catId"));
+        System.out.println(catId);
+        Category category = DaoFactory.getCategoriesDao().findById(catId);
         request.getSession().setAttribute("category", category);
+        System.out.println(category.getName());
 
 
 

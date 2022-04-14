@@ -1,22 +1,22 @@
 package Models;
 
 public class Category {
-    private Long id;
+    private Integer id;
     private String name;
 
     public Category(){};
 
-    public Category (Long id, String name){
+    public Category (Integer id, String name){
         this.id = id;
         this.name = name;
     }
 
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

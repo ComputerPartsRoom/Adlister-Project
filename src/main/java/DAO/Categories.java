@@ -10,5 +10,5 @@ public interface Categories {
 
     List<Category> all();
 
-    Category findById(Long id);
+    Category findById(Integer id);
 }

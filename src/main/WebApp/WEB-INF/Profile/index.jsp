@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,9 +13,7 @@
 <jsp:include page="/WEB-INF/Partials/NavChecker.jsp"/>
 
 
-
 <div id="profileView">
-
 
 
     <div id="profileLeft">
@@ -25,16 +24,35 @@
         <a data-toggle="modal" data-target="#exampleModal">Edit My Profile</a>
     </div>
 
+
+
     <div id="profileRight">
         <h1> Here are your posts !</h1>
+
         <div class="row">
             <c:forEach var="post" items="${posts}">
                 <c:if test="${post.user_id == sessionScope.user.id}">
                     <div class="posts col-md-6">
                         <h2>Title: ${post.title}</h2>
                         <p>Content: ${post.content}</p>
-                        <input hidden name="cat_id" value="${sessionScope.category.name}">
-                        <p>${sessionScope.category.name}</p>
+
+                        <form action="/profile" method="post">
+                            <input name="catId" id="catId" value="${post.cat_id}">
+                            <p>Cat: ${category.name}</p>
+                            <button type="submit">Submit</button>
+                        </form>
+
+<%--                        <c:forEach var="category" items="${categories}">--%>
+<%--                            <p>Category: ${category.name}</p>--%>
+<%--                        </c:forEach>--%>
+
+
+<%--                        <p>Cat Name: ${category.name}</p>--%>
+<%--                        <p>Cat_id: ${post.cat_id}</p>--%>
+<%--                        <p>Category: ${post.cat_id.name}</p>--%>
+
+
+
                         <p>$${post.price}</p>
                         <img src="${post.img}">
                         <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
