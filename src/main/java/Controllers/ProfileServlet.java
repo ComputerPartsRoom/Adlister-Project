@@ -1,6 +1,7 @@
 package Controllers;
 
 import DAO.DaoFactory;
+import Models.Category;
 import Models.Post;
 import Models.User;
 
@@ -15,7 +16,8 @@ import java.io.IOException;
 public class ProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        User user = (User) request.getSession().getAttribute("user");
+//        User user = (User) request.getSession().getAttribute("user");
+        request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
 
         request.setAttribute("posts", DaoFactory.getPostsDao().all());
 
@@ -34,6 +36,9 @@ public class ProfileServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
 
+        Long cat_id = Long.parseLong(request.getParameter("cat_id"));
+        Category category = DaoFactory.getCategoriesDao().findById(cat_id);
+        request.getSession().setAttribute("category", category);
 
 
 
@@ -48,7 +53,6 @@ public class ProfileServlet extends HttpServlet {
                     Integer.parseInt(request.getParameter("category")),
                     request.getParameter("img")
             );
-
             request.setAttribute("update", "delete");
             DaoFactory.getPostsDao().delete(post);
             response.sendRedirect("/profile");
@@ -62,7 +66,6 @@ public class ProfileServlet extends HttpServlet {
                     Integer.parseInt(request.getParameter("category")),
                     request.getParameter("img")
             );
-
             DaoFactory.getPostsDao().update(post);
             response.sendRedirect("/profile");
         } else if (updateOrDelete.equalsIgnoreCase("updateProfile")){
@@ -73,11 +76,9 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("email"),
                     request.getParameter("password")
             );
-
             DaoFactory.getUsersDao().update(user2);
             response.sendRedirect("/profile");
         }else if(updateOrDelete.equalsIgnoreCase("deleteProfile")){
-
             User user2 = new User(
                     Integer.parseInt(request.getParameter("EditId")),
                     username,
@@ -87,9 +88,6 @@ public class ProfileServlet extends HttpServlet {
             DaoFactory.getUsersDao().delete(user2);
             request.getSession().invalidate();
             response.sendRedirect("/register");
-
         }
-
-
     }
 }

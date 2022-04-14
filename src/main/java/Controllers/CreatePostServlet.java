@@ -38,6 +38,6 @@ public class CreatePostServlet extends HttpServlet {
 
         );
         DaoFactory.getPostsDao().insert(post);
-        response.sendRedirect("/posts");
+        response.sendRedirect("/profile");
     }
 }

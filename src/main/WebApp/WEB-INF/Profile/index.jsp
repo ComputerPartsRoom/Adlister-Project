@@ -12,7 +12,9 @@
 <jsp:include page="/WEB-INF/Partials/NavChecker.jsp"/>
 
 
+
 <div id="profileView">
+
 
 
     <div id="profileLeft">
@@ -23,17 +25,17 @@
         <a data-toggle="modal" data-target="#exampleModal">Edit My Profile</a>
     </div>
 
-
     <div id="profileRight">
         <h1> Here are your posts !</h1>
         <div class="row">
             <c:forEach var="post" items="${posts}">
                 <c:if test="${post.user_id == sessionScope.user.id}">
                     <div class="posts col-md-6">
-                        <p>${post.id}</p>
-                        <p>${post.price}</p>
-                        <h2>${post.title}</h2>
-                        <p>${post.content}</p>
+                        <h2>Title: ${post.title}</h2>
+                        <p>Content: ${post.content}</p>
+                        <input hidden name="cat_id" value="${sessionScope.category.name}">
+                        <p>${sessionScope.category.name}</p>
+                        <p>$${post.price}</p>
                         <img src="${post.img}">
                         <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
                         <!-- The Modal -->
@@ -46,12 +48,8 @@
                                 </button>
 
                                 <form action="/profile" method="post">
-
-
                                     <input hidden id="Userid" name="Userid" value="${post.user_id}">
                                     <input hidden id="id" name="id" value="${post.id}">
-
-
                                     <div class="form-group">
                                         <label for="title">Title</label>
                                         <input id="title" name="title" class="form-control" type="text"
@@ -116,10 +114,11 @@
                                         </label>
                                     </div>
 
-
-                                    <input type="submit" class="btn btn-block btn-primary" name="updateOrDelete" value="updatePost">
-                                    <button type="submit" class="btn btn-danger" name="updateOrDelete" value="delete">Delete</button>
-
+                                    <input type="submit" class="btn btn-block btn-primary" name="updateOrDelete"
+                                           value="updatePost">
+                                    <button type="submit" class="btn btn-danger" name="updateOrDelete" value="delete">
+                                        Delete
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -163,8 +162,11 @@
                         <input id="confirm-password" name="confirm-password" class="form-control" type="password">
                     </div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" name="updateOrDelete" value="updateProfile">Save changes</button>
-                    <button type="submit" class="btn btn-danger" name="updateOrDelete" value="deleteProfile">Delete</button>
+                    <button type="submit" class="btn btn-primary" name="updateOrDelete" value="updateProfile">Save
+                        changes
+                    </button>
+                    <button type="submit" class="btn btn-danger" name="updateOrDelete" value="deleteProfile">Delete
+                    </button>
                 </form>
             </div>
 
