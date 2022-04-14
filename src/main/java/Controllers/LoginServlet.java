@@ -29,6 +29,65 @@ public class LoginServlet extends HttpServlet {
 
         boolean validAttempt = false;
 
+        System.out.println("username = " + username);
+        System.out.println("password = " + password);
+        System.out.println("user = " + user);
+
+        System.out.println("username.isEmpty() = " + username.isEmpty());
+        System.out.println("password.isEmpty() = " + password.isEmpty());
+
+        boolean isNull =
+                user == null;
+
+        if (isNull) {
+            PrintWriter out = response.getWriter();
+            response.setContentType("text/html");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('User not found');");
+            out.println("location='/login';");
+            out.println("</script>");
+        }
+        // validate input
+
+        boolean inputHasBlanks =
+                username.isEmpty()
+                        || password.isEmpty()
+                        || (!password.equals(password));
+
+        System.out.println("inputHasBlanks = " + inputHasBlanks);
+
+        if (inputHasBlanks) {
+            System.out.println("\"Hello?\" = " + "Hello?");
+            PrintWriter out = response.getWriter();
+            response.setContentType("text/html");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Blank fields');");
+            out.println("location='/login';");
+            out.println("</script>");
+        }
+        boolean inputHasWrongData =
+                !username.equals(user.getUsername())
+                        || !password.equals(user.getPassword());
+
+
+        System.out.println("inputHasWrongData = " + inputHasWrongData);
+
+
+        if (inputHasWrongData) {
+            PrintWriter out = response.getWriter();
+            response.setContentType("text/html");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Username or Password Incorrect');");
+            out.println("location='/login';");
+            out.println("</script>");
+        }
+        if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+            validAttempt = true;
+        }
+        if (validAttempt) {
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("/profile");
+        }
 
 //        try {
 //            boolean validAttempt = false;
@@ -74,19 +133,19 @@ public class LoginServlet extends HttpServlet {
 //            out.println("location='/login';");
 //            out.println("</script>");
 //        }
-        try {
-            if (user.getPassword().equals(password)) {
-                validAttempt = true;
-            }
-            if (validAttempt) {
-
-                request.getSession().setAttribute("user", user);
-                response.sendRedirect("/profile");
-            } else {
-                response.sendRedirect("/login");
-            }
-        } catch (Exception e) {
-            request.getRequestDispatcher("WEB-INF/UserDoesntExist/index.jsp").forward(request, response);
-        }
+//        try {
+//            if (user.getPassword().equals(password)) {
+//                validAttempt = true;
+//            }
+//            if (validAttempt) {
+//
+//                request.getSession().setAttribute("user", user);
+//                response.sendRedirect("/profile");
+//            } else {
+//                response.sendRedirect("/login");
+//            }
+//        } catch (Exception e) {
+//            request.getRequestDispatcher("WEB-INF/UserDoesntExist/index.jsp").forward(request, response);
+//        }
     }
 }
