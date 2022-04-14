@@ -33,7 +33,6 @@ public class RegisterServlet extends HttpServlet {
 
         User user = DaoFactory.getUsersDao().findByUsername(username);
         User userEmail = DaoFactory.getUsersDao().findByEmail(email);
-        System.out.println(userEmail);
 
 
         if (inputHasErrors) {
