@@ -25,11 +25,10 @@
     </div>
 
 
-
-
-
     <div id="profileRight">
-        <h1> Here are your posts !</h1>
+
+        <h1>Your posts are shown below!</h1>
+
 
         <div class="row">
             <c:forEach var="post" items="${posts}">
@@ -37,8 +36,7 @@
                     <div class="posts col-10">
                         <p>Title: ${post.title}</p>
                         <p>Content: ${post.content}</p>
-
-
+                        <p>Category: ${post.name}</p>
                         <p>$${post.price}</p>
                         <img src="${post.img}">
                         <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
@@ -181,6 +179,13 @@
 </div>
 
 
+
 <jsp:include page="/WEB-INF/Partials/footer.jsp"/>
+
+
+
+
+
+
 </body>
 </html>

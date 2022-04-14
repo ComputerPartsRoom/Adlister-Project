@@ -23,6 +23,7 @@ public class ProfileServlet extends HttpServlet {
 
 
 
+
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
@@ -37,6 +38,7 @@ public class ProfileServlet extends HttpServlet {
         String username = request.getParameter("username");
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
+
 
 //        Integer catId = Integer.parseInt(request.getParameter("catId"));
 //        System.out.println(catId);
@@ -55,7 +57,8 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("content"),
                     Integer.parseInt(request.getParameter("price")),
                     Integer.parseInt(request.getParameter("category")),
-                    request.getParameter("img")
+                    request.getParameter("img"),
+                    request.getParameter("name")
             );
             request.setAttribute("update", "delete");
             DaoFactory.getPostsDao().delete(post);
@@ -68,7 +71,8 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("content"),
                     Integer.parseInt(request.getParameter("price")),
                     Integer.parseInt(request.getParameter("category")),
-                    request.getParameter("img")
+                    request.getParameter("img"),
+                    request.getParameter("name")
             );
             DaoFactory.getPostsDao().update(post);
             response.sendRedirect("/profile");
