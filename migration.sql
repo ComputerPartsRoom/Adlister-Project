@@ -63,5 +63,5 @@ CREATE TABLE IF NOT EXISTS messages
     received_id INT UNSIGNED NOT NULL,
     content     VARCHAR(500),
     FOREIGN KEY (sent_id) REFERENCES users (id),
-    FOREIGN KEY (received_id) REFERENCES users (id)
+    FOREIGN KEY (received_id) REFERENCES posts (user_id)
 );

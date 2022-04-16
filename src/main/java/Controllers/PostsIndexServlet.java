@@ -1,6 +1,7 @@
 package Controllers;
 
 import DAO.DaoFactory;
+import Models.Message;
 import Models.Post;
 import Models.User;
 
@@ -33,6 +34,16 @@ public class PostsIndexServlet extends HttpServlet {
 
         request.setAttribute("posts", DaoFactory.getPostsDao().findByTitle(search));
         request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
+
+        Integer sender = Integer.parseInt(request.getParameter("sender_id"));
+        Integer receiver = Integer.parseInt(request.getParameter("receiver_id"));
+        String content = request.getParameter("content");
+        Message message = new Message(
+          sender,
+                receiver,
+                content
+        );
+        DaoFactory.getMessagesDao().insert(message);
 
 
 //        String sort = request.getParameter("sort");

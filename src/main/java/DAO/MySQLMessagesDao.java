@@ -24,16 +24,35 @@ public class MySQLMessagesDao implements Messages {
         }
     }
 
+//    public List<Message> all() {
+//        PreparedStatement stmt = null;
+//        try {
+//            stmt = connection.prepareStatement("SELECT * FROM messages");
+//            ResultSet rs = stmt.executeQuery();
+//            return createMessagesFromResults(rs);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error retrieving all messages.", e);
+//        }
+//    }
+
+
+
     public List<Message> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM messages");
+            stmt = connection.prepareStatement("SELECT user_id, FROM posts INNER JOIN m");
             ResultSet rs = stmt.executeQuery();
             return createMessagesFromResults(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all posts.", e);
+            throw new RuntimeException("Error retrieving all messages.", e);
         }
     }
+
+
+
+
+
+
 
     private Message extractMessage(ResultSet rs) throws SQLException {
         return new Message(

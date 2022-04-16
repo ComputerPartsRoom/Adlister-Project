@@ -12,16 +12,22 @@ VALUES ( 'Memory'),
     ('Graphics Cards'),
     ('Storage') ;
 
+INSERT INTO posts(user_id, title, content, price, cat_id, img)
+VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg'),
+       (1, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg' ),
+       (1, '2TB HD', 'SunDisk $300', 300,  2, '../Assets/Placeholder.jpeg' ),
+       (2, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg'),
+       (2, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg' ),
+       (2, '2TB HD', 'SunDisk $300', 300,  2, '../Assets/Placeholder.jpeg' );
+
+
+
+
 INSERT INTO messages (sent_id, received_id, content)
 VALUES (1, 2, 'Message from User1 to User2'),
        (2, 1, 'Message from User2 to User1'),
        (1, 2, 'Message from User1 to User2'),
        (2, 1, 'Message from User2 to User1');
-
-INSERT INTO posts(user_id, title, content, price, cat_id, img)
-VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg'),
-     (1, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg' ),
-       (1, '2TB HD', 'SunDisk $300', 300,  2, '../Assets/Placeholder.jpeg' );
 
 
 
