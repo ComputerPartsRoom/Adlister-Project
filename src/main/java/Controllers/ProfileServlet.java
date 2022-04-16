@@ -17,6 +17,8 @@ public class ProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
 
+        request.setAttribute("messages", DaoFactory.getMessagesDao().all());
+
         request.setAttribute("posts", DaoFactory.getPostsDao().all());
 
 
@@ -34,6 +36,9 @@ public class ProfileServlet extends HttpServlet {
         String username = request.getParameter("username");
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
+
+        Integer receiver =Integer.parseInt(request.getParameter("user_id"));
+        request.setAttribute("messages", DaoFactory.getMessagesDao().findByReceiver(receiver));
 
 
 //        Integer catId = Integer.parseInt(request.getParameter("catId"));

@@ -12,6 +12,11 @@ VALUES ( 'Memory'),
     ('Graphics Cards'),
     ('Storage') ;
 
+INSERT INTO messages (sent_id, received_id, content)
+VALUES (1, 2, 'Message from User1 to User2'),
+       (2, 1, 'Message from User2 to User1'),
+       (1, 2, 'Message from User1 to User2'),
+       (2, 1, 'Message from User2 to User1');
 
 INSERT INTO posts(user_id, title, content, price, cat_id, img)
 VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg'),
@@ -37,3 +42,5 @@ SELECT *
 FROM profPhoto;
 SELECT *
 FROM categories;
+SELECT *
+FROM messages;

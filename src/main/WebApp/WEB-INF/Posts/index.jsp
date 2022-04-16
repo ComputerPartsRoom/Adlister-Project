@@ -16,6 +16,8 @@
 
 
 
+
+
     <form action="/posts/sort" method="post">
     <label for="sortBy">Sort by: </label>
     <select  id="sortBy" class="form-select" aria-label="Default select example" name="sort">
@@ -42,8 +44,35 @@
             <p>Category: ${post.name}</p>
             <p>$${post.price}</p>
             <img src="${post.img}">
+            <button id="message" data-toggle="modal" data-target="#messageModal${post.id}">Message</button>
         </div>
+        <div class="modal fade" id="messageModal${post.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Send Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form action="/profile" method="POST">
+                            <input hidden id="SendId" name="SendId" value="${post.user_id}">
+                            <div class="form-group">
+                                <label for="content">Message</label>
+                                <input id="content" name="content" class="form-control" type="text">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </c:forEach>
+
+
 
 </div>
 

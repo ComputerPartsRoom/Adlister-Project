@@ -2,9 +2,9 @@ use ComputerPartsRoom_db;
 
 CREATE DATABASE IF NOT EXISTS ComputerPartsRoom_db;
 
-
+DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS posts;
-# DROP TABLE IF EXISTS messages;
+
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS profPhoto;
 DROP TABLE IF EXISTS users;
@@ -57,11 +57,11 @@ CREATE TABLE IF NOT EXISTS profPhoto
 );
 
 
-# CREATE TABLE IF NOT EXISTS messages
-# (
-#     sent_id     INT UNSIGNED NOT NULL,
-#     received_id INT UNSIGNED NOT NULL,
-#     content     VARCHAR(500),
-#     FOREIGN KEY (sent_id) REFERENCES users (id),
-#     FOREIGN KEY (received_id) REFERENCES users (id)
-# );
+CREATE TABLE IF NOT EXISTS messages
+(
+    sent_id     INT UNSIGNED NOT NULL,
+    received_id INT UNSIGNED NOT NULL,
+    content     VARCHAR(500),
+    FOREIGN KEY (sent_id) REFERENCES users (id),
+    FOREIGN KEY (received_id) REFERENCES users (id)
+);

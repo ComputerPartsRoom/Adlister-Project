@@ -17,14 +17,17 @@ public class PostsIndexServlet extends HttpServlet {
         request.setAttribute("posts", DaoFactory.getPostsDao().all());
         request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
 
-        User user = (User) request.getSession().getAttribute("user");
+        String username = request.getParameter("username");
+        request.setAttribute("user", DaoFactory.getUsersDao().findByUsername(username));
+
+//        User user = (User) request.getSession().getAttribute("user");
 
     }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        User user = (User) request.getSession().getAttribute("user");
+//        User user = (User) request.getSession().getAttribute("user");
 
         String search = request.getParameter("search");
 
