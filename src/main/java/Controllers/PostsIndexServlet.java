@@ -35,11 +35,13 @@ public class PostsIndexServlet extends HttpServlet {
         request.setAttribute("posts", DaoFactory.getPostsDao().findByTitle(search));
         request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
 
+        Integer id = Integer.parseInt(request.getParameter("postId"));
         String sender = request.getParameter("sender_id");
         String receiver = request.getParameter("receiver_id");
         String content = request.getParameter("content");
         Message message = new Message(
-          sender,
+                id,
+                sender,
                 receiver,
                 content
         );

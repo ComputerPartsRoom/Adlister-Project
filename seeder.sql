@@ -23,11 +23,11 @@ VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg', '
 
 
 
-INSERT INTO messages (sent_user, received_user, content)
-VALUES ('User1', 'User2', 'Message from User1 to User2'),
-       ('User2', 'User1', 'Message from User2 to User1'),
-       ('User1', 'User2', 'Message from User1 to User2'),
-       ('User2', 'User1', 'Message from User2 to User1');
+INSERT INTO messages (id, sent_user, received_user, content)
+VALUES (1,'User1', 'User2', 'Message from User1 to User2'),
+       (1,'User2', 'User1', 'Message from User2 to User1'),
+       (1,'User1', 'User2', 'Message from User1 to User2'),
+       (1,'User2', 'User1', 'Message from User2 to User1');
 
 
 

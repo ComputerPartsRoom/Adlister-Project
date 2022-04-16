@@ -1,18 +1,29 @@
 package Models;
 
 public class Message {
-
+    private Integer id;
     private String sent_user;
     private String received_user;
     private String content;
 
     public Message(){}
 
-    public Message (String sent_user, String received_user, String content){
+    public Message(Integer id){
+        this.id = id;
+    }
+
+    public Message (Integer id, String sent_user, String received_user, String content){
+        this.id = id;
         this.sent_user = sent_user;
         this.received_user = received_user;
         this.content = content;
     }
+
+//    public Message (String sent_user, String received_user, String content){
+//        this.sent_user = sent_user;
+//        this.received_user = received_user;
+//        this.content = content;
+//    }
 
 
 
@@ -39,5 +50,13 @@ public class Message {
 
     public void setReceived_user(String received_user) {
         this.received_user = received_user;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

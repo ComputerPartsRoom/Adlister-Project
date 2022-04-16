@@ -38,6 +38,7 @@ public class MySQLMessagesDao implements Messages {
 
     private Message extractMessage(ResultSet rs) throws SQLException {
         return new Message(
+                rs.getInt("id"),
                 rs.getString("sent_user"),
                 rs.getString("received_user"),
                 rs.getString("content")
@@ -55,11 +56,12 @@ public class MySQLMessagesDao implements Messages {
 
     public Long insert(Message message) {
         try {
-            String insertQuery = "INSERT INTO messages(sent_user, received_user, content) VALUES (?, ?, ?);";
+            String insertQuery = "INSERT INTO messages(id, sent_user, received_user, content) VALUES (?, ?, ?, ?);";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, message.getSent_user());
-            stmt.setString(2, message.getReceived_user());
-            stmt.setString(3, message.getContent());
+            stmt.setInt(1, message.getId());
+            stmt.setString(2, message.getSent_user());
+            stmt.setString(3, message.getReceived_user());
+            stmt.setString(4, message.getContent());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -69,6 +71,17 @@ public class MySQLMessagesDao implements Messages {
         }
     }
 
+    public List<Message> findById(Integer id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM messages WHERE messages.id LIKE ?;");
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            return createMessagesFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving messages by sender.", e);
+        }
+    }
 
     public List<Message> findBySender(String sent_user) {
         PreparedStatement stmt = null;
@@ -91,6 +104,23 @@ public class MySQLMessagesDao implements Messages {
             return createMessagesFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving messages by receiver.", e);
+        }
+    }
+
+    public void delete(Message message) {
+        try {
+            String updateQuery = "DELETE FROM messages WHERE id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, message.getId());
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+
+            System.out.println("Message with id " + message.getId() + "has been deleted");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

@@ -65,6 +65,7 @@
                         <form action="/posts" method="POST">
                             <input hidden id="SendId" name="SendId" value="${post.user_id}">
                             <div class="form-group">
+                                <input hidden name="postId" id="postId" value="${post.id}">
                                 <input hidden name="sender_id" id="sender_id" value="${sessionScope.user.username}">
                                 <input hidden name="receiver_id" id="receiver_id" value="${post.username}">
                                 <label for="content">Message</label>

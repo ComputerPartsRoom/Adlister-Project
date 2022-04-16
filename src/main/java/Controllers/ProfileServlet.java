@@ -2,6 +2,7 @@ package Controllers;
 
 import DAO.DaoFactory;
 import Models.Category;
+import Models.Message;
 import Models.Post;
 import Models.User;
 
@@ -61,7 +62,12 @@ public class ProfileServlet extends HttpServlet {
 //                    request.getParameter("img"),
 //                    request.getParameter("name")
             );
+
             request.setAttribute("update", "delete");
+            Message message = new Message(
+             Integer.parseInt(request.getParameter("id"))
+            );
+            DaoFactory.getMessagesDao().delete(message);
             DaoFactory.getPostsDao().delete(post);
             response.sendRedirect("/profile");
         } else if (updateOrDelete.equalsIgnoreCase("updatePost")) {
