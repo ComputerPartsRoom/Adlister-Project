@@ -24,23 +24,10 @@ public class MySQLMessagesDao implements Messages {
         }
     }
 
-//    public List<Message> all() {
-//        PreparedStatement stmt = null;
-//        try {
-//            stmt = connection.prepareStatement("SELECT * FROM messages");
-//            ResultSet rs = stmt.executeQuery();
-//            return createMessagesFromResults(rs);
-//        } catch (SQLException e) {
-//            throw new RuntimeException("Error retrieving all messages.", e);
-//        }
-//    }
-
-
-
     public List<Message> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT user_id, FROM posts INNER JOIN m");
+            stmt = connection.prepareStatement("SELECT * FROM messages");
             ResultSet rs = stmt.executeQuery();
             return createMessagesFromResults(rs);
         } catch (SQLException e) {
@@ -49,15 +36,10 @@ public class MySQLMessagesDao implements Messages {
     }
 
 
-
-
-
-
-
     private Message extractMessage(ResultSet rs) throws SQLException {
         return new Message(
-                rs.getInt("sent_id"),
-                rs.getInt("received_id"),
+                rs.getString("sent_user"),
+                rs.getString("received_user"),
                 rs.getString("content")
         );
     }
@@ -73,10 +55,10 @@ public class MySQLMessagesDao implements Messages {
 
     public Long insert(Message message) {
         try {
-            String insertQuery = "INSERT INTO messages(sent_id, received_id, content) VALUES (?, ?, ?);";
+            String insertQuery = "INSERT INTO messages(sent_user, received_user, content) VALUES (?, ?, ?);";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setInt(1, message.getSent_id());
-            stmt.setInt(2, message.getReceived_id());
+            stmt.setString(1, message.getSent_user());
+            stmt.setString(2, message.getReceived_user());
             stmt.setString(3, message.getContent());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
@@ -88,11 +70,11 @@ public class MySQLMessagesDao implements Messages {
     }
 
 
-    public List<Message> findBySender(Integer sent_id) {
+    public List<Message> findBySender(String sent_user) {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM messages WHERE messages.sent_id LIKE ?;");
-            stmt.setInt(1, sent_id);
+            stmt = connection.prepareStatement("SELECT * FROM messages WHERE messages.sent_user LIKE ?;");
+            stmt.setString(1, sent_user);
             ResultSet rs = stmt.executeQuery();
             return createMessagesFromResults(rs);
         } catch (SQLException e) {
@@ -100,11 +82,11 @@ public class MySQLMessagesDao implements Messages {
         }
     }
 
-    public List<Message> findByReceiver(Integer received_id) {
+    public List<Message> findByReceiver(String received_user) {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM messages WHERE messages.received_id LIKE ?;");
-            stmt.setInt(1, received_id);
+            stmt = connection.prepareStatement("SELECT * FROM messages WHERE messages.received_user LIKE ?;");
+            stmt.setString(1, received_user);
             ResultSet rs = stmt.executeQuery();
             return createMessagesFromResults(rs);
         } catch (SQLException e) {

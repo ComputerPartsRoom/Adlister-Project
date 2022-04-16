@@ -39,8 +39,10 @@
 <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
         <div class="posts col-4">
+
             <p>Title: ${post.title}</p>
             <p>Content: ${post.content}</p>
+            <p>Cat ID: ${post.cat_id}</p>
             <p>Category: ${post.name}</p>
             <p>$${post.price}</p>
             <img src="${post.img}">
@@ -64,7 +66,7 @@
                             <input hidden id="SendId" name="SendId" value="${post.user_id}">
                             <div class="form-group">
                                 <input hidden name="sender_id" id="sender_id" value="${sessionScope.user.username}">
-                                <input hidden name="receiver_id" id="receiver_id" value="${post.user_id}">
+                                <input hidden name="receiver_id" id="receiver_id" value="${post.username}">
                                 <label for="content">Message</label>
                                 <input id="content" name="content" class="form-control" type="text">
                                 <button type="submit" class="btn btn-primary">Send</button>

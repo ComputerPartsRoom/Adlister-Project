@@ -37,7 +37,7 @@ public class ProfileServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
 
-        Integer receiver = Integer.parseInt(request.getParameter("user_id"));
+        String receiver = request.getParameter("username");
         request.setAttribute("messages", DaoFactory.getMessagesDao().findByReceiver(receiver));
 
 
@@ -52,14 +52,14 @@ public class ProfileServlet extends HttpServlet {
         String updateOrDelete = request.getParameter("updateOrDelete").toUpperCase();
         if (updateOrDelete.equalsIgnoreCase("delete")) {
             Post post = new Post(
-                    Integer.parseInt(request.getParameter("id")),
-                    Integer.parseInt(request.getParameter("Userid")),
-                    request.getParameter("title"),
-                    request.getParameter("content"),
-                    Integer.parseInt(request.getParameter("price")),
-                    Integer.parseInt(request.getParameter("category")),
-                    request.getParameter("img"),
-                    request.getParameter("name")
+                    Integer.parseInt(request.getParameter("id"))
+//                    Integer.parseInt(request.getParameter("Userid")),
+//                    request.getParameter("title"),
+//                    request.getParameter("content"),
+//                    Integer.parseInt(request.getParameter("price")),
+//                    Integer.parseInt(request.getParameter("category")),
+//                    request.getParameter("img"),
+//                    request.getParameter("name")
             );
             request.setAttribute("update", "delete");
             DaoFactory.getPostsDao().delete(post);

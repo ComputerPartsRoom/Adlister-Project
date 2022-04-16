@@ -13,7 +13,7 @@
 <div class="container">
   <h1>Create a new Ad</h1>
   <form action="/create" method="post">
-
+<%--<input id="username" value="${sessionScope.user.username}">--%>
     <div class="form-group">
       <label for="title">Title</label>
       <input id="title" name="title" class="form-control" type="text">

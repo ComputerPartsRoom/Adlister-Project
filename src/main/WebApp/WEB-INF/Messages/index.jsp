@@ -12,9 +12,9 @@
 <div id="Received">
     <h2>Received Messages</h2>
 <c:forEach var="message" items="${messages}">
-    <c:if test="${message.received_id == sessionScope.user.id}">
-        <p>Sender Id: ${message.sent_id}</p>
-        <p>Receiver Id: ${message.received_id}</p>
+    <c:if test="${message.received_user == sessionScope.user.username}">
+        <p>Sender Id: ${message.sent_user}</p>
+        <p>Receiver Id: ${message.received_user}</p>
         <p>Content: ${message.content}</p>
     </c:if>
 </c:forEach>
@@ -23,9 +23,9 @@
 <div id="Sent">
     <h2>Sent Messages</h2>
     <c:forEach var="message" items="${messages}">
-        <c:if test="${message.sent_id == sessionScope.user.id}">
-            <p>Sender Id: ${message.sent_id}</p>
-            <p>Receiver Id: ${message.received_id}</p>
+        <c:if test="${message.sent_user == sessionScope.user.username}">
+            <p>Sender Id: ${message.sent_user}</p>
+            <p>Receiver Id: ${message.received_user}</p>
             <p>Content: ${message.content}</p>
         </c:if>
     </c:forEach>

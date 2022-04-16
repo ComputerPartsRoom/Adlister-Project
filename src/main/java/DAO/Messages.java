@@ -11,8 +11,8 @@ public interface Messages {
 
     Long insert (Message message);
 
-    List<Message> findBySender(Integer sent_id);
+    List<Message> findBySender(String sent_user);
 
-    List<Message> findByReceiver(Integer received_id);
+    List<Message> findByReceiver(String received_user);
 
 }

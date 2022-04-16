@@ -50,7 +50,9 @@
                         <div class="posts col-10">
                             <p>Title: ${post.title}</p>
                             <p>Content: ${post.content}</p>
+                            <p>Cat ID: ${post.cat_id}</p>
                             <p>Category: ${post.name}</p>
+                            <p>Username: ${post.username}</p>
                             <p>$${post.price}</p>
                             <img src="${post.img}">
                             <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
@@ -73,6 +75,8 @@
                                             <form action="/profile" method="post">
                                                 <input hidden id="Userid" name="Userid" value="${post.user_id}">
                                                 <input hidden id="id" name="id" value="${post.id}">
+                                                <input hidden id="Postusername" value="${post.username}">
+                                                <input id="Category" value="${post.cat_id}">
                                                 <div class="form-group">
                                                     <label for="title">Title</label>
                                                     <input id="title" name="title" class="form-control" type="text"
