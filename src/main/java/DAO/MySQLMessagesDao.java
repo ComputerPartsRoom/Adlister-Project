@@ -95,6 +95,7 @@ public class MySQLMessagesDao implements Messages {
         }
     }
 
+
     public List<Message> findByReceiver(String received_user) {
         PreparedStatement stmt = null;
         try {
@@ -107,16 +108,16 @@ public class MySQLMessagesDao implements Messages {
         }
     }
 
-    public void delete(Message message) {
+    public void delete(Integer id) {
         try {
             String updateQuery = "DELETE FROM messages WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, message.getId());
+            stmt.setLong(1, id);
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
 
-            System.out.println("Message with id " + message.getId() + "has been deleted");
+            System.out.println("Message with id " + id + " has been deleted");
 
         } catch (SQLException e) {
             e.printStackTrace();

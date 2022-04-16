@@ -39,7 +39,7 @@
 <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
         <div class="posts col-4">
-
+<p>ID: ${post.id}</p>
             <p>Title: ${post.title}</p>
             <p>Content: ${post.content}</p>
             <p>Cat ID: ${post.cat_id}</p>

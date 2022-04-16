@@ -53,22 +53,26 @@ public class ProfileServlet extends HttpServlet {
         String updateOrDelete = request.getParameter("updateOrDelete").toUpperCase();
         if (updateOrDelete.equalsIgnoreCase("delete")) {
             Post post = new Post(
-                    Integer.parseInt(request.getParameter("id"))
-//                    Integer.parseInt(request.getParameter("Userid")),
-//                    request.getParameter("title"),
-//                    request.getParameter("content"),
-//                    Integer.parseInt(request.getParameter("price")),
-//                    Integer.parseInt(request.getParameter("category")),
-//                    request.getParameter("img"),
-//                    request.getParameter("name")
+                    Integer.parseInt(request.getParameter("id")),
+                    Integer.parseInt(request.getParameter("Userid")),
+                    request.getParameter("title"),
+                    request.getParameter("content"),
+                    Integer.parseInt(request.getParameter("price")),
+                    Integer.parseInt(request.getParameter("category")),
+                    request.getParameter("img"),
+                    request.getParameter("name")
             );
 
             request.setAttribute("update", "delete");
+            Integer id = Integer.parseInt(request.getParameter("postId"));
+
             Message message = new Message(
-             Integer.parseInt(request.getParameter("id"))
+                    id
+
             );
             DaoFactory.getMessagesDao().delete(message);
             DaoFactory.getPostsDao().delete(post);
+            System.out.println("message with postId of" + id + "was deleted");
             response.sendRedirect("/profile");
         } else if (updateOrDelete.equalsIgnoreCase("updatePost")) {
             Post post = new Post(
