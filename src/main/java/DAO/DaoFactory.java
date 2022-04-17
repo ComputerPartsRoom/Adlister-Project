@@ -5,6 +5,7 @@ public class DaoFactory {
     private static Config config = new Config();
     private static Users usersDao;
     private static Categories categoriesDao;
+    private static Messages messagesDao;
 
 
     public static Posts getPostsDao() {
@@ -26,5 +27,12 @@ public class DaoFactory {
             categoriesDao = new MySQLCategoriesDao(config);
         }
         return categoriesDao;
+    }
+
+    public static Messages getMessagesDao(){
+        if(messagesDao == null){
+            messagesDao = new MySQLMessagesDao(config);
+        }
+        return messagesDao;
     }
 }

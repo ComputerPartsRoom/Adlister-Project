@@ -16,6 +16,8 @@
 
 
 
+
+
     <form action="/posts/sort" method="post">
     <label for="sortBy">Sort by: </label>
     <select  id="sortBy" class="form-select" aria-label="Default select example" name="sort">
@@ -37,13 +39,48 @@
 <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
         <div class="posts col-4">
+<p>ID: ${post.id}</p>
             <p>Title: ${post.title}</p>
             <p>Content: ${post.content}</p>
+            <p>Cat ID: ${post.cat_id}</p>
             <p>Category: ${post.name}</p>
             <p>$${post.price}</p>
             <img src="${post.img}">
+            <c:if test="${post.user_id != sessionScope.user.id}">
+            <button id="message" data-toggle="modal" data-target="#messageModal${post.id}">Message</button>
+            </c:if>
         </div>
+        <div class="modal fade" id="messageModal${post.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Send Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form action="/posts" method="POST">
+                            <input hidden id="SendId" name="SendId" value="${post.user_id}">
+                            <div class="form-group">
+                                <input hidden name="postId" id="postId" value="${post.id}">
+                                <input hidden name="sender_id" id="sender_id" value="${sessionScope.user.username}">
+                                <input hidden name="receiver_id" id="receiver_id" value="${post.username}">
+                                <label for="content">Message</label>
+                                <input id="content" name="content" class="form-control" type="text">
+                                <button type="submit" class="btn btn-primary">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </c:forEach>
+
+
 
 </div>
 

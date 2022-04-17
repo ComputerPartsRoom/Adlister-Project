@@ -1,6 +1,7 @@
 package Controllers;
 
 import DAO.DaoFactory;
+import Models.Message;
 import Models.Post;
 import Models.User;
 
@@ -17,19 +18,35 @@ public class PostsIndexServlet extends HttpServlet {
         request.setAttribute("posts", DaoFactory.getPostsDao().all());
         request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
 
-        User user = (User) request.getSession().getAttribute("user");
+        String username = request.getParameter("username");
+        request.setAttribute("user", DaoFactory.getUsersDao().findByUsername(username));
+
+//        User user = (User) request.getSession().getAttribute("user");
 
     }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        User user = (User) request.getSession().getAttribute("user");
+//        User user = (User) request.getSession().getAttribute("user");
 
         String search = request.getParameter("search");
 
         request.setAttribute("posts", DaoFactory.getPostsDao().findByTitle(search));
         request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
+
+        Integer id = Integer.parseInt(request.getParameter("postId"));
+        String sender = request.getParameter("sender_id");
+        String receiver = request.getParameter("receiver_id");
+        String content = request.getParameter("content");
+        Message message = new Message(
+                id,
+                sender,
+                receiver,
+                content
+        );
+        DaoFactory.getMessagesDao().insert(message);
+        response.sendRedirect("/posts");
 
 
 //        String sort = request.getParameter("sort");

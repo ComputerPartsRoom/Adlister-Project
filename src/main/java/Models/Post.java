@@ -9,9 +9,27 @@ public class Post {
     private long cat_id;
     private String img;
     private String name;
+    private String username;
 
     public Post(){}
 
+    public Post(long id){
+        this.id = id;
+    }
+
+
+//    public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img, String name, String username) {
+//        this.id = id;
+//        this.user_id = user_id;
+//        this.title = title;
+//        this.content = content;
+//        this.price = price;
+//        this.cat_id = cat_id;
+//        this.img = img;
+//        this.name = name;
+//        this.username =username;
+//
+//    } //delete or update or pull one constructor [keep the Post.id in there]
 
     public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img, String name) {
         this.id = id;
@@ -24,14 +42,27 @@ public class Post {
         this.name = name;
     } //delete or update or pull one constructor [keep the Post.id in there]
 
-
-    public Post(long user_id, String title, String content, Integer price, long cat_id, String img) {
+    public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img, String name, String username) {
+        this.id = id;
         this.user_id = user_id;
         this.title = title;
         this.content = content;
         this.price = price;
         this.cat_id = cat_id;
         this.img = img;
+        this.name = name;
+        this.username = username;
+    } //delete or update or pull one constructor [keep the Post.id in there]
+
+    public Post(long user_id, String title, String content, Integer price, long cat_id, String img, String name, String username) {
+        this.user_id = user_id;
+        this.title = title;
+        this.content = content;
+        this.price = price;
+        this.cat_id = cat_id;
+        this.img = img;
+        this.name = name;
+        this.username = username;
     } //'C' constructor [make a new entity w/o the Post.id]
 
 //    public Post(long id, String title, String content, Integer price, Integer cat_id, String img) {
@@ -109,5 +140,13 @@ public class Post {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -2,7 +2,9 @@ use ComputerPartsRoom_db;
 
 INSERT INTO users(username, email, password)
 VALUES ('User1', 'bvcyuwd@email.com', 'pass'),
-       ('User2', 'vebrver@email.com', 'pass')
+       ('User2', 'vebrver@email.com', 'pass'),
+       ('User3', 'bbhubnih@email.com', 'pass'),
+       ('User4', 'niunbhbgu@email.com', 'pass')
 ;
 INSERT INTO categories (name)
 VALUES ( 'Memory'),
@@ -12,11 +14,40 @@ VALUES ( 'Memory'),
     ('Graphics Cards'),
     ('Storage') ;
 
+INSERT INTO posts(user_id, title, content, price, cat_id, img, username)
+VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg', 'User1'),
+       (1, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg', 'User1' ),
+       (1, '2TB HD', 'SunDisk $300', 300,  2, '../Assets/Placeholder.jpeg', 'User1' ),
+       (2, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg', 'User2'),
+       (2, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg', 'User2' ),
+       (2, '2TB HD', 'SunDisk $300', 300,  2, '../Assets/Placeholder.jpeg', 'User2' ),
+       (3, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg', 'User3'),
+       (3, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg', 'User3' ),
+       (3, '2TB HD', 'SunDisk $300', 300,  2, '../Assets/Placeholder.jpeg', 'User3' ),
+       (4, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg', 'User4'),
+       (4, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg', 'User4' ),
+       (4, '2TB HD', 'SunDisk $300', 300,  2, '../Assets/Placeholder.jpeg', 'User4' );
 
-INSERT INTO posts(user_id, title, content, price, cat_id, img)
-VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg'),
-     (1, '2TB HD', 'SunDisk $300', 300,  1, '../Assets/Placeholder.jpeg' ),
-       (1, '2TB HD', 'SunDisk $300', 300,  2, '../Assets/Placeholder.jpeg' );
+
+
+
+INSERT INTO messages (id, sent_user, received_user, content)
+VALUES (1,'User3', 'User1', 'Message from User1 to User2'),
+       (2,'User2', 'User1', 'Message from User2 to User1'),
+       (3,'User3', 'User1', 'Message from User1 to User2'),
+       (4,'User1', 'User2', 'Message from User2 to User1'),
+       (5,'User1', 'User2', 'Message from User1 to User2'),
+       (6,'User3', 'User2', 'Message from User2 to User1'),
+       (7,'User1', 'User3', 'Message from User1 to User2'),
+       (8,'User2', 'User3', 'Message from User2 to User1'),
+       (9,'User1', 'User3', 'Message from User1 to User2'),
+       (10,'User2', 'User4', 'Message from User2 to User1'),
+       (11,'User1', 'User4', 'Message from User1 to User2'),
+       (12,'User2', 'User4', 'Message from User2 to User1'),
+       (1,'User3', 'User1', 'Message from User1 to User2'),
+       (5,'User1', 'User2', 'Message from User2 to User1'),
+       (3,'User2', 'User1', 'Message from User1 to User2'),
+       (4,'User3', 'User2', 'Message from User2 to User1');
 
 
 
@@ -37,3 +68,5 @@ SELECT *
 FROM profPhoto;
 SELECT *
 FROM categories;
+SELECT *
+FROM messages;

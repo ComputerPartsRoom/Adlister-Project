@@ -2,6 +2,7 @@ package Controllers;
 
 import DAO.DaoFactory;
 import Models.Category;
+import Models.Message;
 import Models.Post;
 import Models.User;
 
@@ -16,6 +17,8 @@ import java.io.IOException;
 public class ProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
+
+        request.setAttribute("messages", DaoFactory.getMessagesDao().all());
 
         request.setAttribute("posts", DaoFactory.getPostsDao().all());
 
@@ -34,6 +37,9 @@ public class ProfileServlet extends HttpServlet {
         String username = request.getParameter("username");
         User user = DaoFactory.getUsersDao().findByUsername(username);
         request.getSession().setAttribute("user", user);
+
+        String receiver = request.getParameter("username");
+        request.setAttribute("messages", DaoFactory.getMessagesDao().findByReceiver(receiver));
 
 
 //        Integer catId = Integer.parseInt(request.getParameter("catId"));
@@ -56,9 +62,18 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("img"),
                     request.getParameter("name")
             );
+
             request.setAttribute("update", "delete");
+            Integer id = Integer.parseInt(request.getParameter("postId"));
+
+            Message message = new Message(
+                    id
+            );
+            DaoFactory.getMessagesDao().delete(message);
             DaoFactory.getPostsDao().delete(post);
+            System.out.println("message with postId of" + id + "was deleted");
             response.sendRedirect("/profile");
+
         } else if (updateOrDelete.equalsIgnoreCase("updatePost")) {
             Post post = new Post(
                     Integer.parseInt(request.getParameter("id")),
