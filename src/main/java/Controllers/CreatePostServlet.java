@@ -9,8 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 
 @WebServlet(name = "Controllers.CreatePostServlet", urlPatterns = "/create")
 public class CreatePostServlet extends HttpServlet {
@@ -23,9 +26,10 @@ public class CreatePostServlet extends HttpServlet {
                 .forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         User user = (User) request.getSession().getAttribute("user");
+
 
         Integer categoryOfPost = Integer.parseInt(request.getParameter("Category"));
 
@@ -41,10 +45,14 @@ public class CreatePostServlet extends HttpServlet {
         );
 
 
-        File img = new File(request.getParameter("img"));
-        System.out.println(img);
-        String absolutePath = request.getServletContext().getRealPath("");
-        System.out.println(absolutePath);
+//        File uploads = new File("/Users/macbook/IdeaProjects/Adlister-Project/Adlister-Project/main/Assets");
+//        File img = new File(uploads, request.getParameter("img"));
+//
+//        Part part = request.getPart("file");
+//
+//        try (InputStream input = part.getInputStream()) {
+//            Files.copy(input, img.toPath());
+//        }
 
 
         DaoFactory.getPostsDao().insert(post);

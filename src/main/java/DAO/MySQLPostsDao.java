@@ -142,9 +142,9 @@ public class MySQLPostsDao implements Posts {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-
-
     }
+
+
     public void delete(Post post) {
         try {
             String updateQuery = "DELETE FROM posts WHERE id = ?;";

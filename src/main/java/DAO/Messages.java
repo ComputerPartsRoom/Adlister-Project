@@ -15,6 +15,8 @@ public interface Messages {
 
     void delete (Message message);
 
+    void update (Message message);
+
     List<Message> findBySender(String sent_user);
 
     List<Message> findByReceiver(String received_user);

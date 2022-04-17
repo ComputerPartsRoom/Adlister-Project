@@ -4,7 +4,6 @@ CREATE DATABASE IF NOT EXISTS ComputerPartsRoom_db;
 
 DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS posts;
-
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS profPhoto;
 DROP TABLE IF EXISTS users;
@@ -49,14 +48,6 @@ CREATE TABLE IF NOT EXISTS posts
 );
 
 
-CREATE TABLE IF NOT EXISTS profPhoto
-(
-    id      INT UNSIGNED NOT NULL DEFAULT 1,
-    url     VARCHAR(1000),
-    user_id INT UNSIGNED NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users (id)
-);
 
 
 CREATE TABLE IF NOT EXISTS messages
@@ -66,4 +57,7 @@ CREATE TABLE IF NOT EXISTS messages
     received_user VARCHAR(100),
     content     VARCHAR(500),
     FOREIGN KEY (id) REFERENCES posts (id)
+#     FOREIGN KEY (sent_user) REFERENCES users (username),
+#     FOREIGN KEY (received_user) REFERENCES users (username)
+
 );

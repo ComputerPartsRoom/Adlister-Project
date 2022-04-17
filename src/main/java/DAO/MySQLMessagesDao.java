@@ -125,4 +125,24 @@ public class MySQLMessagesDao implements Messages {
     }
 
 
+    public void update(Message message) {
+        try {
+            String updateQuery = "UPDATE messages SET sent_user=?, received_user=? WHERE sent_user=?;";
+
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, message.getSent_user());
+            stmt.setString(2, message.getReceived_user());
+            stmt.setString(3, message.getSent_user());
+
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+
+    }
 }
