@@ -33,21 +33,20 @@ VALUES (1, '500GB SSD', 'SunDisk $500', 500,  1, '../Assets/PlaceHolder.jpeg', '
 
 INSERT INTO messages (id, sent_user, received_user, content)
 VALUES (1,'User3', 'User1', 'Message from User1 to User2'),
-       (2,'User2', 'User1', 'Message from User2 to User1'),
-       (3,'User3', 'User1', 'Message from User1 to User2'),
-       (4,'User1', 'User2', 'Message from User2 to User1'),
-       (5,'User1', 'User2', 'Message from User1 to User2'),
-       (6,'User3', 'User2', 'Message from User2 to User1'),
-       (7,'User1', 'User3', 'Message from User1 to User2'),
-       (8,'User2', 'User3', 'Message from User2 to User1'),
-       (9,'User1', 'User3', 'Message from User1 to User2'),
-       (10,'User2', 'User4', 'Message from User2 to User1'),
-       (11,'User1', 'User4', 'Message from User1 to User2'),
-       (12,'User2', 'User4', 'Message from User2 to User1'),
+       (1,'User2', 'User1', 'Message from User2 to User1'),
        (1,'User3', 'User1', 'Message from User1 to User2'),
-       (5,'User1', 'User2', 'Message from User2 to User1'),
-       (3,'User2', 'User1', 'Message from User1 to User2'),
-       (4,'User3', 'User2', 'Message from User2 to User1');
+       (2,'User1', 'User2', 'Message from User2 to User1'),
+       (2,'User1', 'User2', 'Message from User1 to User2'),
+       (2,'User3', 'User2', 'Message from User2 to User1'),
+       (2,'User1', 'User3', 'Message from User1 to User2'),
+       (3,'User2', 'User3', 'Message from User2 to User1'),
+       (3,'User1', 'User3', 'Message from User1 to User2'),
+       (3,'User2', 'User4', 'Message from User2 to User1'),
+       (3,'User1', 'User4', 'Message from User1 to User2'),
+       (3,'User2', 'User4', 'Message from User2 to User1'),
+       (3,'User3', 'User1', 'Message from User1 to User2'),
+       (2,'User2', 'User1', 'Message from User1 to User2'),
+       (3,'User3', 'User2', 'Message from User2 to User1');
 
 
 
@@ -62,11 +61,12 @@ VALUES ('Assets/PlaceHolder.jpeg', 1 ) ;
 
 SELECT *
 FROM users;
-SELECT *
-FROM posts;
+
 SELECT *
 FROM profPhoto;
 SELECT *
 FROM categories;
 SELECT *
 FROM messages;
+SELECT *
+FROM posts;

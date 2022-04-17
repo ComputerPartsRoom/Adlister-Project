@@ -19,11 +19,6 @@ public class Message {
         this.content = content;
     }
 
-//    public Message (String sent_user, String received_user, String content){
-//        this.sent_user = sent_user;
-//        this.received_user = received_user;
-//        this.content = content;
-//    }
 
 
 

@@ -64,7 +64,7 @@ public class ProfileServlet extends HttpServlet {
             );
 
             request.setAttribute("update", "delete");
-            Integer id = Integer.parseInt(request.getParameter("postId"));
+            Integer id = Integer.parseInt(request.getParameter("id"));
 
             Message message = new Message(
                     id
