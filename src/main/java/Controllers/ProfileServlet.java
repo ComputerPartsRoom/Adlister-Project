@@ -36,7 +36,7 @@ public class ProfileServlet extends HttpServlet {
 
         String username = request.getParameter("username");
         User user = DaoFactory.getUsersDao().findByUsername(username);
-        request.getSession().setAttribute("user", user);
+        User user0 = (User) request.getSession().getAttribute("user");
 
         String receiver = request.getParameter("username");
         request.setAttribute("messages", DaoFactory.getMessagesDao().findByReceiver(receiver));
