@@ -18,5 +18,6 @@ public interface Posts {
 
     void update(Post post);
 
+
     void delete(Post post);
 }

@@ -64,7 +64,7 @@ public class ProfileServlet extends HttpServlet {
             );
 
             request.setAttribute("update", "delete");
-            Integer id = Integer.parseInt(request.getParameter("postId"));
+            Integer id = Integer.parseInt(request.getParameter("id"));
 
             Message message = new Message(
                     id
@@ -87,6 +87,7 @@ public class ProfileServlet extends HttpServlet {
             );
             DaoFactory.getPostsDao().update(post);
             response.sendRedirect("/profile");
+
         } else if (updateOrDelete.equalsIgnoreCase("updateProfile")){
 
             User user2 = new User(
@@ -95,8 +96,23 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("email"),
                     request.getParameter("password")
             );
+
+//            Post post = new Post(
+//
+//            );
+//
+//            Message msg = new Message(
+//                    user2.getUsername()
+//            );
+
+//            DaoFactory.getMessagesDao().update(msg);
+//            DaoFactory.getPostsDao().updateName(post);
             DaoFactory.getUsersDao().update(user2);
+
+
             response.sendRedirect("/profile");
+
+
         }else if(updateOrDelete.equalsIgnoreCase("deleteProfile")){
             User user2 = new User(
                     Integer.parseInt(request.getParameter("EditId")),

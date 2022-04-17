@@ -12,7 +12,7 @@
 
 <div class="container">
   <h1>Create a new Ad</h1>
-  <form action="/create" method="post">
+  <form action="/create" method="post" >
 <%--<input id="username" value="${sessionScope.user.username}">--%>
     <div class="form-group">
       <label for="title">Title</label>
@@ -80,18 +80,6 @@
       </label>
     </div>
 
-<%--    <div class="form-group">--%>
-<%--      <label for="img">Image URL</label>--%>
-<%--      <input id="img" name="img" class="form-control" type="text">--%>
-<%--    </div>--%>
-
-<%--    <form class="box" method="post" action="/create" enctype="multipart/form-data">--%>
-      <div class="box__input">
-          <label for="img"><strong>Input Image</strong></label>
-        <input class="box__file" type="file" name="img" id="img" data-multiple-caption="{count} files selected" multiple />
-
-      </div>
-<%--    </form>--%>
 
 
 
@@ -102,7 +90,30 @@
 
 
 
-    <input type="submit" class="btn btn-block btn-primary">
+
+
+        <div class="box__input">
+
+            <label for="img"><strong>Input Image</strong></label>
+
+            <input class="box__file" type="file" name="img" id="img" data-multiple-caption="{count} files selected" multiple />
+
+        </div>
+        <input type="submit" class="btn btn-block btn-primary">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </form>
 </div>
 

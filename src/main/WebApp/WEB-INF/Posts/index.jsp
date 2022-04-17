@@ -63,7 +63,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="/posts" method="POST">
-                            <input hidden id="SendId" name="SendId" value="${post.user_id}">
+<%--                            <input hidden id="SendId" name="SendId" value="${post.user_id}">--%>
                             <div class="form-group">
                                 <input hidden name="postId" id="postId" value="${post.id}">
                                 <input hidden name="sender_id" id="sender_id" value="${sessionScope.user.username}">
