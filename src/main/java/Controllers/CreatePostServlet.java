@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 
 @WebServlet(name = "Controllers.CreatePostServlet", urlPatterns = "/create")
@@ -38,6 +39,14 @@ public class CreatePostServlet extends HttpServlet {
                 request.getParameter("name"),
                 user.getUsername()
         );
+
+
+        File img = new File(request.getParameter("img"));
+        System.out.println(img);
+        String absolutePath = request.getServletContext().getRealPath("");
+        System.out.println(absolutePath);
+
+
         DaoFactory.getPostsDao().insert(post);
         response.sendRedirect("/profile");
     }
