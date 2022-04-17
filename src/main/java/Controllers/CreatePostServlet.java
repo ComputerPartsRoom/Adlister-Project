@@ -34,8 +34,9 @@ public class CreatePostServlet extends HttpServlet {
                 request.getParameter("content"),
                 Integer.parseInt(request.getParameter("price")),
                 categoryOfPost,
-                request.getParameter("img")
-
+                request.getParameter("img"),
+                request.getParameter("name"),
+                user.getUsername()
         );
         DaoFactory.getPostsDao().insert(post);
         response.sendRedirect("/profile");

@@ -28,16 +28,8 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">About Us</h5>
-                <p class="card-text">About the Team</p>
-                <a href="#" class="btn btn-primary">Meet Team</a>
-            </div>
-        </div>
-    </div>
 </div>
+
 
 
 <jsp:include page="/WEB-INF/Partials/footer.jsp" />
