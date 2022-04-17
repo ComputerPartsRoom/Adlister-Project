@@ -66,7 +66,4 @@ CREATE TABLE IF NOT EXISTS messages
     received_user VARCHAR(100),
     content     VARCHAR(500),
     FOREIGN KEY (id) REFERENCES posts (id)
-#     FOREIGN KEY (sent_user) REFERENCES users (username),
-#     FOREIGN KEY (received_user) REFERENCES posts (username)
-#         ON DELETE CASCADE
 );
