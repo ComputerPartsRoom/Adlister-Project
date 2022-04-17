@@ -68,12 +68,12 @@ public class ProfileServlet extends HttpServlet {
 
             Message message = new Message(
                     id
-
             );
             DaoFactory.getMessagesDao().delete(message);
             DaoFactory.getPostsDao().delete(post);
             System.out.println("message with postId of" + id + "was deleted");
             response.sendRedirect("/profile");
+
         } else if (updateOrDelete.equalsIgnoreCase("updatePost")) {
             Post post = new Post(
                     Integer.parseInt(request.getParameter("id")),
