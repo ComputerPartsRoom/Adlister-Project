@@ -35,18 +35,12 @@ public class ProfileServlet extends HttpServlet {
 
 
         String username = request.getParameter("username");
-        User user = DaoFactory.getUsersDao().findByUsername(username);
-        User user0 = (User) request.getSession().getAttribute("user");
+//        User user = DaoFactory.getUsersDao().findByUsername(username);
+//        User user0 = (User) request.getSession().getAttribute("user");
 
         String receiver = request.getParameter("username");
         request.setAttribute("messages", DaoFactory.getMessagesDao().findByReceiver(receiver));
 
-
-//        Integer catId = Integer.parseInt(request.getParameter("catId"));
-//        System.out.println(catId);
-//        Category category = DaoFactory.getCategoriesDao().findById(catId);
-//        request.getSession().setAttribute("category", category);
-//        System.out.println(category.getName());
 
 
 
@@ -60,7 +54,8 @@ public class ProfileServlet extends HttpServlet {
                     Integer.parseInt(request.getParameter("price")),
                     Integer.parseInt(request.getParameter("category")),
                     request.getParameter("img"),
-                    request.getParameter("name")
+                    request.getParameter("name"),
+                    request.getParameter("username")
             );
 
             request.setAttribute("update", "delete");
@@ -71,7 +66,6 @@ public class ProfileServlet extends HttpServlet {
             );
             DaoFactory.getMessagesDao().delete(message);
             DaoFactory.getPostsDao().delete(post);
-            System.out.println("message with postId of" + id + "was deleted");
             response.sendRedirect("/profile");
 
         } else if (updateOrDelete.equalsIgnoreCase("updatePost")) {
@@ -83,7 +77,8 @@ public class ProfileServlet extends HttpServlet {
                     Integer.parseInt(request.getParameter("price")),
                     Integer.parseInt(request.getParameter("category")),
                     request.getParameter("img"),
-                    request.getParameter("name")
+                    request.getParameter("name"),
+                    request.getParameter("username")
             );
             DaoFactory.getPostsDao().update(post);
             response.sendRedirect("/profile");
@@ -103,17 +98,6 @@ public class ProfileServlet extends HttpServlet {
             System.out.println("request.getParameter(\"password\") = " + request.getParameter("password"));
             System.out.println("request.getParameter(\"img\") = " + request.getParameter("img"));
 
-
-//            Post post = new Post(
-//
-//            );
-//
-//            Message msg = new Message(
-//                    user2.getUsername()
-//            );
-
-//            DaoFactory.getMessagesDao().update(msg);
-//            DaoFactory.getPostsDao().updateName(post);
             DaoFactory.getUsersDao().update(user2);
 
             response.sendRedirect("/login");

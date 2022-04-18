@@ -30,23 +30,23 @@
             <input id="confirm_password" name="confirm_password" class="form-control" type="password">
         </div>
 
-<div id="pickImg">
-        <div class="form-check">
-            <img src="https://cdn3.vectorstock.com/i/thumb-large/86/82/profile-picture-with-a-crown-placeholder-vector-38978682.jpg">
-            <input class="form-check-input" type="radio" name="img"
-                   value="https://cdn3.vectorstock.com/i/thumb-large/86/82/profile-picture-with-a-crown-placeholder-vector-38978682.jpg">
+        <div id="pickImg">
+            <div class="form-check ModImgs">
+                <img src="https://cdn3.vectorstock.com/i/thumb-large/86/82/profile-picture-with-a-crown-placeholder-vector-38978682.jpg">
+                <input class="form-check-input" type="radio" name="img"
+                       value="https://cdn3.vectorstock.com/i/thumb-large/86/82/profile-picture-with-a-crown-placeholder-vector-38978682.jpg">
+            </div>
+            <div class="form-check ModImgs">
+                <img src="https://cdn4.vectorstock.com/i/thumb-large/86/33/profile-picture-with-a-mustache-placeholder-vector-38978633.jpg">
+                <input class="form-check-input" type="radio" name="img"
+                       value="https://cdn4.vectorstock.com/i/thumb-large/86/33/profile-picture-with-a-mustache-placeholder-vector-38978633.jpg">
+            </div>
+            <div class="form-check ModImgs">
+                <img src="https://cdn5.vectorstock.com/i/thumb-large/84/89/profile-picture-placeholder-vector-38978489.jpg">
+                <input class="form-check-input" type="radio" name="img"
+                       value="https://cdn5.vectorstock.com/i/thumb-large/84/89/profile-picture-placeholder-vector-38978489.jpg">
+            </div>
         </div>
-        <div class="form-check">
-            <img src="https://cdn4.vectorstock.com/i/thumb-large/86/33/profile-picture-with-a-mustache-placeholder-vector-38978633.jpg">
-            <input class="form-check-input" type="radio" name="img"
-                   value="https://cdn4.vectorstock.com/i/thumb-large/86/33/profile-picture-with-a-mustache-placeholder-vector-38978633.jpg">
-        </div>
-        <div class="form-check">
-            <img src="https://cdn5.vectorstock.com/i/thumb-large/84/89/profile-picture-placeholder-vector-38978489.jpg">
-            <input class="form-check-input" type="radio" name="img"
-                   value="https://cdn5.vectorstock.com/i/thumb-large/84/89/profile-picture-placeholder-vector-38978489.jpg">
-        </div>
-</div>
         <input type="submit" class="btn btn-primary btn-block">
     </form>
     <jsp:include page="/WEB-INF/Partials/footer.jsp"/>

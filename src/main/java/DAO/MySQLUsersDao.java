@@ -50,12 +50,13 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long insert(User user) {
-        String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO users(username, email, password, img) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPassword());
+            stmt.setString(4, user.getImg());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -82,10 +83,6 @@ public class MySQLUsersDao implements Users {
 
     public void update(User user) {
         try {
-
-
-
-
 
             String updateQuery3 = "UPDATE users SET username=?, email=?, password=?, img=? WHERE id=?;";
             PreparedStatement stmt3 = connection.prepareStatement(updateQuery3, Statement.RETURN_GENERATED_KEYS);
@@ -127,28 +124,28 @@ public class MySQLUsersDao implements Users {
     @Override
     public void delete(User user) {
         try {
-            String updateQuery = "DELETE FROM posts WHERE user_id=?;";
+            String updateQuery = "DELETE FROM posts WHERE username=?;";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, user.getId());
+            stmt.setString(1, user.getUsername());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
 
 
-            String updateQuery4 = "DELETE FROM messages WHERE sent_user=?;";
-            PreparedStatement stmt4 = connection.prepareStatement(updateQuery4, Statement.RETURN_GENERATED_KEYS);
-            stmt4.setString(1, user.getUsername());
-            stmt4.executeUpdate();
-            ResultSet rs4 = stmt.getGeneratedKeys();
-            rs4.next();
-
-
-            String updateQuery2 = "DELETE FROM users WHERE id=?;";
+            String updateQuery2 = "DELETE FROM users WHERE username=?;";
             PreparedStatement stmt2 = connection.prepareStatement(updateQuery2, Statement.RETURN_GENERATED_KEYS);
-            stmt2.setLong(1, user.getId());
+            stmt2.setString(1, user.getUsername());
             stmt2.executeUpdate();
             ResultSet rs2 = stmt2.getGeneratedKeys();
             rs2.next();
+
+            String updateQuery4 = "DELETE FROM messages WHERE sent_user=? OR received_user=?;";
+            PreparedStatement stmt4 = connection.prepareStatement(updateQuery4, Statement.RETURN_GENERATED_KEYS);
+            stmt4.setString(1, user.getUsername());
+            stmt4.setString(2, user.getUsername());
+            stmt4.executeUpdate();
+            ResultSet rs4 = stmt.getGeneratedKeys();
+            rs4.next();
 
 
 

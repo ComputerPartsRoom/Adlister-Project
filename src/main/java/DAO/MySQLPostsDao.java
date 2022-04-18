@@ -28,7 +28,7 @@ public class MySQLPostsDao implements Posts {
     public List<Post> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, categories.name\n" +
+            stmt = connection.prepareStatement("SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, posts.username, categories.name\n" +
                     "FROM posts\n" +
                     "         INNER JOIN categories on posts.cat_id = categories.id;");
             ResultSet rs = stmt.executeQuery();
@@ -41,7 +41,7 @@ public class MySQLPostsDao implements Posts {
     public List<Post> findByTitle(String search) {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, categories.name\n" +
+            stmt = connection.prepareStatement("SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, posts.username, categories.name\n" +
                     "FROM posts\n" +
                     "         INNER JOIN categories on posts.cat_id = categories.id WHERE title LIKE ?;");
             stmt.setString(1, "%" + search + "%");
@@ -68,7 +68,7 @@ public class MySQLPostsDao implements Posts {
         System.out.println("sort = " + sort);
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, categories.name\n" +
+            stmt = connection.prepareStatement("SELECT posts.id, posts.user_id, posts.title, posts.content, posts.price, posts.img, posts.cat_id, posts.username, categories.name\n" +
                     "FROM posts\n" +
                     "         INNER JOIN categories on posts.cat_id = categories.id WHERE cat_id =?;");
             stmt.setString(1, sort);
@@ -110,7 +110,8 @@ public class MySQLPostsDao implements Posts {
                 rs.getInt("price"),
                 rs.getLong("cat_id"),
                 rs.getString("img"),
-                rs.getString("name")
+                rs.getString("name"),
+                rs.getString("username")
         );
     }
 
@@ -125,7 +126,7 @@ public class MySQLPostsDao implements Posts {
 
     public void update(Post post) {
         try {
-            String updateQuery = "UPDATE posts SET title=?, content=?, price=?, img=?, cat_id=? WHERE id=?;";
+            String updateQuery = "UPDATE posts SET title=?, content=?, price=?, img=?, cat_id=?, username=? WHERE id=?;";
 
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
             System.out.println("post.getId() = " + post.getId());
@@ -134,7 +135,8 @@ public class MySQLPostsDao implements Posts {
             stmt.setLong(3, post.getPrice());
             stmt.setString(4, post.getImg());
             stmt.setLong(5, post.getCat_id());
-            stmt.setLong(6, post.getId());
+            stmt.setString(6, post.getUsername());
+            stmt.setLong(7, post.getId());
 
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();

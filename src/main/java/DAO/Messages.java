@@ -16,7 +16,7 @@ public interface Messages {
 
 //    long update (Message message);
 
-    long firstMessage(Message message);
+//    Long firstMessage(Message message);
 
     List<Message> findBySender(String sent_user);
 

@@ -51,23 +51,23 @@ public class MySQLMessagesDao implements Messages {
         }
         return messages;
     }
-
-    public long firstMessage(Message message){
-        try {
-            String insertQuery = "INSERT INTO messages(id, sent_user, received_user, content) VALUES (?, ?, ?, ?);";
-            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setInt(1, message.getId());
-            stmt.setString(2, message.getSent_user());
-            stmt.setString(3, message.getReceived_user());
-            stmt.setString(4, message.getContent());
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new message.", e);
-        }
-    }
+//
+//    public Long firstMessage(Message message){
+//        try {
+//            String insertQuery = "INSERT INTO messages(id, sent_user, received_user, content) VALUES (?, ?, ?, ?);";
+//            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+//            stmt.setInt(1, (int) (Math.random() * 1000) + 900);
+//            stmt.setString(2, message.getSent_user());
+//            stmt.setString(3, message.getReceived_user());
+//            stmt.setString(4, message.getContent());
+//            stmt.executeUpdate();
+//            ResultSet rs = stmt.getGeneratedKeys();
+//            rs.next();
+//            return rs.getLong(1);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error creating a new message.", e);
+//        }
+//    }
 
     public Long insert(Message message) {
         try {
