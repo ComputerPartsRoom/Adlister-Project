@@ -80,6 +80,27 @@
       </label>
     </div>
 
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="category"
+               value="">
+        <label class="form-check-label" for="Memory">
+            New
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="category"
+               value="">
+        <label class="form-check-label" for="Peripherals">
+            Used
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="category"
+               value="">
+        <label class="form-check-label" for="Processors">
+            For Parts
+        </label>
+    </div>
 
 
 
@@ -92,13 +113,6 @@
 
 
 
-        <div class="box__input">
-
-            <label for="img"><strong>Input Image</strong></label>
-
-            <input class="box__file" type="file" name="img" id="img" data-multiple-caption="{count} files selected" multiple />
-
-        </div>
         <input type="submit" class="btn btn-block btn-primary">
 
 

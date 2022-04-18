@@ -48,10 +48,10 @@
                 <c:forEach var="post" items="${posts}">
                     <c:if test="${post.user_id == sessionScope.user.id}">
                         <div class="posts col-10">
+                            <p>Post # ${post.id}</p>
                             <p>Title: ${post.title}</p>
                             <p>Content: ${post.content}</p>
                             <p>Category: ${post.name}</p>
-                            <p>Username: ${sessionScope.user.username}</p>
                             <p>$${post.price}</p>
                             <img src="${post.img}">
                             <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
