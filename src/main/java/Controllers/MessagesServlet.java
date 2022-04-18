@@ -25,7 +25,7 @@ public class MessagesServlet extends HttpServlet {
 
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
-//            return;
+            return;
         }
         request.getRequestDispatcher("/WEB-INF/Messages/index.jsp").forward(request, response);
     }
@@ -33,10 +33,10 @@ public class MessagesServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-
+//
 //        request.setAttribute("messages", DaoFactory.getMessagesDao().all());
         request.getRequestDispatcher("/WEB-INF/Messages/index.jsp").forward(request, response);
-
+        System.out.println("Integer.parseInt(request.getParameter(\"ReplyPostId\")) = " + Integer.parseInt(request.getParameter("ReplyPostId")));
         Message message = new Message(
                 Integer.parseInt(request.getParameter("ReplyPostId")),
                 request.getParameter("SendingUser"),

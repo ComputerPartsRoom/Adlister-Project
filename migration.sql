@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS posts
 
 CREATE TABLE IF NOT EXISTS messages
 (
-    id INT UNSIGNED NOT NULL,
+    id INT UNSIGNED,
     sent_user     VARCHAR(100),
     received_user VARCHAR(100),
     content     VARCHAR(500),
