@@ -77,13 +77,14 @@
                         <form action="/posts" method="POST">
                                 <%--                            <input hidden id="SendId" name="SendId" value="${post.user_id}">--%>
                             <div class="form-group">
-                                <input name="postId" id="postId" value="${post.id}">
-                                <input name="sender_id" id="sender_id" value="${sessionScope.user.username}">
-                                <input name="receiver_id" id="receiver_id" value="${post.username}">
-                                <input name="user_id" id="user_id" value="${sessionScope.user.id}">
-                                <input name="receivedId" id="receivedId" value="${post.user_id}">
+                                <input hidden name="postId" id="postId" value="${post.id}">
+                                <input hidden name="sender_id" id="sender_id" value="${sessionScope.user.username}">
+                                <input hidden name="receiver_id" id="receiver_id" value="${post.username}">
+                                <input hidden name="user_id" id="user_id" value="${sessionScope.user.id}">
+                                <input hidden name="receivedId" id="receivedId" value="${post.user_id}">
                                 <label for="content">Message</label>
                                 <input id="content" name="content" class="form-control" type="text">
+                                <br>
                                 <button type="submit" class="btn btn-primary">Send</button>
                             </div>
                         </form>

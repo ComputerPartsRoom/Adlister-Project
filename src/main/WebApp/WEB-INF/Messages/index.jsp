@@ -21,7 +21,7 @@
     </c:if>
 </c:forEach>
 </div>
-
+<br>
 <div id="Sent">
     <h2>Sent Messages</h2>
     <c:forEach var="message" items="${messages}">

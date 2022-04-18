@@ -8,7 +8,7 @@ body {
 }
 hr{
     border: 2px solid white;
-    /*height: 2px;*/
+    width: 50%;
 }
 
 
@@ -41,9 +41,12 @@ hr{
 #LoggedRight {
     display: flex;
 }
+#LoggedRight .link{
+    margin-top: 40px;
+}
 
-#LoggedLeft{
-    font-size: 50px;
+#LoggedLeft a{
+    font-size: 30px;
 }
 
 /* Logged Nav-Bar End*/
@@ -101,6 +104,37 @@ hr{
 #TopMG{
     margin-top: 20px;
 }
+.ProfPosts #updateBtn{
+    margin-bottom: 20px;
+}
+#CreatePosts{
+    text-align: center;
+}
+.cats{
+    font-size: 20px;
+}
+#createCond{
+    margin-top: 45px;
+    margin-bottom: 25px;
+}
+#Received{
+    margin: auto;
+    text-align: center;
+    width: 60%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+#Received card{
+    margin-bottom: 20px;
+}
+#Sent{
+    margin: auto;
+    text-align: center;
+    width: 60%;
+}
+#Sent card{
+    margin-bottom: 20px;
+}
 
 
 /*Posts Ends*/
@@ -153,6 +187,12 @@ footer div {
 }
 #profileRight h1{
     margin-top: 40px;
+}
+.ProfPosts{
+    margin-bottom: 50px;
+}
+.ProfPosts hr{
+    width: 50%;
 }
 
 #pickImgUpdate {

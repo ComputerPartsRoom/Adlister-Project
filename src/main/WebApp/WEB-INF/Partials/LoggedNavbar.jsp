@@ -6,7 +6,7 @@
     <div id="LoggedRight">
         <div id="profImg">
         <img src="${sessionScope.user.img}">
-        <a href="/profile"><h5>${sessionScope.user.username}</h5></a>
+        <a href="/profile"><h3>${sessionScope.user.username}</h3></a>
         </div>
         <a class="link" href="logout">Logout</a>
     </div>

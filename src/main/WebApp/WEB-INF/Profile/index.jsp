@@ -41,20 +41,27 @@
 
     <div id="profileRight">
 
-        <h1>Your posts are shown below!</h1>
+        <h1>- Your posts are shown below! -</h1>
+        <br>
 
         <div class="row">
             <c:forEach var="post" items="${posts}">
                 <c:if test="${post.user_id == sessionScope.user.id}">
-                    <div class="posts col-10">
+                    <div class="posts col-10 ProfPosts">
+                        <br>
                         <p>Post # ${post.id}</p>
+                        <hr>
                         <p>Title: ${post.title}</p>
+                        <hr>
                         <p>Content: ${post.content}</p>
+                        <hr>
                         <p>Category: ${post.name}</p>
+                        <hr>
                         <p>$${post.price}</p>
+                        <hr>
                         <img src="${post.img}">
+                        <br>
                         <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
-
                         <!-- The Modal -->
 
                         <div class="modal fade" id="myModal${post.id}" tabindex="-1" role="dialog"

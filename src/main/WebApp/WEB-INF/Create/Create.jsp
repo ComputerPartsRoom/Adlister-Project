@@ -10,10 +10,10 @@
 <jsp:include page="/WEB-INF/Partials/NavChecker.jsp"/>
 
 
-<div class="container">
+<div class="container" id="CreatePosts">
     <h1>Create a new Ad</h1>
     <form action="/create" method="post">
-        <input id="username" value="${sessionScope.user.username}">
+        <input hidden id="username" value="${sessionScope.user.username}">
 
         <div class="form-group">
             <label for="title">Title</label>
@@ -44,37 +44,37 @@
 
         <div class="form-check">
             <input class="form-check-input" type="radio" name="Category" id="Memory" value="1" checked>
-            <label class="form-check-label" for="Memory">
+            <label class="form-check-label cats" for="Memory">
                 Memory
             </label>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="Category" id="Peripherals" value="2">
-            <label class="form-check-label" for="Peripherals">
+            <label class="form-check-label cats" for="Peripherals">
                 Peripherals
             </label>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="Category" id="Processors" value="3">
-            <label class="form-check-label" for="Processors">
+            <label class="form-check-label cats" for="Processors">
                 Processors
             </label>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="Category" id="Motherboards" value="4">
-            <label class="form-check-label" for="Motherboards">
+            <label class="form-check-label cats" for="Motherboards">
                 Motherboards
             </label>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="Category" id="Graphics-Cards" value="5">
-            <label class="form-check-label" for="Graphics-Cards">
+            <label class="form-check-label cats" for="Graphics-Cards">
                 Graphics Cards
             </label>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="Category" id="Storage" value="6">
-            <label class="form-check-label" for="Storage">
+            <label class="form-check-label cats" for="Storage">
                 Storage
             </label>
         </div>
