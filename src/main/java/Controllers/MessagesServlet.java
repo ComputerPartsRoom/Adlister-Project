@@ -2,6 +2,7 @@ package Controllers;
 
 import DAO.DaoFactory;
 import Models.Category;
+import Models.Message;
 import Models.Post;
 import Models.User;
 
@@ -28,6 +29,42 @@ public class MessagesServlet extends HttpServlet {
         }
         request.getRequestDispatcher("/WEB-INF/Messages/index.jsp").forward(request, response);
     }
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+
+
+        request.getRequestDispatcher("/WEB-INF/Messages/index.jsp").forward(request, response);
+
+        Integer id = Integer.parseInt(request.getParameter("ReplyPostId"));
+        String sender = request.getParameter("SendingUser");
+        String receiver = request.getParameter("ReceivingUser");
+        String content = request.getParameter("content");
+        Integer user_id = Integer.parseInt(request.getParameter("SenderId"));
+        Integer receivedId = Integer.parseInt(request.getParameter("ReceiverId"));
+
+
+
+        Message message = new Message(
+                id,
+                sender,
+                receiver,
+                content,
+                user_id,
+                receivedId
+        );
+
+
+        DaoFactory.getMessagesDao().insert(message);
+
+
+        response.sendRedirect("/messages");
+
+    }
+
+
+
 }
 
 

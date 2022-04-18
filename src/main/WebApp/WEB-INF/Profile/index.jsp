@@ -253,8 +253,8 @@
 
 <jsp:include page="/WEB-INF/Partials/footer.jsp"/>
 
-<div id='stars'></div>
-<div id='stars2'></div>
+<%--<div id='stars'></div>--%>
+<%--<div id='stars2'></div>--%>
 
 </body>
 </html>

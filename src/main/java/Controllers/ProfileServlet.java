@@ -110,7 +110,7 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("img")
             );
             DaoFactory.getUsersDao().delete(user3);
-            request.getSession().invalidate();
+//            request.getSession().invalidate();
             response.sendRedirect("/register");
         }
     }
