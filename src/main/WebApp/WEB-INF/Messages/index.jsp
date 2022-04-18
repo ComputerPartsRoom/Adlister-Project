@@ -33,24 +33,19 @@
 
                         </div>
                         <div class="modal-body">
-<%--                            <form action="/messages" method="POST">--%>
-<%--                                <div class="form-group">--%>
-<%--                                    <input name="messageId" id="ReplyPostId" value="${message.id}">--%>
-<%--                                    <br>--%>
-<%--                                    <input name="sender_id" id="SendingUser" value="${sessionScope.user.username}">--%>
-<%--                                    <br>--%>
-<%--                                    <input name="receiver_id" id="ReceivingUser" value="${message.sent_user}">--%>
-<%--                                    <br>--%>
-<%--                                    <input name="user_id" id="SenderId" value="${sessionScope.user.id}">--%>
-<%--                                    <br>--%>
-<%--                                    <input name="receivedId" id="ReceiverId" value="${message.user_id}">--%>
-<%--                                    <br>--%>
-<%--                                    <label for="content">Message</label>--%>
-<%--                                    <input id="content" name="content" class="form-control" type="text">--%>
-<%--                                    <br>--%>
-<%--                                    <button type="submit" class="btn btn-primary">Send</button>--%>
-<%--                                </div>--%>
-<%--                            </form>--%>
+                            <form action="/messages" method="POST">
+                                <div class="form-group">
+                                    <input name="ReplyPostId" id="ReplyPostId" value="${message.id}">
+                                    <input name="SendingUser" id="SendingUser" value="${sessionScope.user.username}">
+                                    <input name="ReceivingUser" id="ReceivingUser" value="${message.sent_user}">
+                                    <input name="SenderId" id="SenderId" value="${sessionScope.user.id}">
+                                    <input name="ReceiverId" id="ReceiverId" value="${message.user_id}">
+                                    <label for="content">Message</label>
+                                    <input id="content" name="content" class="form-control" type="text">
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Send</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
