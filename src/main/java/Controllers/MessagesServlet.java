@@ -25,7 +25,7 @@ public class MessagesServlet extends HttpServlet {
 
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
-            return;
+//            return;
         }
         request.getRequestDispatcher("/WEB-INF/Messages/index.jsp").forward(request, response);
     }
@@ -34,31 +34,18 @@ public class MessagesServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 
-
+//        request.setAttribute("messages", DaoFactory.getMessagesDao().all());
         request.getRequestDispatcher("/WEB-INF/Messages/index.jsp").forward(request, response);
 
-        Integer id = Integer.parseInt(request.getParameter("ReplyPostId"));
-        String sender = request.getParameter("SendingUser");
-        String receiver = request.getParameter("ReceivingUser");
-        String content = request.getParameter("content");
-        Integer user_id = Integer.parseInt(request.getParameter("SenderId"));
-        Integer receivedId = Integer.parseInt(request.getParameter("ReceiverId"));
-
-
-
         Message message = new Message(
-                id,
-                sender,
-                receiver,
-                content,
-                user_id,
-                receivedId
+                Integer.parseInt(request.getParameter("ReplyPostId")),
+                request.getParameter("SendingUser"),
+                request.getParameter("ReceivingUser"),
+                request.getParameter("content"),
+                Integer.parseInt(request.getParameter("SenderId")),
+                Integer.parseInt(request.getParameter("ReceiverId"))
         );
-
-
         DaoFactory.getMessagesDao().insert(message);
-
-
         response.sendRedirect("/messages");
 
     }
@@ -66,5 +53,7 @@ public class MessagesServlet extends HttpServlet {
 
 
 }
+
+
 
 

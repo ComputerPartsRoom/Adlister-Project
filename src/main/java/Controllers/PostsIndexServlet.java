@@ -43,13 +43,6 @@ public class PostsIndexServlet extends HttpServlet {
         Integer receivedId = Integer.parseInt(request.getParameter("receivedId"));
 
 
-        System.out.println("request.getParameter(\"sender_id\") = " + request.getParameter("sender_id"));
-        System.out.println("request.getParameter(\"receiver_id\") = " + request.getParameter("receiver_id"));
-        System.out.println("request.getParameter(\"content\") = " + request.getParameter("content"));
-        System.out.println("request.getParameter(\"user_id\") = " + request.getParameter("user_id"));
-        System.out.println("request.getParameter(\"receivedId\") = " + request.getParameter("receivedId"));
-
-
         Message message = new Message(
                 id,
                 sender,
@@ -59,16 +52,7 @@ public class PostsIndexServlet extends HttpServlet {
                 receivedId
         );
 
-        System.out.println("id " + id);
-        System.out.println("sender " + sender);
-        System.out.println("receiver " + receiver);
-        System.out.println("content " + content);
-        System.out.println("user ID " + user_id);
-        System.out.println("receive ID " + receivedId);
-
         DaoFactory.getMessagesDao().insert(message);
-
-
         response.sendRedirect("/messages");
 
 
