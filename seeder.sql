@@ -17,17 +17,17 @@ VALUES ('Memory'),
        ('Storage');
 
 INSERT INTO posts(user_id, title, content, price, cat_id, img, username)
-VALUES (1, 'Admin post', 'This post is always displayed in case you wish to message the Admin.', 0, 1, '../Assets/PlaceHolder.jpeg', 'Admin'),
-       (2, 'User1 post', 'SunDisk 500GB SSD', 150, 6, '../Assets/PlaceHolder.jpeg', 'User1'),
-       (3, 'User2 post', 'Corsair Pro RGB Keyboard', 100, 2, '../Assets/PlaceHolder.jpeg', 'User2')
+VALUES (1, 'Admin post', 'This post is always displayed in case you wish to message the Admin.', 0, 1, '../Assets/conditionsNew.pdf', 'Admin'),
+       (2, 'User1 post', 'SunDisk 500GB SSD', 150, 6, '../Assets/conditionsUsed.pdf', 'User1'),
+       (3, 'User2 post', 'Corsair Pro RGB Keyboard', 100, 2, '../Assets/conditionsOpen.pdf', 'User2')
 ;
 
 
 
-INSERT INTO messages (id, sent_user, received_user, content)
-VALUES (1, 'Admin', 'Admin', 'Good morning Admin, here is your report....'),
-       (2, 'User2', 'User1', 'I would like to buy your SSD'),
-       (3, 'User1', 'User2', 'I would like to buy your Keyboard')
+INSERT INTO messages (id, sent_user, received_user, content, user_id)
+VALUES (1, 'Admin', 'Admin', 'Good morning Admin, here is your report....', 1),
+       (2, 'User2', 'User1', 'I would like to buy your SSD', 3),
+       (3, 'User1', 'User2', 'I would like to buy your Keyboard', 2)
 ;
 
 

@@ -60,7 +60,9 @@ CREATE TABLE IF NOT EXISTS messages
     sent_user     VARCHAR(100),
     received_user VARCHAR(100),
     content     VARCHAR(500),
-    FOREIGN KEY (id) REFERENCES posts (id)
+    user_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id) REFERENCES posts (id),
+    FOREIGN KEY (user_id) REFERENCES posts (user_id)
 #         ON UPDATE CASCADE
 #     FOREIGN KEY (sent_user) REFERENCES users (username),
 #     FOREIGN KEY (received_user) REFERENCES users (username)

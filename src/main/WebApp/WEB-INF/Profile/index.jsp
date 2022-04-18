@@ -78,6 +78,7 @@
                                                 <input hidden name="sender_id" id="sender_id" value="${sessionScope.user.username}">
                                                 <input hidden name="receiver_id" id="receiver_id" value="${post.username}">
 
+
                                                 <div class="form-group">
                                                     <label for="title">Title</label>
                                                     <input id="title" name="title" class="form-control" type="text"

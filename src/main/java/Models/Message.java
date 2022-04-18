@@ -5,6 +5,7 @@ public class Message {
     private String sent_user;
     private String received_user;
     private String content;
+    private Integer user_id;
 
     public Message(){}
 
@@ -16,11 +17,12 @@ public class Message {
         this.sent_user = sent_user;
     }
 
-    public Message (Integer id, String sent_user, String received_user, String content){
+    public Message (Integer id, String sent_user, String received_user, String content, Integer user_id){
         this.id = id;
         this.sent_user = sent_user;
         this.received_user = received_user;
         this.content = content;
+        this.user_id = user_id;
     }
 
 
@@ -57,5 +59,13 @@ public class Message {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 }

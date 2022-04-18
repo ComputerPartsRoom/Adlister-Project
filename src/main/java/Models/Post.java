@@ -26,7 +26,7 @@ public class Post {
 //        this.cat_id = cat_id;
         this.img = img;
         this.cat_id = cat_id;
-        this.username =username;
+        this.username = username;
 
     } //delete or update or pull one constructor [keep the Post.id in there]
 

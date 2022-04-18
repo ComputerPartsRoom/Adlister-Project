@@ -81,25 +81,19 @@
     </div>
 
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="category"
-               value="">
-        <label class="form-check-label" for="Memory">
-            New
-        </label>
+        <input class="form-check-input" type="radio" name="condition"
+               value="../Assets/conditionsNew.pdf">
+        <img src="../Assets/conditionsNew.pdf">
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="category"
-               value="">
-        <label class="form-check-label" for="Peripherals">
-            Used
-        </label>
+        <input class="form-check-input" type="radio" name="condition"
+               value="../Assets/conditionsOpen.pdf">
+        <img src="../Assets/conditionsOpen.pdf">
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="category"
-               value="">
-        <label class="form-check-label" for="Processors">
-            For Parts
-        </label>
+        <input class="form-check-input" type="radio" name="condition"
+               value="../Assets/conditionsUsed.pdf">
+        <img src="../Assets/conditionsUsed.pdf">
     </div>
 
 

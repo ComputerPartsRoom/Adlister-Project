@@ -39,11 +39,13 @@ public class PostsIndexServlet extends HttpServlet {
         String sender = request.getParameter("sender_id");
         String receiver = request.getParameter("receiver_id");
         String content = request.getParameter("content");
+        Integer user_id = Integer.parseInt(request.getParameter("user_id"));
         Message message = new Message(
                 id,
                 sender,
                 receiver,
-                content
+                content,
+                user_id
         );
         DaoFactory.getMessagesDao().insert(message);
         response.sendRedirect("/posts");

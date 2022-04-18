@@ -40,7 +40,8 @@ public class MySQLMessagesDao implements Messages {
                 rs.getInt("id"),
                 rs.getString("sent_user"),
                 rs.getString("received_user"),
-                rs.getString("content")
+                rs.getString("content"),
+                rs.getInt("user_id")
         );
     }
 
@@ -71,12 +72,13 @@ public class MySQLMessagesDao implements Messages {
 
     public Long insert(Message message) {
         try {
-            String insertQuery = "INSERT INTO messages(id, sent_user, received_user, content) VALUES (?, ?, ?, ?);";
+            String insertQuery = "INSERT INTO messages(id, sent_user, received_user, content, user_id) VALUES (?, ?, ?, ?, ?);";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, message.getId());
             stmt.setString(2, message.getSent_user());
             stmt.setString(3, message.getReceived_user());
             stmt.setString(4, message.getContent());
+            stmt.setInt(5, message.getUser_id());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();

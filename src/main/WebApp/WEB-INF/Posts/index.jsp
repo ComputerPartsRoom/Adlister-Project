@@ -41,28 +41,7 @@
             <p>Content: ${post.content}</p>
             <p>Category: ${post.name}</p>
             <p>$${post.price}</p>
-            <div id="postPic">
-                <c:choose>
-                    <c:when test="${post.name}">
-                        <img src="">
-                    </c:when>
-                    <c:when test="${post.name}">
-                        <img src="">
-                    </c:when>
-                    <c:when test="${post.name}">
-                        <img src="">
-                    </c:when>
-                    <c:when test="${post.name}">
-                        <img src="">
-                    </c:when>
-                    <c:when test="${post.name}">
-                        <img src="">
-                    </c:when>
-                    <c:when test="${post.name}">
-                        <img src="">
-                    </c:when>
-                </c:choose>
-            </div>
+            <img src="${post.img}">
 
 
             <c:choose>
@@ -94,6 +73,7 @@
                                 <input hidden name="postId" id="postId" value="${post.id}">
                                 <input hidden name="sender_id" id="sender_id" value="${sessionScope.user.username}">
                                 <input hidden name="receiver_id" id="receiver_id" value="${post.username}">
+                                <input hidden name="user_id" id="user_id" value="${sessionScope.user.id}">
                                 <label for="content">Message</label>
                                 <input id="content" name="content" class="form-control" type="text">
                                 <button type="submit" class="btn btn-primary">Send</button>
