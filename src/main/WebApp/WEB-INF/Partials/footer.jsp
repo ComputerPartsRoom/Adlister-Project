@@ -9,12 +9,4 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
 
-<footer>
-
-
-
-</footer>
-
-
-<%--<script type="text/javascript" src="${pageContext.request.contextPath}/WEB-INF/index.js"></script>--%>
 

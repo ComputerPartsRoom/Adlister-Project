@@ -177,6 +177,7 @@
         </div>
     </div>
 </div>
+<jsp:include page="/WEB-INF/Partials/footer.jsp"/>
 
 <script>
     document.querySelector( "#retrobg-sun" ).onclick = () => {
