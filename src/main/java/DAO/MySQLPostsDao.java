@@ -126,23 +126,22 @@ public class MySQLPostsDao implements Posts {
 
     public void update(Post post) {
         try {
-            String updateQuery = "UPDATE posts SET title=?, content=?, price=?, img=?, cat_id=?, username=? WHERE id=?;";
+            String updateQuery = "UPDATE posts SET id=?, user_id=?, title=?, content=?, price=?, cat_id=?, img=? WHERE id=?;";
 
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-            System.out.println("post.getId() = " + post.getId());
-            stmt.setString(1, post.getTitle());
-            stmt.setString(2, post.getContent());
-            stmt.setLong(3, post.getPrice());
-            stmt.setString(4, post.getImg());
-            stmt.setLong(5, post.getCat_id());
-            stmt.setString(6, post.getUsername());
-            stmt.setLong(7, post.getId());
+            stmt.setLong(1, post.getId());
+            stmt.setLong(2, post.getUser_id());
+            stmt.setString(3, post.getTitle());
+            stmt.setString(4, post.getContent());
+            stmt.setLong(5, post.getPrice());
+            stmt.setLong(6, post.getCat_id());
+            stmt.setString(7, post.getImg());
+            stmt.setLong(8, post.getId());
 
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
 
-            System.out.println("Post with id " + post.getId() + " was updated in DB with following details: " + "Title" + post.getTitle() + ",  Content" + post.getContent() + ",  Price" + post.getPrice() + ",  img" + post.getImg() + ",  Cat_id" + post.getCat_id());
 
         } catch (SQLException e) {
             e.printStackTrace();

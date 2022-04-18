@@ -76,9 +76,7 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("content"),
                     Integer.parseInt(request.getParameter("price")),
                     Integer.parseInt(request.getParameter("category")),
-                    request.getParameter("img"),
-                    request.getParameter("name"),
-                    request.getParameter("username")
+                    request.getParameter("img")
             );
             DaoFactory.getPostsDao().update(post);
             response.sendRedirect("/profile");
