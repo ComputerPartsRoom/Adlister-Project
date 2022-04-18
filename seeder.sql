@@ -24,10 +24,10 @@ VALUES (1, 'Admin post', 'This post is always displayed in case you wish to mess
 
 
 
-INSERT INTO messages (id, sent_user, received_user, content, user_id)
-VALUES (1, 'Admin', 'Admin', 'Good morning Admin, here is your report....', 1),
-       (2, 'User2', 'User1', 'I would like to buy your SSD', 3),
-       (3, 'User1', 'User2', 'I would like to buy your Keyboard', 2)
+INSERT INTO messages (id, sent_user, received_user, content, user_id, received_id)
+VALUES (1, 'Admin', 'Admin', 'Good morning Admin, here is your report....', 1, 1),
+       (2, 'User2', 'User1', 'I would like to buy your SSD', 3, 2),
+       (3, 'User1', 'User2', 'I would like to buy your Keyboard', 2, 3)
 ;
 
 

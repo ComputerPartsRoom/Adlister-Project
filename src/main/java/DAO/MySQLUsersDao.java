@@ -112,7 +112,7 @@ public class MySQLUsersDao implements Users {
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
 
-            String updateQuery4 = "UPDATE messages JOIN posts SET messages.received_user=? WHERE messages.id = ?";
+            String updateQuery4 = "UPDATE messages SET received_user=? WHERE received_id=?";
             PreparedStatement stmt4 = connection.prepareStatement(updateQuery4, Statement.RETURN_GENERATED_KEYS);
             stmt4.setString(1,user.getUsername());
             stmt4.setLong(2, user.getId());

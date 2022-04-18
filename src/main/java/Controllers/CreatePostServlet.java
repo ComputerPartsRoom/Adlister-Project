@@ -31,7 +31,7 @@ public class CreatePostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         User user = (User) request.getSession().getAttribute("user");
-        String username = request.getParameter("username");
+//        String username = request.getParameter("username");
         String img = request.getParameter("condition");
         Long categoryOfPost = Long.parseLong(request.getParameter("Category"));
 
@@ -39,10 +39,10 @@ public class CreatePostServlet extends HttpServlet {
                 user.getId(),
                 request.getParameter("title"),
                 request.getParameter("content"),
-                Integer.parseInt(request.getParameter("price")),
+                Long.parseLong(request.getParameter("price")),
                 img,
                 categoryOfPost,
-                username
+                user.getUsername()
         );
 
 

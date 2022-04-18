@@ -5,7 +5,7 @@ public class Post {
     private long user_id;
     private String title;
     private String content;
-    private Integer price;
+    private long price;
     private long cat_id;
     private String img;
     private String name;
@@ -18,12 +18,11 @@ public class Post {
     }
 
 
-    public Post(long user_id, String title, String content, Integer price, String img, Long cat_id, String username) {
+    public Post(long user_id, String title, String content, Long price, String img, Long cat_id, String username) {
         this.user_id = user_id;
         this.title = title;
         this.content = content;
         this.price = price;
-//        this.cat_id = cat_id;
         this.img = img;
         this.cat_id = cat_id;
         this.username = username;
@@ -125,11 +124,11 @@ public class Post {
         this.img = img;
     }
 
-    public Integer getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
