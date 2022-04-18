@@ -17,9 +17,9 @@ VALUES ('Memory'),
        ('Storage');
 
 INSERT INTO posts(user_id, title, content, price, cat_id, img, username)
-VALUES (1, 'Admin post', 'This post is always displayed in case you wish to message the Admin.', 0, 1, '../Assets/conditionsNew.pdf', 'Admin'),
-       (2, 'User1 post', 'SunDisk 500GB SSD', 150, 6, '../Assets/conditionsUsed.pdf', 'User1'),
-       (3, 'User2 post', 'Corsair Pro RGB Keyboard', 100, 2, '../Assets/conditionsOpen.pdf', 'User2')
+VALUES (1, 'Admin post', 'This post is always displayed in case you wish to message the Admin.', 0, 1, 'https://i.postimg.cc/YCTfrX6J/conditions-New.png', 'Admin'),
+       (2, 'User1 post', 'SunDisk 500GB SSD', 150, 6, 'https://i.postimg.cc/k4Wd1hs9/conditions-Open.png', 'User1'),
+       (3, 'User2 post', 'Corsair Pro RGB Keyboard', 100, 2, 'https://i.postimg.cc/6Qvsq1DR/conditions-Used.png', 'User2')
 ;
 
 

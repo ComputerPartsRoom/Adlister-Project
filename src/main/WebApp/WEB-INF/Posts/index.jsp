@@ -6,11 +6,11 @@
         <jsp:param name="title" value="Posts"/>
     </jsp:include>
 </head>
-<body>
+<body id="PostsBody">
 <jsp:include page="/WEB-INF/Partials/NavChecker.jsp"/>
 
 
-<div class="container">
+<div class="container" id="PostsCont">
 
     <h1>Current parts for sale!</h1>
 
@@ -30,29 +30,36 @@
 
     <form action="/posts/search" method="post">
         <input type="text" name="search">
-        <button class="btn btn-primary" type="submit">Search</button>
+        <button id="PostsBtnMB" class="btn btn-primary" type="submit">Search</button>
     </form>
-
-    <%--    Generate content for each Post  --%>
-    <c:forEach var="post" items="${posts}">
+    <div class="row">
+        <%--    Generate content for each Post  --%>
+        <c:forEach var="post" items="${posts}">
         <div class="posts col-4">
-            <p>Posted by: ${post.username}</p>
+            <p id="TopMG">Posted by: ${post.username}</p>
+            <hr>
             <p>Title: ${post.title}</p>
+            <hr>
             <p>Content: ${post.content}</p>
+            <hr>
             <p>Category: ${post.name}</p>
-            <p>$${post.price}</p>
+            <hr>
+            <p>Price: $${post.price}</p>
+            <hr>
             <img src="${post.img}">
+            <br>
 
 
             <c:choose>
                 <c:when test="${sessionScope.user == null}">
-                    <button hidden id="message" data-toggle="modal" data-target="#messageModal${post.id}">Message
+                    <button hidden class="MBButtons" id="message" data-toggle="modal" data-target="#messageModal${post.id}">Send Message
                     </button>
                 </c:when>
                 <c:when test="${post.user_id != sessionScope.user.id}">
-                    <button id="message" data-toggle="modal" data-target="#messageModal${post.id}">Message</button>
+                    <button class="MBButtons" id="message" data-toggle="modal" data-target="#messageModal${post.id}">Send Message</button>
                 </c:when>
             </c:choose>
+
         </div>
         <div class="modal fade" id="messageModal${post.id}" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalLabel"
@@ -85,13 +92,16 @@
             </div>
         </div>
 
-    </c:forEach>
 
+    </c:forEach>
+</div>
 
 </div>
 
 <jsp:include page="/WEB-INF/Partials/footer.jsp"/>
 
+<div id='stars'></div>
+<div id='stars2'></div>
 
 </body>
 </html>
