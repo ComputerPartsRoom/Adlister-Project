@@ -97,7 +97,7 @@ public class ProfileServlet extends HttpServlet {
             System.out.println("request.getParameter(\"img\") = " + request.getParameter("img"));
 
             DaoFactory.getUsersDao().update(user2);
-
+            request.getSession().invalidate();
             response.sendRedirect("/login");
 
 
