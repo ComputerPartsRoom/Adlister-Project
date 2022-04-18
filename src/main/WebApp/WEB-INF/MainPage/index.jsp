@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/Partials/head.jsp">
-        <jsp:param name="title" value="Home" />
+        <jsp:param name="title" value="Home"/>
     </jsp:include>
 </head>
 <body>
@@ -17,23 +17,14 @@
             <div class="card-body">
                 <h5 class="card-title">View Current Posts</h5>
                 <p class="card-text">View current sellers item for sell</p>
-                <c:choose>
-                    <c:when test="${sessionScope.user == null}">
-                        <a href="/login" class="btn btn-primary">View Posts</a>
-                    </c:when>
-                    <c:otherwise>
-                        <a href="/posts" class="btn btn-primary">View Posts</a>
-                    </c:otherwise>
-                </c:choose>
+                <a href="/posts" class="btn btn-primary">View Posts</a>
             </div>
         </div>
     </div>
 </div>
 
 
-
-<jsp:include page="/WEB-INF/Partials/footer.jsp" />
-
+<jsp:include page="/WEB-INF/Partials/footer.jsp"/>
 
 
 </body>

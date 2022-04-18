@@ -31,16 +31,15 @@ public class CreatePostServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
 
 
-        Integer categoryOfPost = Integer.parseInt(request.getParameter("Category"));
+        Long categoryOfPost = Long.parseLong(request.getParameter("Category"));
 
         Post post = new Post(
                 user.getId(),
                 request.getParameter("title"),
                 request.getParameter("content"),
                 Integer.parseInt(request.getParameter("price")),
-                categoryOfPost,
                 request.getParameter("img"),
-                request.getParameter("name"),
+                categoryOfPost,
                 user.getUsername()
         );
 

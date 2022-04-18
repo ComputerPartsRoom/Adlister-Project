@@ -92,10 +92,17 @@ public class ProfileServlet extends HttpServlet {
 
             User user2 = new User(
                     Integer.parseInt(request.getParameter("EditId")),
-                    username,
+                    request.getParameter("username"),
                     request.getParameter("email"),
-                    request.getParameter("password")
+                    request.getParameter("password"),
+                    request.getParameter("img")
             );
+            System.out.println("Integer.parseInt(request.getParameter(\"EditId\")) = " + Integer.parseInt(request.getParameter("EditId")));
+            System.out.println("request.getParameter(\"username\") = " + request.getParameter("username"));
+            System.out.println("request.getParameter(\"email\") = " + request.getParameter("email"));
+            System.out.println("request.getParameter(\"password\") = " + request.getParameter("password"));
+            System.out.println("request.getParameter(\"img\") = " + request.getParameter("img"));
+
 
 //            Post post = new Post(
 //
@@ -109,18 +116,18 @@ public class ProfileServlet extends HttpServlet {
 //            DaoFactory.getPostsDao().updateName(post);
             DaoFactory.getUsersDao().update(user2);
 
-
-            response.sendRedirect("/profile");
+            response.sendRedirect("/login");
 
 
         }else if(updateOrDelete.equalsIgnoreCase("deleteProfile")){
-            User user2 = new User(
+            User user3 = new User(
                     Integer.parseInt(request.getParameter("EditId")),
                     username,
                     request.getParameter("email"),
-                    request.getParameter("password")
+                    request.getParameter("password"),
+                    request.getParameter("img")
             );
-            DaoFactory.getUsersDao().delete(user2);
+            DaoFactory.getUsersDao().delete(user3);
             request.getSession().invalidate();
             response.sendRedirect("/register");
         }

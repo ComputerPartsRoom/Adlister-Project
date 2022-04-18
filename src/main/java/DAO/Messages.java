@@ -1,7 +1,6 @@
 package DAO;
 
 import Models.Message;
-import Models.Post;
 
 import java.util.List;
 
@@ -15,7 +14,9 @@ public interface Messages {
 
     void delete (Message message);
 
-    void update (Message message);
+//    long update (Message message);
+
+    long firstMessage(Message message);
 
     List<Message> findBySender(String sent_user);
 

@@ -48,12 +48,10 @@
                 <c:forEach var="post" items="${posts}">
                     <c:if test="${post.user_id == sessionScope.user.id}">
                         <div class="posts col-10">
-                            <p>ID: ${post.id}</p>
                             <p>Title: ${post.title}</p>
                             <p>Content: ${post.content}</p>
-                            <p>Cat ID: ${post.cat_id}</p>
                             <p>Category: ${post.name}</p>
-                            <p>Username: ${post.username}</p>
+                            <p>Username: ${sessionScope.user.username}</p>
                             <p>$${post.price}</p>
                             <img src="${post.img}">
                             <button id="updateBtn" data-toggle="modal" data-target="#myModal${post.id}">Update</button>
@@ -77,10 +75,9 @@
                                                 <input hidden id="Userid" name="Userid" value="${post.user_id}">
                                                 <input hidden id="id" name="id" value="${post.id}">
                                                 <input hidden id="Postusername" value="${post.username}">
-<%--                                                <input hidden name="postId" id="postId" value="${post.id}">--%>
                                                 <input hidden name="sender_id" id="sender_id" value="${sessionScope.user.username}">
                                                 <input hidden name="receiver_id" id="receiver_id" value="${post.username}">
-<%--                                                <input id="Category" value="${post.cat_id}">--%>
+
                                                 <div class="form-group">
                                                     <label for="title">Title</label>
                                                     <input id="title" name="title" class="form-control" type="text"
@@ -96,11 +93,7 @@
                                                     <input id="price" name="price" class="form-control" type="text"
                                                            value="${post.price}">
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="img">Image URL</label>
-                                                    <input id="img" name="img" class="form-control" type="text"
-                                                           value="${post.img}">
-                                                </div>
+
 
 
                                                 <div class="form-check">
@@ -173,7 +166,7 @@
 
 
 <!-- Update user Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -203,12 +196,31 @@
                         <label for="confirm-password">Confirm-Password</label>
                         <input id="confirm-password" name="confirm-password" class="form-control" type="password">
                     </div>
+                    <div id="pickImgUpdate">
+                        <div class="form-check ModImgs">
+                            <img src="https://cdn3.vectorstock.com/i/thumb-large/86/82/profile-picture-with-a-crown-placeholder-vector-38978682.jpg">
+                            <input class="form-check-input" type="radio" name="img"
+                                   value="https://cdn3.vectorstock.com/i/thumb-large/86/82/profile-picture-with-a-crown-placeholder-vector-38978682.jpg">
+                        </div>
+                        <div class="form-check ModImgs">
+                            <img src="https://cdn4.vectorstock.com/i/thumb-large/86/33/profile-picture-with-a-mustache-placeholder-vector-38978633.jpg">
+                            <input class="form-check-input" type="radio" name="img"
+                                   value="https://cdn4.vectorstock.com/i/thumb-large/86/33/profile-picture-with-a-mustache-placeholder-vector-38978633.jpg">
+                        </div>
+                        <div class="form-check ModImgs">
+                            <img src="https://cdn5.vectorstock.com/i/thumb-large/84/89/profile-picture-placeholder-vector-38978489.jpg">
+                            <input class="form-check-input" type="radio" name="img"
+                                   value="https://cdn5.vectorstock.com/i/thumb-large/84/89/profile-picture-placeholder-vector-38978489.jpg">
+                        </div>
+                    </div>
+                    <div id="profModalButtons">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary" name="updateOrDelete" value="updateProfile">Save
                         changes
                     </button>
                     <button type="submit" class="btn btn-danger" name="updateOrDelete" value="deleteProfile">Delete
                     </button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -1,6 +1,7 @@
 package Controllers;
 
 import DAO.DaoFactory;
+import Models.Message;
 import Models.User;
 
 import javax.servlet.ServletException;
@@ -51,7 +52,14 @@ public class RegisterServlet extends HttpServlet {
             out.println("</script>");
         } else {
             User user1 = new User(username, email, password);
+            Message message = new Message(
+                    999,
+                    "Admin",
+                    request.getParameter(username),
+                    "Welcome to ComputerPartsRoom, this is your first message!"
+            );
             DaoFactory.getUsersDao().insert(user1);
+            DaoFactory.getMessagesDao().firstMessage(message);
             response.sendRedirect("/login");
         }
 

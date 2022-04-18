@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/Partials/head.jsp">
-        <jsp:param name="title" value="Posts" />
+        <jsp:param name="title" value="Posts"/>
     </jsp:include>
 </head>
 <body>
@@ -15,42 +15,69 @@
     <h1>Current parts for sale!</h1>
 
 
-
-
-
     <form action="/posts/sort" method="post">
-    <label for="sortBy">Sort by: </label>
-    <select  id="sortBy" class="form-select" aria-label="Default select example" name="sort">
-        <option name="category" value="1">Memory</option>
-        <option name="category" value="2">Peripherals</option>
-        <option name="category" value="3">Processors</option>
-        <option name="category" value="4">Motherboards</option>
-        <option name="category" value="5">Graphics Cards</option>
-        <option name="category" value="6">Storage</option>
-    </select>
+        <label for="sortBy">Sort by: </label>
+        <select id="sortBy" class="form-select" aria-label="Default select example" name="sort">
+            <option name="category" value="1">Memory</option>
+            <option name="category" value="2">Peripherals</option>
+            <option name="category" value="3">Processors</option>
+            <option name="category" value="4">Motherboards</option>
+            <option name="category" value="5">Graphics Cards</option>
+            <option name="category" value="6">Storage</option>
+        </select>
         <button type="submit" class="btn btn-primary">Go!</button>
     </form>
 
-    <form action="/posts/search" method="post" >
-    <input type="text" name ="search">
-        <button class = "btn btn-primary" type="submit">Search</button>
+    <form action="/posts/search" method="post">
+        <input type="text" name="search">
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
-<%--    Generate content for each Post  --%>
+    <%--    Generate content for each Post  --%>
     <c:forEach var="post" items="${posts}">
         <div class="posts col-4">
-<p>ID: ${post.id}</p>
+            <p>User: ${post.username}</p>
+            <p>CatId: ${post.cat_id}</p>
             <p>Title: ${post.title}</p>
             <p>Content: ${post.content}</p>
-            <p>Cat ID: ${post.cat_id}</p>
             <p>Category: ${post.name}</p>
             <p>$${post.price}</p>
-            <img src="${post.img}">
-            <c:if test="${post.user_id != sessionScope.user.id}">
-            <button id="message" data-toggle="modal" data-target="#messageModal${post.id}">Message</button>
-            </c:if>
+            <div id="postPic">
+                <c:choose>
+                    <c:when test="${post.name}">
+                        <img src="">
+                    </c:when>
+                    <c:when test="${post.name}">
+                        <img src="">
+                    </c:when>
+                    <c:when test="${post.name}">
+                        <img src="">
+                    </c:when>
+                    <c:when test="${post.name}">
+                        <img src="">
+                    </c:when>
+                    <c:when test="${post.name}">
+                        <img src="">
+                    </c:when>
+                    <c:when test="${post.name}">
+                        <img src="">
+                    </c:when>
+                </c:choose>
+            </div>
+
+
+            <c:choose>
+                <c:when test="${sessionScope.user == null}">
+                    <button hidden id="message" data-toggle="modal" data-target="#messageModal${post.id}">Message
+                    </button>
+                </c:when>
+                <c:when test="${post.user_id != sessionScope.user.id}">
+                    <button id="message" data-toggle="modal" data-target="#messageModal${post.id}">Message</button>
+                </c:when>
+            </c:choose>
         </div>
-        <div class="modal fade" id="messageModal${post.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="messageModal${post.id}" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -63,7 +90,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="/posts" method="POST">
-<%--                            <input hidden id="SendId" name="SendId" value="${post.user_id}">--%>
+                                <%--                            <input hidden id="SendId" name="SendId" value="${post.user_id}">--%>
                             <div class="form-group">
                                 <input hidden name="postId" id="postId" value="${post.id}">
                                 <input hidden name="sender_id" id="sender_id" value="${sessionScope.user.username}">
@@ -81,10 +108,9 @@
     </c:forEach>
 
 
-
 </div>
 
-<jsp:include page="/WEB-INF/Partials/footer.jsp" />
+<jsp:include page="/WEB-INF/Partials/footer.jsp"/>
 
 
 </body>
