@@ -50,12 +50,13 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long insert(User user) {
-        String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO users(username, email, password, img) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPassword());
+            stmt.setString(4, user.getImg());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -73,27 +74,55 @@ public class MySQLUsersDao implements Users {
                 rs.getInt("id"),
                 rs.getString("username"),
                 rs.getString("email"),
-                rs.getString("password")
+                rs.getString("password"),
+                rs.getString("img")
         );
     }
-//    JOIN a on c.username = a.sent_user AND c.username = a.received_user
-//JOIN b ON c.username = b.username
+
 
 
     public void update(User user) {
         try {
-            String updateQuery = "UPDATE messages a, posts b, users c  JOIN a on c.username = a.sent_user AND c.username = a.received_user JOIN b ON c.username = b.username SET b.username=?, c.username=?, a.sent_user=?, a.received_user=? WHERE c.id =?;";
 
+            String updateQuery3 = "UPDATE users SET username=?, email=?, password=?, img=? WHERE id=?;";
+            PreparedStatement stmt3 = connection.prepareStatement(updateQuery3, Statement.RETURN_GENERATED_KEYS);
+            stmt3.setString(1,user.getUsername());
+            stmt3.setString(2, user.getEmail());
+            stmt3.setString(3, user.getPassword());
+                    stmt3.setString(4, user.getImg());
+                    stmt3.setLong(5, user.getId());
+            stmt3.executeUpdate();
+            ResultSet rs3 = stmt3.getGeneratedKeys();
+            rs3.next();
+
+            String updateQuery2 = "UPDATE posts SET username=? WHERE user_id=?;";
+            PreparedStatement stmt2 = connection.prepareStatement(updateQuery2, Statement.RETURN_GENERATED_KEYS);
+            stmt2.setString(1,user.getUsername());
+            stmt2.setLong(2, user.getId());
+            stmt2.executeUpdate();
+            ResultSet rs2 = stmt2.getGeneratedKeys();
+            rs2.next();
+
+
+            String updateQuery = "UPDATE messages SET sent_user=? WHERE user_id=?";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getUsername());
-            stmt.setString(3, user.getUsername());
-            stmt.setString(4, user.getUsername());
-            stmt.setLong(5, user.getId());
-
+            stmt.setString(1,user.getUsername());
+            stmt.setLong(2, user.getId());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
+
+            String updateQuery4 = "UPDATE messages SET received_user=? WHERE received_id=?";
+            PreparedStatement stmt4 = connection.prepareStatement(updateQuery4, Statement.RETURN_GENERATED_KEYS);
+            stmt4.setString(1,user.getUsername());
+            stmt4.setLong(2, user.getId());
+            stmt4.executeUpdate();
+            ResultSet rs4 = stmt4.getGeneratedKeys();
+            rs4.next();
+//
+
+
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -105,28 +134,28 @@ public class MySQLUsersDao implements Users {
     @Override
     public void delete(User user) {
         try {
-            String updateQuery = "DELETE FROM posts WHERE user_id=?;";
+            String updateQuery = "DELETE FROM posts WHERE username=?;";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, user.getId());
+            stmt.setString(1, user.getUsername());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
 
 
-            String updateQuery4 = "DELETE FROM messages WHERE sent_user=?;";
-            PreparedStatement stmt4 = connection.prepareStatement(updateQuery4, Statement.RETURN_GENERATED_KEYS);
-            stmt4.setString(1, user.getUsername());
-            stmt4.executeUpdate();
-            ResultSet rs4 = stmt.getGeneratedKeys();
-            rs4.next();
-
-
-            String updateQuery2 = "DELETE FROM users WHERE id=?;";
+            String updateQuery2 = "DELETE FROM users WHERE username=?;";
             PreparedStatement stmt2 = connection.prepareStatement(updateQuery2, Statement.RETURN_GENERATED_KEYS);
-            stmt2.setLong(1, user.getId());
+            stmt2.setString(1, user.getUsername());
             stmt2.executeUpdate();
             ResultSet rs2 = stmt2.getGeneratedKeys();
             rs2.next();
+
+            String updateQuery4 = "DELETE FROM messages WHERE sent_user=? OR received_user=?;";
+            PreparedStatement stmt4 = connection.prepareStatement(updateQuery4, Statement.RETURN_GENERATED_KEYS);
+            stmt4.setString(1, user.getUsername());
+            stmt4.setString(2, user.getUsername());
+            stmt4.executeUpdate();
+            ResultSet rs4 = stmt.getGeneratedKeys();
+            rs4.next();
 
 
 

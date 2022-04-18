@@ -5,7 +5,7 @@ public class Post {
     private long user_id;
     private String title;
     private String content;
-    private Integer price;
+    private long price;
     private long cat_id;
     private String img;
     private String name;
@@ -18,7 +18,18 @@ public class Post {
     }
 
 
-//    public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img, String name, String username) {
+    public Post(long user_id, String title, String content, Long price, String img, Long cat_id, String username) {
+        this.user_id = user_id;
+        this.title = title;
+        this.content = content;
+        this.price = price;
+        this.img = img;
+        this.cat_id = cat_id;
+        this.username = username;
+
+    } //delete or update or pull one constructor [keep the Post.id in there]
+
+//    public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img, String name) {
 //        this.id = id;
 //        this.user_id = user_id;
 //        this.title = title;
@@ -27,20 +38,7 @@ public class Post {
 //        this.cat_id = cat_id;
 //        this.img = img;
 //        this.name = name;
-//        this.username =username;
-//
 //    } //delete or update or pull one constructor [keep the Post.id in there]
-
-    public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img, String name) {
-        this.id = id;
-        this.user_id = user_id;
-        this.title = title;
-        this.content = content;
-        this.price = price;
-        this.cat_id = cat_id;
-        this.img = img;
-        this.name = name;
-    } //delete or update or pull one constructor [keep the Post.id in there]
 
     public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img, String name, String username) {
         this.id = id;
@@ -53,6 +51,31 @@ public class Post {
         this.name = name;
         this.username = username;
     } //delete or update or pull one constructor [keep the Post.id in there]
+
+
+    public Post(long id, long user_id, String title, String content, Integer price, long cat_id, String img) {
+        this.id = id;
+        this.user_id = user_id;
+        this.title = title;
+        this.content = content;
+        this.price = price;
+        this.cat_id = cat_id;
+        this.img = img;
+
+
+    } //delete or update or pull one constructor [keep the Post.id in there]
+
+
+
+    public Post(String title, String content, Integer price,  String img, long cat_id) {
+        this.title = title;
+        this.content = content;
+        this.price = price;
+        this.img = img;
+        this.cat_id = cat_id;
+
+    } //'C' constructor [make a new entity w/o the Post.id]
+
 
     public Post(long user_id, String title, String content, Integer price, long cat_id, String img, String name, String username) {
         this.user_id = user_id;
@@ -126,11 +149,11 @@ public class Post {
         this.img = img;
     }
 
-    public Integer getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 

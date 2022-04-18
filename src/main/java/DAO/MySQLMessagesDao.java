@@ -2,7 +2,6 @@ package DAO;
 
 import Models.Message;
 
-import Models.Post;
 import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 import java.util.ArrayList;
@@ -41,7 +40,9 @@ public class MySQLMessagesDao implements Messages {
                 rs.getInt("id"),
                 rs.getString("sent_user"),
                 rs.getString("received_user"),
-                rs.getString("content")
+                rs.getString("content"),
+                rs.getInt("user_id"),
+                rs.getInt("received_id")
         );
     }
 
@@ -52,16 +53,34 @@ public class MySQLMessagesDao implements Messages {
         }
         return messages;
     }
-
+//
+//    public Long firstMessage(Message message){
+//        try {
+//            String insertQuery = "INSERT INTO messages(id, sent_user, received_user, content) VALUES (?, ?, ?, ?);";
+//            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+//            stmt.setInt(1, (int) (Math.random() * 1000) + 900);
+//            stmt.setString(2, message.getSent_user());
+//            stmt.setString(3, message.getReceived_user());
+//            stmt.setString(4, message.getContent());
+//            stmt.executeUpdate();
+//            ResultSet rs = stmt.getGeneratedKeys();
+//            rs.next();
+//            return rs.getLong(1);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error creating a new message.", e);
+//        }
+//    }
 
     public Long insert(Message message) {
         try {
-            String insertQuery = "INSERT INTO messages(id, sent_user, received_user, content) VALUES (?, ?, ?, ?);";
+            String insertQuery = "INSERT INTO messages(id, sent_user, received_user, content, user_id, received_id) VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, message.getId());
             stmt.setString(2, message.getSent_user());
             stmt.setString(3, message.getReceived_user());
             stmt.setString(4, message.getContent());
+            stmt.setInt(5, message.getUser_id());
+            stmt.setInt(6, message.getReceived_id());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -116,7 +135,6 @@ public class MySQLMessagesDao implements Messages {
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
 
-            System.out.println("Message with id " + message.getId() + " has been deleted");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -125,24 +143,24 @@ public class MySQLMessagesDao implements Messages {
     }
 
 
-    public void update(Message message) {
-        try {
-            String updateQuery = "UPDATE messages SET sent_user=?, received_user=? WHERE sent_user=?;";
-
-            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, message.getSent_user());
-            stmt.setString(2, message.getReceived_user());
-            stmt.setString(3, message.getSent_user());
-
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-
-
-    }
+//    public void update(Message message) {
+//        try {
+//            String updateQuery = "UPDATE messages SET sent_user=?, received_user=? WHERE sent_user=?;";
+//
+//            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+//            stmt.setString(1, message.getSent_user());
+//            stmt.setString(2, message.getReceived_user());
+//            stmt.setString(3, message.getSent_user());
+//
+//            stmt.executeUpdate();
+//            ResultSet rs = stmt.getGeneratedKeys();
+//            rs.next();
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            throw new RuntimeException(e);
+//        }
+//
+//
+//    }
 }

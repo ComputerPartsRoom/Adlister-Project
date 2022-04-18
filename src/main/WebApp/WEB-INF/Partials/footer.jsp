@@ -11,29 +11,10 @@
 
 <footer>
 
-    <div class="col-3 card">
-        <div class="card-body">
-            <h5 class="card-title">About Us</h5>
-            <p class="card-text">About the Team</p>
-            <a href="#" class="btn btn-primary">Meet Team</a>
-        </div>
-    </div>
-    <div class="col-3 card">
-        <div class="card-body">
-            <h5 class="card-title">About Us</h5>
-            <p class="card-text">About the Team</p>
-            <a href="#" class="btn btn-primary">Meet Team</a>
-        </div>
-    </div>
-    <div class="col-3 card">
-        <div class="card-body">
-            <h5 class="card-title">About Us</h5>
-            <p class="card-text">About the Team</p>
-            <a href="#" class="btn btn-primary">Meet Team</a>
-        </div>
-    </div>
+
 
 </footer>
+
 
 <%--<script type="text/javascript" src="${pageContext.request.contextPath}/WEB-INF/index.js"></script>--%>
 

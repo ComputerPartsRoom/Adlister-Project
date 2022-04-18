@@ -22,6 +22,8 @@ public class CreatePostServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+
+
         request.getRequestDispatcher("/WEB-INF/Create/Create.jsp")
                 .forward(request, response);
     }
@@ -29,18 +31,17 @@ public class CreatePostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         User user = (User) request.getSession().getAttribute("user");
-
-
-        Integer categoryOfPost = Integer.parseInt(request.getParameter("Category"));
+//        String username = request.getParameter("username");
+        String img = request.getParameter("condition");
+        Long categoryOfPost = Long.parseLong(request.getParameter("Category"));
 
         Post post = new Post(
                 user.getId(),
                 request.getParameter("title"),
                 request.getParameter("content"),
-                Integer.parseInt(request.getParameter("price")),
+                Long.parseLong(request.getParameter("price")),
+                img,
                 categoryOfPost,
-                request.getParameter("img"),
-                request.getParameter("name"),
                 user.getUsername()
         );
 

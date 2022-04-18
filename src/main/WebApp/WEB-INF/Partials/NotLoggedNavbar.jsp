@@ -1,6 +1,6 @@
 <nav class="navbar " id="NotLoggedNav">
     <div id="NotLoggedLeft">
-        <a class="navbar-brand" href="/main">ComputerPartsRoom</a>
+        <a class="navbar-brand" href="/main">Computer-Parts-Room</a>
     </div>
     <div id="NotLoggedRight">
         <a href="register">Register</a>

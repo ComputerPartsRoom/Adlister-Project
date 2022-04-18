@@ -1,10 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar " id="LoggedNav">
     <div id="LoggedLeft">
-        <a class="navbar-brand" href="/main">ComputerPartsRoom</a>
+        <a class="navbar-brand" href="/main">Computer-Parts-Room</a>
     </div>
     <div id="LoggedRight">
+        <div id="profImg">
+        <img src="${sessionScope.user.img}">
         <a href="/profile"><h3>${sessionScope.user.username}</h3></a>
-        <img src="../Styling/Assets/PlaceHolder.jpeg">
+        </div>
         <a class="link" href="logout">Logout</a>
     </div>
 </nav>

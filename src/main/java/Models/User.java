@@ -5,14 +5,24 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String img;
 
     public User(){}
 
-    public User(Integer id, String username, String email, String password) {
+    public User(String username, String email, String password, String img){
+        this.username =username;
+        this.email = email;
+        this.password = password;
+        this.img = img;
+    }
+
+
+    public User(Integer id, String username, String email, String password, String img) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.img = img;
     }
 
     public User(String username, String email, String password) {
@@ -51,5 +61,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

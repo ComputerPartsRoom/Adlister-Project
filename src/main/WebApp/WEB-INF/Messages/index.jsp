@@ -15,22 +15,20 @@
     <c:if test="${message.received_user == sessionScope.user.username}">
         <div class="card">
         <p>For Post: ${message.id}</p>
-        <p>Sender Id: ${message.sent_user}</p>
-        <p>Receiver Id: ${message.received_user}</p>
+        <p>Sent from: ${message.sent_user}</p>
         <p>Content: ${message.content}</p>
         </div>
     </c:if>
 </c:forEach>
 </div>
-
+<br>
 <div id="Sent">
     <h2>Sent Messages</h2>
     <c:forEach var="message" items="${messages}">
         <c:if test="${message.sent_user == sessionScope.user.username}">
             <div class="card">
             <p>For post: ${message.id}</p>
-            <p>Sender Id: ${message.sent_user}</p>
-            <p>Receiver Id: ${message.received_user}</p>
+            <p>Sent to: ${message.received_user}</p>
             <p>Content: ${message.content}</p>
             </div>
         </c:if>
