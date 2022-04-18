@@ -146,6 +146,22 @@
                                                     </label>
                                                 </div>
 
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="img"
+                                                           value="../Assets/conditionsNew.pdf">
+                                                    <img src="../Assets/conditionsNew.pdf">
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="img"
+                                                           value="../Assets/conditionsOpen.pdf">
+                                                    <img src="../Assets/conditionsOpen.pdf">
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="img"
+                                                           value="../Assets/conditionsUsed.pdf">
+                                                    <img src="../Assets/conditionsUsed.pdf">
+                                                </div>
+
                                                 <input type="submit" class="btn btn-block btn-primary"
                                                        name="updateOrDelete"
                                                        value="updatePost">
