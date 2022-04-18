@@ -124,7 +124,7 @@ hr{
     margin-bottom: 50px;
     margin-top: 50px;
 }
-#Received card{
+#Received .card{
     margin-bottom: 20px;
 }
 #Sent{
@@ -132,7 +132,7 @@ hr{
     text-align: center;
     width: 60%;
 }
-#Sent card{
+#Sent .card{
     margin-bottom: 20px;
 }
 
