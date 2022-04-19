@@ -14,9 +14,7 @@ public class Message {
         this.id = id;
     }
 
-//    public Message(String sent_user){
-//        this.sent_user = sent_user;
-//    }
+
 
     public Message (Integer id, String sent_user, String received_user, String content, Integer user_id, Integer received_id){
         this.id = id;

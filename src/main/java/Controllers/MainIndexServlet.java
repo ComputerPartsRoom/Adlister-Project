@@ -15,9 +15,7 @@ public class MainIndexServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    //"View Posts" button is clicked
-        // if user is logged in - forward to post page
-        // if user is NOT logged in - forward to login page
+
 
             response.sendRedirect("btn");
     }

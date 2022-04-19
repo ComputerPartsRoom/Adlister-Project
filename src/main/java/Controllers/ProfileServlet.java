@@ -35,8 +35,6 @@ public class ProfileServlet extends HttpServlet {
 
 
         String username = request.getParameter("username");
-//        User user = DaoFactory.getUsersDao().findByUsername(username);
-//        User user0 = (User) request.getSession().getAttribute("user");
 
         String receiver = request.getParameter("username");
         request.setAttribute("messages", DaoFactory.getMessagesDao().findByReceiver(receiver));
@@ -90,11 +88,6 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("password"),
                     request.getParameter("img")
             );
-            System.out.println("Integer.parseInt(request.getParameter(\"EditId\")) = " + Integer.parseInt(request.getParameter("EditId")));
-            System.out.println("request.getParameter(\"username\") = " + request.getParameter("username"));
-            System.out.println("request.getParameter(\"email\") = " + request.getParameter("email"));
-            System.out.println("request.getParameter(\"password\") = " + request.getParameter("password"));
-            System.out.println("request.getParameter(\"img\") = " + request.getParameter("img"));
 
             DaoFactory.getUsersDao().update(user2);
             request.getSession().invalidate();
@@ -110,7 +103,7 @@ public class ProfileServlet extends HttpServlet {
                     request.getParameter("img")
             );
             DaoFactory.getUsersDao().delete(user3);
-//            request.getSession().invalidate();
+
             response.sendRedirect("/register");
         }
     }

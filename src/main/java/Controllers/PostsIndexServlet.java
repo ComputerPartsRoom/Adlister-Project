@@ -21,7 +21,6 @@ public class PostsIndexServlet extends HttpServlet {
         String username = request.getParameter("username");
         request.setAttribute("user", DaoFactory.getUsersDao().findByUsername(username));
 
-//        User user = (User) request.getSession().getAttribute("user");
 
     }
 
@@ -30,9 +29,8 @@ public class PostsIndexServlet extends HttpServlet {
 
         User user = (User) request.getSession().getAttribute("user");
 
-        String search = request.getParameter("search");
 
-        request.setAttribute("posts", DaoFactory.getPostsDao().findByTitle(search));
+        request.setAttribute("posts", DaoFactory.getPostsDao().all());
         request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
 
         Integer id = Integer.parseInt(request.getParameter("postId"));
@@ -56,12 +54,6 @@ public class PostsIndexServlet extends HttpServlet {
         response.sendRedirect("/messages");
 
 
-//        String sort = request.getParameter("sort");
-//        if (sort != null) {
-//            request.setAttribute("posts", DaoFactory.getPostsDao().sortByCategory(sort));
-//            System.out.println("sort = " + sort);
-//            request.getRequestDispatcher("/WEB-INF/Posts/index.jsp").forward(request, response);
-//        }
     }
 
 }

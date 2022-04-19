@@ -35,11 +35,11 @@
                         <div class="modal-body">
                             <form action="/messages" method="POST">
                                 <div class="form-group">
-                                    <input name="ReplyPostId" id="ReplyPostId" value="${message.id}">
-                                    <input name="SendingUser" id="SendingUser" value="${sessionScope.user.username}">
-                                    <input name="ReceivingUser" id="ReceivingUser" value="${message.sent_user}">
-                                    <input name="SenderId" id="SenderId" value="${sessionScope.user.id}">
-                                    <input name="ReceiverId" id="ReceiverId" value="${message.user_id}">
+                                    <input hidden name="ReplyPostId" id="ReplyPostId" value="${message.id}">
+                                    <input hidden name="SendingUser" id="SendingUser" value="${sessionScope.user.username}">
+                                    <input hidden name="ReceivingUser" id="ReceivingUser" value="${message.sent_user}">
+                                    <input hidden name="SenderId" id="SenderId" value="${sessionScope.user.id}">
+                                    <input hidden name="ReceiverId" id="ReceiverId" value="${message.user_id}">
                                     <label for="content">Message</label>
                                     <input id="content" name="content" class="form-control" type="text">
                                     <br>
