@@ -31,7 +31,7 @@ public class CreatePostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         User user = (User) request.getSession().getAttribute("user");
-//        String username = request.getParameter("username");
+
         String img = request.getParameter("condition");
         Long categoryOfPost = Long.parseLong(request.getParameter("Category"));
 
@@ -46,14 +46,6 @@ public class CreatePostServlet extends HttpServlet {
         );
 
 
-//        File uploads = new File("/Users/macbook/IdeaProjects/Adlister-Project/Adlister-Project/main/Assets");
-//        File img = new File(uploads, request.getParameter("img"));
-//
-//        Part part = request.getPart("file");
-//
-//        try (InputStream input = part.getInputStream()) {
-//            Files.copy(input, img.toPath());
-//        }
 
 
         DaoFactory.getPostsDao().insert(post);

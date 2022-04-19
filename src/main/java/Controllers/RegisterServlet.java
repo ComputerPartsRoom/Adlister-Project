@@ -49,19 +49,12 @@ public class RegisterServlet extends HttpServlet {
             response.setContentType("text/html");
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Email or Username in use');");
-            out.println("location='/profile';");
+            out.println("location='/register';");
             out.println("</script>");
         } else {
             User user1 = new User(username, email, password, img);
             DaoFactory.getUsersDao().insert(user1);
-//
-//            Message message = new Message(
-//                    999,
-//                    "Admin",
-//                    user.getUsername(),
-//                    "Welcome to ComputerPartsRoom, this is your first message!"
-//            );
-//            DaoFactory.getMessagesDao().firstMessage(message);
+
 
 
             response.sendRedirect("/login");

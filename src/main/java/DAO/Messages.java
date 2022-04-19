@@ -14,9 +14,7 @@ public interface Messages {
 
     void delete (Message message);
 
-//    long update (Message message);
 
-//    Long firstMessage(Message message);
 
     List<Message> findBySender(String sent_user);
 
