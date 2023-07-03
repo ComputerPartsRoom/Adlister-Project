@@ -45,9 +45,6 @@ public class CreatePostServlet extends HttpServlet {
                 user.getUsername()
         );
 
-
-
-
         DaoFactory.getPostsDao().insert(post);
         response.sendRedirect("/profile");
     }
